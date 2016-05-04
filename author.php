@@ -36,7 +36,16 @@
 		<div id="main" class="xf__posts" itemtype="http://schema.org/Blog" itemscope="itemscope">
 			<?php while ( have_posts() ) : the_post(); ?>
 
-				<?php get_template_part( 'template-parts/content', get_post_format() ); ?>
+				<?php
+				/**
+				 * Post Contents
+				 */
+				if ( 'alternate' == Snowbird()->mod( 'loop_layout_type' ) ) :
+					get_template_part( 'template-parts/content-alternate', get_post_format() );
+				else:
+					get_template_part( 'template-parts/content', get_post_format() );
+				endif;
+				?>
 
 			<?php endwhile; ?>
 		</div>

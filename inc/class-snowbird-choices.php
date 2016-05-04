@@ -42,6 +42,13 @@ class Snowbird_Choices {
 		) );
 	}
 
+	public static function loop_layout_type() {
+		return apply_filters( 'snowbird_choices_loop_layout_type', array(
+			'default'   => esc_html_x( 'Default', 'admin', 'snowbird' ),
+			'alternate' => esc_html_x( 'Alternate', 'admin', 'snowbird' ),
+		) );
+	}
+
 	public static function opacity() {
 		return apply_filters( 'snowbird_choices_opacity', array(
 			'min'  => 0,
@@ -50,10 +57,10 @@ class Snowbird_Choices {
 		) );
 	}
 
-	public static function sidebar_type() {
-		return apply_filters( 'snowbird_choices_sidebar_type', array(
-			'left'  => esc_html_x( 'Left', 'admin', 'snowbird' ),
-			'right' => esc_html_x( 'Right', 'admin', 'snowbird' ),
+	public static function post_layout_type() {
+		return apply_filters( 'snowbird_choices_post_layout_type', array(
+			'default'   => esc_html_x( 'Default', 'admin', 'snowbird' ),
+			'alternate' => esc_html_x( 'Alternate', 'admin', 'snowbird' ),
 		) );
 	}
 
@@ -65,4 +72,10 @@ class Snowbird_Choices {
 		) );
 	}
 
+	public static function sidebar_type() {
+		return apply_filters( 'snowbird_choices_sidebar_type', array(
+			'left'  => esc_html_x( 'Left', 'admin', 'snowbird' ),
+			'right' => esc_html_x( 'Right', 'admin', 'snowbird' ),
+		) );
+	}
 }

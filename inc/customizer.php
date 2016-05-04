@@ -106,20 +106,47 @@ function snowbird_customize_register( $wp_customize ) {
 		'choices' => Snowbird_Choices::sidebar_type(),
 	) );
 
+	// site_display_search
+	$wp_customize->add_setting( 'site_display_search', array(
+		'default'              => Snowbird()->mod_default( 'site_display_search' ),
+		'sanitize_callback'    => array( 'Snowbird_Sanitize', 'checkbox' ),
+		'sanitize_js_callback' => array( 'Snowbird_Sanitize', 'checkbox_js' ),
+	) );
+
+	$wp_customize->add_control( 'site_display_search', array(
+		'label'   => esc_html_x( 'Display "Search" in Sidebar', 'admin', 'snowbird' ),
+		'section' => 'snowbird_settings',
+		'type'    => 'checkbox',
+	) );
+
 
 	/**
 	 * Loop
 	 */
-	// loop_line_filter
-	$wp_customize->add_setting( 'loop_line_filter', array(
+	// loop_heading_line_filter
+	$wp_customize->add_setting( 'loop_heading_line_filter', array(
 		'type'              => 'filter',
 		'sanitize_callback' => 'absint',
 	) );
 
-	$wp_customize->add_control( new Snowbird_Customize_Control_Misc( $wp_customize, 'loop_line_filter', array(
+	$wp_customize->add_control( new Snowbird_Customize_Control_Misc( $wp_customize, 'loop_heading_line_filter', array(
+		'label'   => esc_html_x( 'Posts Listing', 'admin', 'snowbird' ),
 		'section' => 'snowbird_settings',
-		'type'    => 'misc-line'
+		'type'    => 'misc-heading-line'
 	) ) );
+
+	// loop_layout_type
+	$wp_customize->add_setting( 'loop_layout_type', array(
+		'default'           => Snowbird()->mod_default( 'loop_layout_type' ),
+		'sanitize_callback' => array( 'Snowbird_Sanitize', 'choice' ),
+	) );
+
+	$wp_customize->add_control( 'loop_layout_type', array(
+		'label'   => esc_html_x( 'Layout', 'admin', 'snowbird' ),
+		'section' => 'snowbird_settings',
+		'type'    => 'radio',
+		'choices' => Snowbird_Choices::loop_layout_type(),
+	) );
 
 	// loop_content
 	$wp_customize->add_setting( 'loop_content', array(
@@ -128,7 +155,7 @@ function snowbird_customize_register( $wp_customize ) {
 	) );
 
 	$wp_customize->add_control( 'loop_content', array(
-		'label'   => esc_html_x( 'Display Content (Posts Listing)', 'admin', 'snowbird' ),
+		'label'   => esc_html_x( 'Display Content', 'admin', 'snowbird' ),
 		'section' => 'snowbird_settings',
 		'type'    => 'radio',
 		'choices' => Snowbird_Choices::loop_content(),
@@ -175,6 +202,32 @@ function snowbird_customize_register( $wp_customize ) {
 		'section' => 'snowbird_settings',
 		'type'    => 'misc-heading-line'
 	) ) );
+
+	// post_layout_type
+	$wp_customize->add_setting( 'post_layout_type', array(
+		'default'           => Snowbird()->mod_default( 'post_layout_type' ),
+		'sanitize_callback' => array( 'Snowbird_Sanitize', 'choice' ),
+	) );
+
+	$wp_customize->add_control( 'post_layout_type', array(
+		'label'   => esc_html_x( 'Layout', 'admin', 'snowbird' ),
+		'section' => 'snowbird_settings',
+		'type'    => 'radio',
+		'choices' => Snowbird_Choices::post_layout_type(),
+	) );
+
+	// post_full_content_width
+	$wp_customize->add_setting( 'post_full_content_width', array(
+		'default'              => Snowbird()->mod_default( 'post_display_full_width' ),
+		'sanitize_callback'    => array( 'Snowbird_Sanitize', 'checkbox' ),
+		'sanitize_js_callback' => array( 'Snowbird_Sanitize', 'checkbox_js' ),
+	) );
+
+	$wp_customize->add_control( 'post_full_content_width', array(
+		'label'   => esc_html_x( 'Display in Full Content Width', 'admin', 'snowbird' ),
+		'section' => 'snowbird_settings',
+		'type'    => 'checkbox',
+	) );
 
 	// post_display_author_bio
 	$wp_customize->add_setting( 'post_display_author_bio', array(
@@ -230,6 +283,19 @@ function snowbird_customize_register( $wp_customize ) {
 		'section' => 'snowbird_settings',
 		'type'    => 'misc-heading-line'
 	) ) );
+
+	// page_full_content_width
+	$wp_customize->add_setting( 'page_full_content_width', array(
+		'default'              => Snowbird()->mod_default( 'page_full_content_width' ),
+		'sanitize_callback'    => array( 'Snowbird_Sanitize', 'checkbox' ),
+		'sanitize_js_callback' => array( 'Snowbird_Sanitize', 'checkbox_js' ),
+	) );
+
+	$wp_customize->add_control( 'page_full_content_width', array(
+		'label'   => esc_html_x( 'Display in Full Content Width', 'admin', 'snowbird' ),
+		'section' => 'snowbird_settings',
+		'type'    => 'checkbox',
+	) );
 
 	// page_display_share_this
 	$wp_customize->add_setting( 'page_display_share_this', array(

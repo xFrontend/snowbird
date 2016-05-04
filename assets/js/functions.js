@@ -99,10 +99,10 @@
                         img.addClass('full-width');
                         caption.addClass('full-width');
                         caption.removeAttr('style');
-                    } else if (caption.hasClass('wp-caption') && 920 <= imgWidth) {
+                    } else if (caption.hasClass('wp-caption') && 920 <= imgWidth && !$body.hasClass('full-content-width')) {
                         caption.addClass('caption-big');
                         caption.removeAttr('style');
-                    } else if (920 <= imgWidth) {
+                    } else if (920 <= imgWidth && !$body.hasClass('full-content-width')) {
                         img.addClass('size-big');
                     }
                 } else {
@@ -125,11 +125,13 @@
             if (elimentPosTop < entryFooterPosBottom && 490 <= eliment.innerWidth()) {
                 if (eliment.hasClass('gallery')) {
                     eliment.css('clear', 'both').css('margin-right', 0);
-                } else if (eliment.hasClass('object-wrappar')) {
+                } else if (eliment.hasClass('embed-wrappar')) {
                     eliment.css('margin-right', '300px');
                 } else if (eliment.hasClass('wp-caption')) {
                     eliment.css('margin-right', '300px');
                 }
+            } else {
+                eliment.removeAttr('style');
             }
         });
     }

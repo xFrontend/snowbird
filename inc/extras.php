@@ -69,6 +69,20 @@ function snowbird_body_classes( $classes ) {
 		$classes[] = 'page';
 	}
 
+	if ( is_single() && 'alternate' == Snowbird()->mod( 'post_layout_type' ) ) {
+		$classes[] = 'layout-single-alt';
+	}
+	if ( ! is_singular() && 'alternate' == Snowbird()->mod( 'loop_layout_type' ) ) {
+		$classes[] = 'layout-alt';
+	}
+
+	if ( is_single() && false != apply_filters( 'snowbird_single_full_content_width', Snowbird()->mod( 'post_full_content_width' ) ) ) {
+		$classes[] = 'full-content-width';
+	}
+	elseif ( is_page() && false != apply_filters( 'snowbird_page_full_content_width', Snowbird()->mod( 'page_full_content_width' ) ) ) {
+		$classes[] = 'full-content-width';
+	}
+
 	if ( 'right' === Snowbird()->mod( 'site_sidebar_type' ) ) {
 		$classes[] = 'content-sidebar';
 	} else {
@@ -81,7 +95,7 @@ function snowbird_body_classes( $classes ) {
 	 *
 	 * add_filter( 'snowbird_display_popup', '__return_false' );
 	 */
-	if ( apply_filters( 'snowbird_display_popup', true )  ) {
+	if ( apply_filters( 'snowbird_display_popup', true ) ) {
 		$classes[] = 'snowbird-popup';
 	}
 
@@ -105,8 +119,12 @@ function snowbird_post_classes( $classes ) {
 		$classes[] = 'has-author-bio';
 	}
 
-	if ( is_singular( array( 'post', 'page' ) ) ) {
+	if ( is_single() && false == apply_filters( 'snowbird_single_full_content_width', Snowbird()->mod( 'post_full_content_width' ) ) ) {
 		$classes[] = 'xf__singular';
+	} elseif ( is_page() && false == apply_filters( 'snowbird_page_full_content_width', Snowbird()->mod( 'page_full_content_width' ) ) ) {
+		$classes[] = 'xf__singular';
+	} elseif ( is_singular( array( 'post', 'page' ) ) ) {
+		$classes[] = 'xf__singular-full';
 	}
 
 	return apply_filters( 'snowbird_post_classes', array_map( 'esc_attr', $classes ) );

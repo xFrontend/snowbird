@@ -1,6 +1,9 @@
 # Snowbird  — Personal WordPress Blog Theme
 Snowbird is a responsive WordPress Blog Theme beautifully designed especially for storytellers. It's a simple yet powerful WordPress theme- supports every native WordPress features, and extended with professional tools for ease of use. With beautifully crafted typography it works seamlessly on all devices.
 
+Requires at least: WordPress v4.1.1
+Tags: dark, light, left-sidebar, right-sidebar, responsive-layout, custom-colors, custom-header, custom-menu, editor-style, featured-images, microformats, sticky-post, theme-options, threaded-comments, translation-ready
+
 [Snowbird Features and More &rarr;](https://xfrontend.com/themes/snowbird-wordpress-theme/)
 
 ## Installation
@@ -10,6 +13,21 @@ Snowbird is a responsive WordPress Blog Theme beautifully designed especially fo
 3. Click Activate to use Snowbird right away.
 
 ## Changelog
+
+#### v1.2
+Release Date: October 19, 2015
+
+* New - Alternate Layout for Posts Listing.
+* New - Alternate Layout for Single Post.
+* New - Full Content Width option for Single Post.
+* New - Full Content Width option for Single Page.
+* New - Page Template: Full Content Width.
+* New - Page Template: Narrow Content Width.
+* New - Option to enable/disable Search in Sidebar.
+* Updates - Media Queries for Site Grid.
+* Updates - Translation POT File.
+* Fixes - Header Logo Image size.
+* Fixes - CSS for Gallery columns.
 
 #### v1.1
 Release Date: October 12, 2015

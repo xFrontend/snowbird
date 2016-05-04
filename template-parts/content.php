@@ -40,17 +40,20 @@
 		/**
 		 * Post Content
 		 */
-		if ( 'full' == Snowbird()->mod( 'loop_content' ) && get_the_content() ) : ?>
-			<div class="content entry-content" itemprop="text">
-				<?php the_content(); ?>
-			</div>
-			<?php
-		/**
-		 * Post Excerpt
-		 */
-		elseif ( 'excerpt' == Snowbird()->mod( 'loop_content' ) && get_the_excerpt() ) : ?>
+		if ( 'excerpt' == Snowbird()->mod( 'loop_content' ) && get_the_excerpt() ) :
+			/**
+			 * Post Excerpt
+			 */?>
 			<div class="content entry-content entry-summary" itemprop="text">
 				<?php the_excerpt(); ?>
+			</div>
+			<?php
+		elseif ( 'full' == Snowbird()->mod( 'loop_content' ) && get_the_content() ) :
+			/**
+			 * Full Content
+			 */?>
+			<div class="content entry-content" itemprop="text">
+				<?php the_content(); ?>
 			</div>
 		<?php endif; ?>
 	</div>

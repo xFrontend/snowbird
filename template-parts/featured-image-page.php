@@ -1,6 +1,9 @@
 <?php if ( has_post_thumbnail() && ! post_password_required() && ! is_attachment() ) : ?>
 	<div class="background">
-		<?php the_post_thumbnail( 'post-thumbnail', array( 'alt' => get_the_title(), 'itemprop' => 'image' ) ); ?>
+		<?php the_post_thumbnail( 'post-thumbnail', array(
+			'alt'      => get_the_title(),
+			'itemprop' => 'image'
+		) ); ?>
 
 		<div class="overlay"></div>
 	</div>

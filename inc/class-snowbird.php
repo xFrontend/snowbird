@@ -32,68 +32,78 @@ if ( ! class_exists( 'Snowbird' ) ) :
 				/**
 				 * Site Identity
 				 */
-				'logo_image'               => '',
-				'logo_image_2x'            => '',
+				'logo_image'                  => '',
+				'logo_image_2x'               => '',
 				/**
 				 * Theme Settings
 				 */
-				'site_sidebar_type'        => 'left',
+				'site_sidebar_type'           => 'left',
+				// since v1.2
+				'site_display_search'         => 1,
 				/**
 				 * Loop - Posts Listing
 				 */
-				'loop_content'             => 'full',
-				'loop_excerpt_length'      => 55,
+				// since v1.2
+				'loop_layout_type'            => 'default',
+				'loop_content'                => 'full',
+				'loop_excerpt_length'         => 55,
 				/**
 				 * Post (Single)
 				 */
-				'post_display_author_bio'  => 1,
-				'post_display_share_this'  => 1,
-				'post_display_navigation'  => 1,
-				'post_display_related'     => 1,
+				// since v1.2
+				'post_layout_type'            => 'default',
+				// since v1.2
+				'post_full_content_width'     => 0,
+				'post_display_author_bio'     => 1,
+				'post_display_share_this'     => 1,
+				'post_display_navigation'     => 1,
+				'post_display_related'        => 1,
 				/**
 				 * Page
 				 */
-				'page_display_share_this'  => 0,
+				// since v1.2
+				'page_full_content_width'     => 0,
+				'page_display_share_this'     => 0,
 				/**
 				 * Footer
 				 */
-				'footer_widget_area'       => 'one-third',
-				'footer_menu_location'     => 'social',
+				'footer_widget_area'          => 'one-third',
+				'footer_menu_location'        => 'social',
 				/**
 				 * Scheme
 				 */
-				'color_scheme'             => 'default',
+				'color_scheme'                => 'default',
 				/**
 				 * Colors - Header
 				 */
-				'header_text_color'        => $color_scheme['header_text_color'],
-				'header_background_color'  => $color_scheme['header_background_color'],
+				'header_text_color'           => $color_scheme['header_text_color'],
+				'header_background_color'     => $color_scheme['header_background_color'],
 				/**
 				 * Colors - Content
 				 */
-				'content_title_color'      => $color_scheme['content_title_color'],
-				'content_text_color'       => $color_scheme['content_text_color'],
-				'content_alt_text_color'   => $color_scheme['content_alt_text_color'],
-				'content_accent_color'     => $color_scheme['content_accent_color'],
-				'content_background_color' => $color_scheme['content_background_color'],
+				'content_title_color'         => $color_scheme['content_title_color'],
+				'content_text_color'          => $color_scheme['content_text_color'],
+				'content_alt_text_color'      => $color_scheme['content_alt_text_color'],
+				'content_accent_color'        => $color_scheme['content_accent_color'],
+				'content_background_color'    => $color_scheme['content_background_color'],
 				/**
 				 * Colors - Footer
 				 */
-				'footer_title_color'       => $color_scheme['footer_title_color'],
-				'footer_text_color'        => $color_scheme['footer_text_color'],
-				'footer_alt_text_color'    => $color_scheme['footer_alt_text_color'],
-				'footer_accent_color'      => $color_scheme['footer_accent_color'],
-				'footer_background_color'  => $color_scheme['footer_background_color'],
+				'footer_title_color'          => $color_scheme['footer_title_color'],
+				'footer_text_color'           => $color_scheme['footer_text_color'],
+				'footer_alt_text_color'       => $color_scheme['footer_alt_text_color'],
+				'footer_accent_color'         => $color_scheme['footer_accent_color'],
+				'footer_background_color'     => $color_scheme['footer_background_color'],
 				/**
 				 * Colors - Button
 				 */
-				'button_text_color'        => $color_scheme['button_text_color'],
-				'button_background_color'  => $color_scheme['button_background_color'],
+				'button_text_color'           => $color_scheme['button_text_color'],
+				'button_background_color'     => $color_scheme['button_background_color'],
 				/**
 				 * Header Image
 				 */
-				'header_overlay_color'     => '#000000',
-				'header_overlay_opacity'   => 30,
+				'header_overlay_color'        => '#000000',
+				'header_overlay_opacity'      => 30,
 			) );
 		}
 
@@ -407,14 +417,15 @@ if ( ! class_exists( 'Snowbird' ) ) :
 		 * Helper function to Get image data based on image url.
 		 *
 		 * @param $url
+		 * @param string $size
 		 *
 		 * @return array|string
 		 */
-		public static function url_to_image_data( $url ) {
+		public static function url_to_image_data( $url, $size = 'full' ) {
 			$data = '';
 
 			if ( $id = attachment_url_to_postid( $url ) ) {
-				$thumb = wp_get_attachment_image_src( $id );
+				$thumb = wp_get_attachment_image_src( $id, $size );
 
 				if ( $thumb ) {
 

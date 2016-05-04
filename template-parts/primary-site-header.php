@@ -6,7 +6,7 @@
 		 */
 		if ( '' !== Snowbird()->mod( 'logo_image' ) ) : ?>
 			<span class="screen-reader-text" itemprop="headline"><?php bloginfo( 'name' ); ?></span>
-			<a class="xf__brand" href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"
+			<a class="xf__brand-link" href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"
 				><?php echo snowbird_get_logo() ?></a>
 
 		<?php else : ?>

@@ -17,7 +17,7 @@ function snowbird_get_color_schemes() {
 			'colors' => array(
 				// Header
 				'header_text_color'        => '#ffffff',
-				'header_background_color'  => '455a64',
+				'header_background_color'  => '#455a64',
 				// Content
 				'content_title_color'      => '#212121',
 				'content_text_color'       => '#424242',

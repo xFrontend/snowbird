@@ -9,7 +9,7 @@
 				 */
 				if ( '' !== Snowbird()->mod( 'logo_image' ) ) : ?>
 					<span class="screen-reader-text" itemprop="headline"><?php bloginfo( 'name' ); ?></span>
-					<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"
+					<a class="xf__brand-link-alt" href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"
 						><?php echo snowbird_get_logo() ?></a>
 
 				<?php else : ?>
@@ -51,9 +51,11 @@
 		</header>
 
 		<div class="widget-area">
-			<div class="widget">
-				<?php echo snowbird_filter_get_search_form(); ?>
-			</div>
+			<?php if ( Snowbird()->mod( 'site_display_search' ) ): ?>
+				<div class="widget">
+					<?php echo snowbird_filter_get_search_form(); ?>
+				</div>
+			<?php endif; ?>
 
 			<?php
 			/**

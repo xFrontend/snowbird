@@ -105,6 +105,7 @@ if ( ! function_exists( 'snowbird_setup' ) ) :
 		/**
 		 * Custom Media sizes
 		 */
+		add_image_size( 'snowbird-large', 1110, 480, array( 'top', 'center' ) );
 		add_image_size( 'snowbird-thumb', 400, 400, array( 'top', 'center' ) );
 		add_image_size( 'snowbird-small', 120, 120, array( 'top', 'center' ) );
 
@@ -124,7 +125,6 @@ endif;
 
 add_action( 'after_setup_theme', 'snowbird_setup' );
 
-
 /**
  * Set the content width in pixels, based on the theme's design and stylesheet.
  *
@@ -132,9 +132,13 @@ add_action( 'after_setup_theme', 'snowbird_setup' );
  *
  * @global int $content_width
  */
-function snowbird_content_width() {
-	$GLOBALS['content_width'] = apply_filters( 'snowbird_content_width', 920 );
-}
+if ( ! function_exists( 'snowbird_content_width' ) ) :
+
+	function snowbird_content_width() {
+		$GLOBALS['content_width'] = apply_filters( 'snowbird_content_width', 1110 );
+	}
+
+endif;
 
 add_action( 'after_setup_theme', 'snowbird_content_width', 0 );
 

@@ -6,7 +6,7 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Tags: dark, light, left-sidebar, right-sidebar, responsive-layout, custom-colors, custom-header, custom-menu, editor-style, featured-images, microformats, sticky-post, theme-options, threaded-comments, translation-ready
 Requires at least: 4.1.1
 Tested up to: 4.3
-Stable tag: 1.1
+Stable tag: 1.2
 
 A responsive WordPress blog theme crafted specially for storytellers.
 
@@ -23,6 +23,21 @@ Snowbird is a responsive WordPress Blog Theme beautifully designed especially fo
 
 
 == Changelog ==
+
+= 1.2 =
+Release Date: October 19, 2015
+
+* New - Alternate Layout for Posts Listing.
+* New - Alternate Layout for Single Post.
+* New - Full Content Width option for Single Post.
+* New - Full Content Width option for Single Page.
+* New - Page Template: Full Content Width.
+* New - Page Template: Narrow Content Width.
+* New - Option to enable/disable Search in Sidebar.
+* Updates - Media Queries for Site Grid.
+* Updates - Translation POT File.
+* Fixes - Header Logo Image size.
+* Fixes - CSS for Gallery columns.
 
 = 1.1 =
 Release Date: October 12, 2015
@@ -45,6 +60,7 @@ Release Date: October 4, 2015
 
 We have used the following opensource projects or other files as listed.
 
+* Underscores - http://underscores.me/
 * Normalize.css http://necolas.github.io/normalize.css/
 * Font Awesome http://fortawesome.github.io/Font-Awesome/
 * Fitvids http://fitvidsjs.com/
