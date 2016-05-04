@@ -1,0 +1,32 @@
+/*
+Theme Name: Snowbird
+Theme URI: http://xforntend.com/
+Author: xFrontend
+Author URI: http://xforntend.com
+Description: A responsive WordPress blog theme crafted specially for storytellers.
+Tags: dark, light, left-sidebar, right-sidebar, responsive-layout, custom-colors, custom-header, custom-menu, editor-style, featured-images, microformats, sticky-post, theme-options, threaded-comments, translation-ready
+Version: 1.1
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: snowbird
+*/
+
+/**
+ * Snowbird - WordPress Blog Theme
+ * Copyright (C) 2015, Omaar Osmaan - omo@xfrontend.com
+ *
+ * This theme, like WordPress, is licensed under the GPL.
+ * Use it to make something cool, have fun, and share what you've learned with others.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ */
+
+/**
+ *
+ * This file doesn't load by Snowbird. If you need to add custom CSS rules
+ * We recommend using `Custom CSS` feature integrated with Snowbird Customizer.
+ *
+ * Go to Appearance > Customize > Custom CSS.
+ *
+ */
