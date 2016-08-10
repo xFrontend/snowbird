@@ -6,8 +6,7 @@ if ( is_attachment() || ! Snowbird()->mod( 'post_display_author_bio' ) ) {
 	return;
 }
 
-$author_bio   = snowbird_get_author_bio();
-$author_links = snowbird_get_author_social_links(); ?>
+$author_bio = snowbird_get_author_bio(); ?>
 <div class="xf__author-bio" itemtype="http://schema.org/Person" itemscope="itemscope" itemprop="author">
 	<div class="bio-header clear">
 		<?php echo get_avatar( get_the_author_meta( 'ID' ), '80', '', '', array( 'extra_attr' => 'itemprop="image"' ) ); ?>
@@ -19,10 +18,8 @@ $author_links = snowbird_get_author_social_links(); ?>
 
 	<hr class="separator">
 
-	<?php if ( ! empty( $author_bio ) || ! empty( $author_links ) ) : ?>
+	<?php if ( ! empty( $author_bio ) ) : ?>
 		<p class="bio-content" itemprop="description"><?php echo $author_bio; ?></p>
-
-		<?php echo $author_links; ?>
 
 		<hr class="separator">
 	<?php endif; ?>

@@ -30,11 +30,6 @@ if ( ! class_exists( 'Snowbird' ) ) :
 
 			return apply_filters( 'snowbird_default_mods', array(
 				/**
-				 * Site Identity
-				 */
-				'logo_image'                  => '',
-				'logo_image_2x'               => '',
-				/**
 				 * Theme Settings
 				 */
 				'site_sidebar_type'           => 'left',

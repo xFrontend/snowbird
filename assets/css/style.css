@@ -1,4 +1,3 @@
-@charset "UTF-8";
 /*--------------------------------------------------------------
 >>> TABLE OF CONTENTS:
 ----------------------------------------------------------------
@@ -1155,6 +1154,9 @@ a:hover, a:focus {
 body .xf__social li {
   display: inline-block;
 }
+body .xf__social li:last-child a {
+  margin-right: 0;
+}
 body .xf__social a {
   background-color: #37474f;
   color: #ffffff;
@@ -1176,85 +1178,85 @@ body .xf__social a:before {
   -o-transform: translate(-50%, -50%);
 }
 body .xf__social a[href*="codepen.io"]:before {
-  content: "\";
+  content: "\f1cb";
 }
 body .xf__social a[href*="deviantart.com"]:before {
-  content: "\";
+  content: "\f1bd";
 }
 body .xf__social a[href*="digg.com"]:before {
-  content: "\";
+  content: "\f1a6";
 }
 body .xf__social a[href*="dribbble.com"]:before {
-  content: "\";
+  content: "\f17d";
 }
 body .xf__social a[href*="dropbox.com"]:before {
-  content: "\";
+  content: "\f16b";
 }
 body .xf__social a[href*="facebook.com"]:before {
-  content: "\";
+  content: "\f09a";
 }
 body .xf__social a[href*="flickr.com"]:before {
-  content: "\";
+  content: "\f16e";
 }
 body .xf__social a[href*="foursquare.com"]:before {
-  content: "\";
+  content: "\f180";
 }
 body .xf__social a[href*="github.com"]:before {
-  content: "\";
+  content: "\f113";
 }
 body .xf__social a[href*="instagram.com"]:before {
-  content: "\";
+  content: "\f16d";
 }
 body .xf__social a[href*="linkedin.com"]:before {
-  content: "\";
+  content: "\f0e1";
 }
 body .xf__social a[href*="pinterest.com"]:before {
-  content: "\";
+  content: "\f231";
 }
 body .xf__social a[href*="plus.google.com"]:before {
-  content: "\";
+  content: "\f0d5";
 }
 body .xf__social a[href*="reddit.com"]:before {
-  content: "\";
+  content: "\f1a1";
 }
 body .xf__social a[href*="slack.com"]:before {
-  content: "\";
+  content: "\f198";
 }
 body .xf__social a[href*="spotify.com"]:before {
-  content: "\";
+  content: "\f1bc";
 }
 body .xf__social a[href*="stumbleupon.com"]:before {
-  content: "\";
+  content: "\f1a4";
 }
 body .xf__social a[href*="tumblr.com"]:before {
-  content: "\";
+  content: "\f173";
 }
 body .xf__social a[href*="twitter.com"]:before {
-  content: "\";
+  content: "\f099";
 }
 body .xf__social a[href*="twitch.tv"]:before {
-  content: "\";
+  content: "\f1e8";
 }
 body .xf__social a[href*="vimeo.com"]:before {
-  content: "\";
+  content: "\f1ca";
 }
 body .xf__social a[href*="vine.com"]:before {
-  content: "\";
+  content: "\f1ca";
 }
 body .xf__social a[href*="wordpress.com"]:before, body .xf__social a[href*="wordpress.org"]:before {
-  content: "\";
+  content: "\f19a";
 }
 body .xf__social a[href*="youtube.com"]:before {
-  content: "\";
+  content: "\f16a";
 }
 body .xf__social a[href*="skype://"]:before {
-  content: "\";
+  content: "\f17e";
 }
 body .xf__social a[href*="mailto:"]:before {
-  content: "\";
+  content: "\f0e0";
 }
 body .xf__social a[href$="/rss/"]:before, body .xf__social a[href$="/feed/"]:before {
-  content: "\";
+  content: "\f09e";
 }
 body .xf__social.circle a {
   -webkit-border-radius: 50%;
@@ -1465,9 +1467,9 @@ body .xf__social.colors a:hover {
   color: #ffffff;
   display: inline-block;
   font-size: .8em;
+  margin: 0 6px 12px 0;
+  padding: 0 16px;
   text-transform: uppercase;
-  padding: 0 18px;
-  margin: 0 8px 12px 0;
 }
 .xf__share-this a:hover, .xf__share-this a:focus {
   color: #fff;
@@ -1901,7 +1903,7 @@ button::-moz-focus-inner {
 }
 .mfp-arrow-left:after,
 .mfp-arrow-left .mfp-a {
-  content: "\";
+  content: "\f053";
   margin-left: 27px;
 }
 .mfp-arrow-left:before,
@@ -1914,7 +1916,7 @@ button::-moz-focus-inner {
 }
 .mfp-arrow-right:after,
 .mfp-arrow-right .mfp-a {
-  content: "\";
+  content: "\f054";
   margin-left: 39px;
 }
 
@@ -2115,8 +2117,8 @@ img.mfp-img {
 .xf__nav-post a:after,
 .xf__header .content:before,
 .xf__header .content:after,
-.xf__widget-posts li:before,
-.xf__widget-posts li:after,
+.superpack__widget-posts li:before,
+.superpack__widget-posts li:after,
 .xf__container:before,
 .xf__container:after {
   content: "";
@@ -2134,7 +2136,7 @@ img.mfp-img {
 .xf__nav-post:after,
 .xf__nav-post a:after,
 .xf__header .content:after,
-.xf__widget-posts li:after,
+.superpack__widget-posts li:after,
 .xf__container:after {
   clear: both;
 }
@@ -3097,7 +3099,7 @@ img.mfp-img {
   right: 0;
   top: 0;
 }
-.xf__header .xf__brand {
+.xf__header .custom-logo {
   max-height: 250px;
   width: auto;
 }
@@ -3160,6 +3162,9 @@ img.mfp-img {
   line-height: 1.2;
   padding-left: 15px;
   padding-right: 15px;
+}
+.sidebar-area .xf__header .custom-logo {
+  max-height: 140px;
 }
 .sidebar-area .xf__header .site-title {
   font-size: 1.8em;

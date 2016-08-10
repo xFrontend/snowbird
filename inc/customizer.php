@@ -33,58 +33,6 @@ add_action( 'after_setup_theme', 'snowbird_custom_header_and_background' );
 function snowbird_customize_register( $wp_customize ) {
 
 	/**
-	 * Site Identity
-	 */
-	// logo_before_line_filter
-	$wp_customize->add_setting( 'logo_before_line_filter', array(
-		'type'              => 'filter',
-		'sanitize_callback' => 'absint',
-	) );
-
-	$wp_customize->add_control( new Snowbird_Customize_Control_Misc( $wp_customize, 'logo_before_line_filter', array(
-		'section' => 'title_tagline',
-		'type'    => 'misc-line'
-	) ) );
-
-	// logo_image
-	$wp_customize->add_setting( 'logo_image', array(
-		'default'              => Snowbird()->mod_default( 'logo_image' ),
-		'sanitize_callback'    => 'esc_url_raw',
-		'sanitize_js_callback' => 'esc_url',
-	) );
-
-	$wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, 'logo_image', array(
-		'label'       => esc_html_x( 'Site Logo', 'admin', 'snowbird' ),
-		'description' => esc_html_x( 'Upload logo image to display your site logo.', 'admin', 'snowbird' ),
-		'section'     => 'title_tagline',
-	) ) );
-
-	// logo_image_2x
-	$wp_customize->add_setting( 'logo_image_2x', array(
-		'default'              => Snowbird()->mod_default( 'logo_image_2x' ),
-		'sanitize_callback'    => 'esc_url_raw',
-		'sanitize_js_callback' => 'esc_url',
-	) );
-
-	$wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, 'logo_image_2x', array(
-		'label'       => esc_html_x( 'Site Logo (Retina)', 'admin', 'snowbird' ),
-		'description' => esc_html_x( 'Upload 2x version of your site logo for retina devices.', 'admin', 'snowbird' ),
-		'section'     => 'title_tagline',
-	) ) );
-
-	// logo_after_line_filter
-	$wp_customize->add_setting( 'logo_after_line_filter', array(
-		'type'              => 'filter',
-		'sanitize_callback' => 'absint',
-	) );
-
-	$wp_customize->add_control( new Snowbird_Customize_Control_Misc( $wp_customize, 'logo_after_line_filter', array(
-		'section' => 'title_tagline',
-		'type'    => 'misc-line'
-	) ) );
-
-
-	/**
 	 * Theme Settings
 	 */
 	$wp_customize->add_section( 'snowbird_settings', array(
@@ -95,7 +43,7 @@ function snowbird_customize_register( $wp_customize ) {
 	// site_sidebar_type
 	$wp_customize->add_setting( 'site_sidebar_type', array(
 		'default'           => Snowbird()->mod_default( 'site_sidebar_type' ),
-		'sanitize_callback' => array( 'Snowbird_Sanitize', 'choice' ),
+		'sanitize_callback' => 'snowbird_sanitize_choice',
 		'transport'         => 'postMessage',
 	) );
 
@@ -103,14 +51,14 @@ function snowbird_customize_register( $wp_customize ) {
 		'label'   => esc_html_x( 'Sidebar Position', 'admin', 'snowbird' ),
 		'section' => 'snowbird_settings',
 		'type'    => 'radio',
-		'choices' => Snowbird_Choices::sidebar_type(),
+		'choices' => snowbird_choices_sidebar_type(),
 	) );
 
 	// site_display_search
 	$wp_customize->add_setting( 'site_display_search', array(
 		'default'              => Snowbird()->mod_default( 'site_display_search' ),
-		'sanitize_callback'    => array( 'Snowbird_Sanitize', 'checkbox' ),
-		'sanitize_js_callback' => array( 'Snowbird_Sanitize', 'checkbox_js' ),
+		'sanitize_callback'    => 'snowbird_sanitize_checkbox',
+		'sanitize_js_callback' => 'snowbird_sanitize_checkbox_js',
 	) );
 
 	$wp_customize->add_control( 'site_display_search', array(
@@ -138,27 +86,27 @@ function snowbird_customize_register( $wp_customize ) {
 	// loop_layout_type
 	$wp_customize->add_setting( 'loop_layout_type', array(
 		'default'           => Snowbird()->mod_default( 'loop_layout_type' ),
-		'sanitize_callback' => array( 'Snowbird_Sanitize', 'choice' ),
+		'sanitize_callback' => 'snowbird_sanitize_choice',
 	) );
 
 	$wp_customize->add_control( 'loop_layout_type', array(
 		'label'   => esc_html_x( 'Layout', 'admin', 'snowbird' ),
 		'section' => 'snowbird_settings',
 		'type'    => 'radio',
-		'choices' => Snowbird_Choices::loop_layout_type(),
+		'choices' => snowbird_choices_loop_layout_type(),
 	) );
 
 	// loop_content
 	$wp_customize->add_setting( 'loop_content', array(
 		'default'           => Snowbird()->mod_default( 'loop_content' ),
-		'sanitize_callback' => array( 'Snowbird_Sanitize', 'choice' ),
+		'sanitize_callback' => 'snowbird_sanitize_choice',
 	) );
 
 	$wp_customize->add_control( 'loop_content', array(
 		'label'   => esc_html_x( 'Display Content', 'admin', 'snowbird' ),
 		'section' => 'snowbird_settings',
 		'type'    => 'radio',
-		'choices' => Snowbird_Choices::loop_content(),
+		'choices' => snowbird_choices_loop_content(),
 	) );
 
 	// loop_excerpt_length
@@ -171,7 +119,7 @@ function snowbird_customize_register( $wp_customize ) {
 		'label'       => esc_html_x( 'Excerpt Length (Max Words)', 'admin', 'snowbird' ),
 		'section'     => 'snowbird_settings',
 		'type'        => 'range',
-		'input_attrs' => Snowbird_Choices::loop_excerpt_length(),
+		'input_attrs' => snowbird_choices_loop_excerpt_length(),
 	) );
 
 	// posts_per_page
@@ -185,7 +133,7 @@ function snowbird_customize_register( $wp_customize ) {
 		'label'       => esc_html_x( 'Posts Per Page', 'admin', 'snowbird' ),
 		'section'     => 'snowbird_settings',
 		'type'        => 'range',
-		'input_attrs' => Snowbird_Choices::posts_per_page(),
+		'input_attrs' => snowbird_choices_posts_per_page(),
 	) );
 
 	/**
@@ -206,21 +154,21 @@ function snowbird_customize_register( $wp_customize ) {
 	// post_layout_type
 	$wp_customize->add_setting( 'post_layout_type', array(
 		'default'           => Snowbird()->mod_default( 'post_layout_type' ),
-		'sanitize_callback' => array( 'Snowbird_Sanitize', 'choice' ),
+		'sanitize_callback' => 'snowbird_sanitize_choice',
 	) );
 
 	$wp_customize->add_control( 'post_layout_type', array(
 		'label'   => esc_html_x( 'Layout', 'admin', 'snowbird' ),
 		'section' => 'snowbird_settings',
 		'type'    => 'radio',
-		'choices' => Snowbird_Choices::post_layout_type(),
+		'choices' => snowbird_choices_post_layout_type(),
 	) );
 
 	// post_full_content_width
 	$wp_customize->add_setting( 'post_full_content_width', array(
 		'default'              => Snowbird()->mod_default( 'post_display_full_width' ),
-		'sanitize_callback'    => array( 'Snowbird_Sanitize', 'checkbox' ),
-		'sanitize_js_callback' => array( 'Snowbird_Sanitize', 'checkbox_js' ),
+		'sanitize_callback'    => 'snowbird_sanitize_checkbox',
+		'sanitize_js_callback' => 'snowbird_sanitize_checkbox_js',
 	) );
 
 	$wp_customize->add_control( 'post_full_content_width', array(
@@ -232,8 +180,8 @@ function snowbird_customize_register( $wp_customize ) {
 	// post_display_author_bio
 	$wp_customize->add_setting( 'post_display_author_bio', array(
 		'default'              => Snowbird()->mod_default( 'post_display_author_bio' ),
-		'sanitize_callback'    => array( 'Snowbird_Sanitize', 'checkbox' ),
-		'sanitize_js_callback' => array( 'Snowbird_Sanitize', 'checkbox_js' ),
+		'sanitize_callback'    => 'snowbird_sanitize_checkbox',
+		'sanitize_js_callback' => 'snowbird_sanitize_checkbox_js',
 	) );
 
 	$wp_customize->add_control( 'post_display_author_bio', array(
@@ -245,8 +193,8 @@ function snowbird_customize_register( $wp_customize ) {
 	// post_display_share_this
 	$wp_customize->add_setting( 'post_display_share_this', array(
 		'default'              => Snowbird()->mod_default( 'post_display_share_this' ),
-		'sanitize_callback'    => array( 'Snowbird_Sanitize', 'checkbox' ),
-		'sanitize_js_callback' => array( 'Snowbird_Sanitize', 'checkbox_js' ),
+		'sanitize_callback'    => 'snowbird_sanitize_checkbox',
+		'sanitize_js_callback' => 'snowbird_sanitize_checkbox_js',
 	) );
 
 	$wp_customize->add_control( 'post_display_share_this', array(
@@ -258,8 +206,8 @@ function snowbird_customize_register( $wp_customize ) {
 	// post_display_related
 	$wp_customize->add_setting( 'post_display_related', array(
 		'default'              => Snowbird()->mod_default( 'post_display_related' ),
-		'sanitize_callback'    => array( 'Snowbird_Sanitize', 'checkbox' ),
-		'sanitize_js_callback' => array( 'Snowbird_Sanitize', 'checkbox_js' ),
+		'sanitize_callback'    => 'snowbird_sanitize_checkbox',
+		'sanitize_js_callback' => 'snowbird_sanitize_checkbox_js',
 	) );
 
 	$wp_customize->add_control( 'post_display_related', array(
@@ -287,8 +235,8 @@ function snowbird_customize_register( $wp_customize ) {
 	// page_full_content_width
 	$wp_customize->add_setting( 'page_full_content_width', array(
 		'default'              => Snowbird()->mod_default( 'page_full_content_width' ),
-		'sanitize_callback'    => array( 'Snowbird_Sanitize', 'checkbox' ),
-		'sanitize_js_callback' => array( 'Snowbird_Sanitize', 'checkbox_js' ),
+		'sanitize_callback'    => 'snowbird_sanitize_checkbox',
+		'sanitize_js_callback' => 'snowbird_sanitize_checkbox_js',
 	) );
 
 	$wp_customize->add_control( 'page_full_content_width', array(
@@ -300,8 +248,8 @@ function snowbird_customize_register( $wp_customize ) {
 	// page_display_share_this
 	$wp_customize->add_setting( 'page_display_share_this', array(
 		'default'              => Snowbird()->mod_default( 'page_display_share_this' ),
-		'sanitize_callback'    => array( 'Snowbird_Sanitize', 'checkbox' ),
-		'sanitize_js_callback' => array( 'Snowbird_Sanitize', 'checkbox_js' ),
+		'sanitize_callback'    => 'snowbird_sanitize_checkbox',
+		'sanitize_js_callback' => 'snowbird_sanitize_checkbox_js',
 	) );
 
 	$wp_customize->add_control( 'page_display_share_this', array(
@@ -328,33 +276,33 @@ function snowbird_customize_register( $wp_customize ) {
 	// footer_widget_area
 	$wp_customize->add_setting( 'footer_widget_area', array(
 		'default'           => Snowbird()->mod_default( 'footer_widget_area' ),
-		'sanitize_callback' => array( 'Snowbird_Sanitize', 'choice' ),
+		'sanitize_callback' => 'snowbird_sanitize_choice',
 	) );
 
 	$wp_customize->add_control( 'footer_widget_area', array(
 		'label'   => esc_html_x( 'Footer Widgets Area', 'admin', 'snowbird' ),
 		'section' => 'snowbird_settings',
 		'type'    => 'radio',
-		'choices' => Snowbird_Choices::footer_widget_area(),
+		'choices' => snowbird_choices_footer_widget_area(),
 	) );
 
 	// footer_menu_location
 	$wp_customize->add_setting( 'footer_menu_location', array(
 		'default'           => Snowbird()->mod_default( 'footer_menu_location' ),
-		'sanitize_callback' => array( 'Snowbird_Sanitize', 'choice' ),
+		'sanitize_callback' => 'snowbird_sanitize_choice',
 	) );
 
 	$wp_customize->add_control( 'footer_menu_location', array(
 		'label'   => esc_html_x( 'Footer Menu Location', 'admin', 'snowbird' ),
 		'section' => 'snowbird_settings',
 		'type'    => 'radio',
-		'choices' => Snowbird_Choices::footer_menu_location(),
+		'choices' => snowbird_choices_footer_menu_location(),
 	) );
 
 	// footer_text
 	$wp_customize->add_setting( Snowbird()->option_key( 'footer_text' ), array(
 		'default'           => Snowbird()->option_default( 'footer_text' ),
-		'sanitize_callback' => array( 'Snowbird_Sanitize', 'html' ),
+		'sanitize_callback' => 'snowbird_sanitize_html',
 		'type'              => 'option'
 	) );
 
@@ -372,7 +320,7 @@ function snowbird_customize_register( $wp_customize ) {
 	// Add color scheme setting and control.
 	$wp_customize->add_setting( 'color_scheme', array(
 		'default'           => Snowbird()->mod_default( 'color_scheme' ),
-		'sanitize_callback' => array( 'Snowbird_Sanitize', 'choice' ),
+		'sanitize_callback' => 'snowbird_sanitize_choice',
 		'transport'         => 'postMessage',
 	) );
 
@@ -402,7 +350,7 @@ function snowbird_customize_register( $wp_customize ) {
 	// header_text_color
 	$wp_customize->add_setting( 'header_text_color', array(
 		'default'           => Snowbird()->mod_default( 'header_text_color' ),
-		'sanitize_callback' => array( 'Snowbird_Sanitize', 'maybe_hash_hex_color' ),
+		'sanitize_callback' => 'snowbird_sanitize_maybe_hash_hex_color',
 		'transport'         => 'postMessage',
 	) );
 
@@ -414,7 +362,7 @@ function snowbird_customize_register( $wp_customize ) {
 	// header_background_color
 	$wp_customize->add_setting( 'header_background_color', array(
 		'default'           => Snowbird()->mod_default( 'header_background_color' ),
-		'sanitize_callback' => array( 'Snowbird_Sanitize', 'maybe_hash_hex_color' ),
+		'sanitize_callback' => 'snowbird_sanitize_maybe_hash_hex_color',
 		'transport'         => 'postMessage',
 	) );
 
@@ -441,7 +389,7 @@ function snowbird_customize_register( $wp_customize ) {
 	// content_title_color
 	$wp_customize->add_setting( 'content_title_color', array(
 		'default'           => Snowbird()->mod_default( 'content_title_color' ),
-		'sanitize_callback' => array( 'Snowbird_Sanitize', 'maybe_hash_hex_color' ),
+		'sanitize_callback' => 'snowbird_sanitize_maybe_hash_hex_color',
 		'transport'         => 'postMessage',
 	) );
 
@@ -453,7 +401,7 @@ function snowbird_customize_register( $wp_customize ) {
 	// content_text_color
 	$wp_customize->add_setting( 'content_text_color', array(
 		'default'           => Snowbird()->mod_default( 'content_text_color' ),
-		'sanitize_callback' => array( 'Snowbird_Sanitize', 'maybe_hash_hex_color' ),
+		'sanitize_callback' => 'snowbird_sanitize_maybe_hash_hex_color',
 		'transport'         => 'postMessage',
 	) );
 
@@ -465,7 +413,7 @@ function snowbird_customize_register( $wp_customize ) {
 	// content_alt_text_color
 	$wp_customize->add_setting( 'content_alt_text_color', array(
 		'default'           => Snowbird()->mod_default( 'content_alt_text_color' ),
-		'sanitize_callback' => array( 'Snowbird_Sanitize', 'maybe_hash_hex_color' ),
+		'sanitize_callback' => 'snowbird_sanitize_maybe_hash_hex_color',
 		'transport'         => 'postMessage',
 	) );
 
@@ -477,7 +425,7 @@ function snowbird_customize_register( $wp_customize ) {
 	// content_accent_color
 	$wp_customize->add_setting( 'content_accent_color', array(
 		'default'           => Snowbird()->mod_default( 'content_accent_color' ),
-		'sanitize_callback' => array( 'Snowbird_Sanitize', 'maybe_hash_hex_color' ),
+		'sanitize_callback' => 'snowbird_sanitize_maybe_hash_hex_color',
 		'transport'         => 'postMessage',
 	) );
 
@@ -489,7 +437,7 @@ function snowbird_customize_register( $wp_customize ) {
 	// content_background_color
 	$wp_customize->add_setting( 'content_background_color', array(
 		'default'           => Snowbird()->mod_default( 'content_background_color' ),
-		'sanitize_callback' => array( 'Snowbird_Sanitize', 'maybe_hash_hex_color' ),
+		'sanitize_callback' => 'snowbird_sanitize_maybe_hash_hex_color',
 		'transport'         => 'postMessage',
 	) );
 
@@ -516,7 +464,7 @@ function snowbird_customize_register( $wp_customize ) {
 	// footer_title_color
 	$wp_customize->add_setting( 'footer_title_color', array(
 		'default'           => Snowbird()->mod_default( 'footer_title_color' ),
-		'sanitize_callback' => array( 'Snowbird_Sanitize', 'maybe_hash_hex_color' ),
+		'sanitize_callback' => 'snowbird_sanitize_maybe_hash_hex_color',
 		'transport'         => 'postMessage',
 	) );
 
@@ -528,7 +476,7 @@ function snowbird_customize_register( $wp_customize ) {
 	// footer_text_color
 	$wp_customize->add_setting( 'footer_text_color', array(
 		'default'           => Snowbird()->mod_default( 'footer_text_color' ),
-		'sanitize_callback' => array( 'Snowbird_Sanitize', 'maybe_hash_hex_color' ),
+		'sanitize_callback' => 'snowbird_sanitize_maybe_hash_hex_color',
 		'transport'         => 'postMessage',
 	) );
 
@@ -540,7 +488,7 @@ function snowbird_customize_register( $wp_customize ) {
 	// footer_alt_text_color
 	$wp_customize->add_setting( 'footer_alt_text_color', array(
 		'default'           => Snowbird()->mod_default( 'footer_alt_text_color' ),
-		'sanitize_callback' => array( 'Snowbird_Sanitize', 'maybe_hash_hex_color' ),
+		'sanitize_callback' => 'snowbird_sanitize_maybe_hash_hex_color',
 		'transport'         => 'postMessage',
 	) );
 
@@ -552,7 +500,7 @@ function snowbird_customize_register( $wp_customize ) {
 	// footer_accent_color
 	$wp_customize->add_setting( 'footer_accent_color', array(
 		'default'           => Snowbird()->mod_default( 'footer_accent_color' ),
-		'sanitize_callback' => array( 'Snowbird_Sanitize', 'maybe_hash_hex_color' ),
+		'sanitize_callback' => 'snowbird_sanitize_maybe_hash_hex_color',
 		'transport'         => 'postMessage',
 	) );
 
@@ -564,7 +512,7 @@ function snowbird_customize_register( $wp_customize ) {
 	// footer_background_color
 	$wp_customize->add_setting( 'footer_background_color', array(
 		'default'           => Snowbird()->mod_default( 'footer_background_color' ),
-		'sanitize_callback' => array( 'Snowbird_Sanitize', 'maybe_hash_hex_color' ),
+		'sanitize_callback' => 'snowbird_sanitize_maybe_hash_hex_color',
 		'transport'         => 'postMessage',
 	) );
 
@@ -591,7 +539,7 @@ function snowbird_customize_register( $wp_customize ) {
 	// button_text_color
 	$wp_customize->add_setting( 'button_text_color', array(
 		'default'           => Snowbird()->mod_default( 'button_text_color' ),
-		'sanitize_callback' => array( 'Snowbird_Sanitize', 'maybe_hash_hex_color' ),
+		'sanitize_callback' => 'snowbird_sanitize_maybe_hash_hex_color',
 		'transport'         => 'postMessage',
 	) );
 
@@ -603,7 +551,7 @@ function snowbird_customize_register( $wp_customize ) {
 	// button_background_color
 	$wp_customize->add_setting( 'button_background_color', array(
 		'default'           => Snowbird()->mod_default( 'button_background_color' ),
-		'sanitize_callback' => array( 'Snowbird_Sanitize', 'maybe_hash_hex_color' ),
+		'sanitize_callback' => 'snowbird_sanitize_maybe_hash_hex_color',
 		'transport'         => 'postMessage',
 	) );
 
@@ -619,7 +567,7 @@ function snowbird_customize_register( $wp_customize ) {
 	// header_overlay_color
 	$wp_customize->add_setting( 'header_overlay_color', array(
 		'default'           => Snowbird()->mod_default( 'header_overlay_color' ),
-		'sanitize_callback' => array( 'Snowbird_Sanitize', 'maybe_hash_hex_color' ),
+		'sanitize_callback' => 'snowbird_sanitize_maybe_hash_hex_color',
 	) );
 
 	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'header_overlay_color', array(
@@ -638,7 +586,7 @@ function snowbird_customize_register( $wp_customize ) {
 		'label'       => esc_html_x( 'Overlay Opacity', 'admin', 'snowbird' ),
 		'section'     => 'header_image',
 		'type'        => 'range',
-		'input_attrs' => Snowbird_Choices::opacity(),
+		'input_attrs' => snowbird_choices_opacity(),
 	) );
 
 
@@ -652,7 +600,7 @@ function snowbird_customize_register( $wp_customize ) {
 
 	$wp_customize->add_setting( Snowbird()->option_key( 'custom_css' ), array(
 		'default'           => Snowbird()->option_default( 'custom_css' ),
-		'sanitize_callback' => array( 'Snowbird_Sanitize', 'css_js' ),
+		'sanitize_callback' => 'snowbird_sanitize_css_js',
 		'type'              => 'option'
 	) );
 
@@ -690,33 +638,6 @@ function snowbird_customize_register( $wp_customize ) {
 }
 
 add_action( 'customize_register', 'snowbird_customize_register' );
-
-
-/**
- * Process once Customizer Data saved.
- *
- * @param WP_Customize_Manager $wp_customize Theme Customizer object.
- */
-function snowbird_customize_save_after() {
-
-	// Save Logo Image Data
-	$logo_data    = Snowbird()->url_to_image_data( Snowbird()->mod( 'logo_image' ) );
-	$logo_data_2x = Snowbird()->url_to_image_data( Snowbird()->mod( 'logo_image_2x' ) );
-
-	if ( '' !== $logo_data ) {
-		set_theme_mod( 'logo_image_data', $logo_data );
-	} else {
-		remove_theme_mod( 'logo_image_data' );
-	}
-
-	if ( '' !== $logo_data_2x ) {
-		set_theme_mod( 'logo_image_2x_data', $logo_data_2x );
-	} else {
-		remove_theme_mod( 'logo_image_2x_data' );
-	}
-}
-
-add_action( 'customize_save_after', 'snowbird_customize_save_after' );
 
 
 /**

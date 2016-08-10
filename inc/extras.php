@@ -69,6 +69,8 @@ function snowbird_body_classes( $classes ) {
 		$classes[] = 'page';
 	}
 
+	$classes[] = 'scheme-' . Snowbird()->mod( 'color_scheme' );
+
 	if ( is_single() && 'alternate' == Snowbird()->mod( 'post_layout_type' ) ) {
 		$classes[] = 'layout-single-alt';
 	}

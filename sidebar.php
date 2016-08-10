@@ -5,29 +5,9 @@
 			<div class="content">
 				<?php
 				/**
-				 * Logo - Text or Image
+				 * Site Logo/Title
 				 */
-				if ( '' !== Snowbird()->mod( 'logo_image' ) ) : ?>
-					<span class="screen-reader-text" itemprop="headline"><?php bloginfo( 'name' ); ?></span>
-					<a class="xf__brand-link-alt" href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"
-						><?php echo snowbird_get_logo() ?></a>
-
-				<?php else : ?>
-
-					<h2 class="site-title" itemprop="headline">
-						<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a>
-					</h2>
-
-					<?php
-					/**
-					 * Site Tagline
-					 */
-					$description = get_bloginfo( 'description', 'display' );
-					if ( $description || is_customize_preview() ) : ?>
-						<p class="site-description"><?php echo esc_html( $description ); ?></p>
-					<?php endif; ?>
-
-				<?php endif; ?>
+				snowbird_site_brand(); ?>
 			</div>
 
 			<button class="xf__close">

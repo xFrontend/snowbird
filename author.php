@@ -21,8 +21,6 @@
 				<?php echo get_avatar( get_the_author_meta( 'ID' ), '170' ); ?>
 
 				<p><?php echo snowbird_get_author_bio( $generate = true ); ?></p>
-
-				<?php echo snowbird_get_author_social_links(); ?>
 			</div>
 		</div>
 

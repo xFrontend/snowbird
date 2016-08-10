@@ -5,6 +5,36 @@ if ( ! defined( 'ABSPATH' ) ) :
 endif;
 
 
+if ( ! function_exists( 'snowbird_site_brand' ) ) :
+	/**
+	 * Display Site Brand - Text or Image based on Settings
+	 */
+	function snowbird_site_brand() {
+
+		if ( has_custom_logo() ) :
+
+			the_custom_logo();
+
+		else : ?>
+
+			<h2 class="site-title" itemprop="headline">
+				<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h2>
+
+			<?php
+			/**
+			 * Site Tagline
+			 */
+			$description = get_bloginfo( 'description', 'display' );
+			if ( $description || is_customize_preview() ) : ?>
+				<p class="site-description"><?php echo esc_html( $description ); ?></p>
+			<?php endif; ?>
+
+		<?php endif;
+	}
+
+endif;
+
+
 /**
  * List IDs of Contributors.
  *
@@ -81,93 +111,6 @@ if ( ! function_exists( 'snowbird_get_author_bio' ) ) :
 
 endif;
 
-
-/**
- * Author Social Links
- *
- * @param int $author_id
- *
- * @return string
- */
-if ( ! function_exists( 'snowbird_get_author_social_links' ) ) :
-
-	function snowbird_get_author_social_links( $author_id = 0 ) {
-		if ( $author_id < 1 ) {
-			$author_id = get_the_author_meta( 'ID' );
-		}
-		$social = array(
-			'facebook' => array(
-				'title'      => esc_html__( 'Facebook', 'snowbird' ),
-				'icon_class' => 'fa fa-facebook-f',
-				'url'        => get_user_meta( $author_id, 'facebook', true ),
-			),
-			'twitter'  => array(
-				'title'      => esc_html__( 'Twitter', 'snowbird' ),
-				'icon_class' => 'fa fa-twitter',
-				'url'        => get_user_meta( $author_id, 'twitter', true ),
-			),
-			'gplus'    => array(
-				'title'      => esc_html__( 'Google+', 'snowbird' ),
-				'icon_class' => 'fa fa-google-plus',
-				'url'        => get_user_meta( $author_id, 'gplus', true ),
-			),
-			'linkedin' => array(
-				'title'      => esc_html__( 'Linkedin', 'snowbird' ),
-				'icon_class' => 'fa fa-linkedin',
-				'url'        => get_user_meta( $author_id, 'linkedin', true ),
-			),
-			'link'     => array(
-				'title'      => esc_html__( 'Link', 'snowbird' ),
-				'icon_class' => 'fa fa-external-link-square',
-				'url'        => get_the_author_meta( 'url', $author_id ),
-			),
-			'email'    => array(
-				'title'      => esc_html__( 'Email', 'snowbird' ),
-				'icon_class' => 'fa fa-envelope',
-				'url'        => get_user_meta( $author_id, 'email_public', true ),
-				'type'       => 'email',
-			),
-		);
-
-		$html = '';
-
-		foreach ( $social as $site => $arg ) {
-			$default_attr = array(
-				'class' => $site,
-				'rel'   => 'me',
-			);
-
-			$attr = apply_filters( 'snowbird_social_link_attributes', $default_attr, $site );
-			$attr = array_map( 'esc_attr', $attr );
-
-			$icon = '<i ' . ( ! empty( $arg['icon_class'] ) ? ' class="' . esc_attr( $arg['icon_class'] ) . '"' : '' ) . '></i>';
-
-			if ( isset( $arg['type'] ) && 'email' == $arg['type'] ) {
-				$arg['url'] = Snowbird_Sanitize::email_output( $arg['url'] );
-			} else {
-				$arg['url'] = esc_url( $arg['url'] );
-			}
-
-			if ( ! empty( $arg['url'] ) ) {
-				$html .= '<li>';
-				$html .= '<a';
-				$html .= ' href="' . $arg['url'] . '" ';
-				foreach ( $attr as $name => $value ) {
-					$html .= " $name=" . '"' . $value . '"';
-				}
-				$html .= '>' . $icon . '</a> ';
-				$html .= '</li>';
-			}
-		}
-
-		if ( ! empty ( $html ) ) {
-			$html = '<ul class="author-links">' . $html . '</ul>';
-		}
-
-		return $html;
-	}
-
-endif;
 
 /**
  * Next/Prev Links
@@ -261,65 +204,6 @@ function snowbird_get_next_post_link( $format = '%link &raquo;', $link = '%title
 
 
 /**
- * Get Logo Image
- *
- * @return string
- */
-function snowbird_get_logo() {
-	$html  = '';
-	$logo  = snowbird_get_logo_data();
-	$logo2 = snowbird_get_logo_data_2x();
-
-	if ( '' === $logo ) {
-		return $html;
-	}
-
-	$url_2x = isset( $logo2['url'] ) && $logo['url'] !== $logo2['url'] ? Snowbird()->protocol( $logo2['url'] ) : '';
-
-	$html = sprintf(
-		'<img class="xf__brand" alt="%s" width="%d" height="%d" src="%s" %s/>',
-		esc_attr( get_bloginfo( 'name' ) ),
-		(int) $logo['width'],
-		(int) $logo['height'],
-		esc_url( Snowbird()->protocol( $logo['url'] ) ),
-		( '' !== $url_2x ) ? 'srcset="' . esc_attr( "$url_2x 2x" ) . '"' : ''
-	);
-
-	return apply_filters( 'snowbird_get_logo', $html );
-}
-
-
-/**
- * Get Logo Image Data.
- *
- * @return array|string
- */
-function snowbird_get_logo_data() {
-
-	if ( is_customize_preview() ) {
-		return Snowbird()->url_to_image_data( get_theme_mod( 'logo_image' ) );
-	}
-
-	return get_theme_mod( 'logo_image_data', '' );
-}
-
-
-/**
- * Get Logo Image (Retina) Data.
- *
- * @return array|string
- */
-function snowbird_get_logo_data_2x() {
-
-	if ( is_customize_preview() ) {
-		return Snowbird()->url_to_image_data( get_theme_mod( 'logo_image_2x' ) );
-	}
-
-	return get_theme_mod( 'logo_image_2x_data', '' );
-}
-
-
-/**
  * Sidebar Header Image
  *
  * @return array|false
@@ -366,7 +250,7 @@ function snowbird_get_footer_content() {
 	$html = str_replace( '%WP_LINK%',
 		sprintf(
 			'<a href="%1$s">%2$s</a>',
-			'http://wordpress.org',
+			'https://wordpress.org',
 			esc_html__( 'WordPress', 'snowbird' )
 		),
 		$html
@@ -463,6 +347,7 @@ if ( ! function_exists( 'snowbird_maybe_display_footer' ) ) :
 
 endif;
 
+
 /**
  * Display Comments
  *
@@ -553,8 +438,6 @@ if ( ! function_exists( 'snowbird_list_contributors' ) ) :
 						<p class="contributor-bio">
 							<?php echo get_the_author_meta( 'description', $contributor_id ); ?>
 						</p>
-
-						<?php echo snowbird_get_author_social_links( $contributor_id ); ?>
 
 						<?php if ( $post_count ) : ?>
 							<a class="xf__button contributor-posts-link"

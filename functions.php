@@ -45,6 +45,15 @@ if ( ! function_exists( 'snowbird_setup' ) ) :
 		add_theme_support( 'title-tag' );
 
 		/**
+		* Enable support for custom logo.
+		*/
+		add_theme_support( 'custom-logo', array(
+			'height'      => 200,
+			'width'       => 200,
+			'flex-width'  => true,
+		) );
+
+		/**
 		 * Enable support for Post Thumbnails on posts and pages.
 		 *
 		 * @link http://codex.wordpress.org/Function_Reference/add_theme_support#Post_Thumbnails
@@ -124,6 +133,7 @@ if ( ! function_exists( 'snowbird_setup' ) ) :
 endif;
 
 add_action( 'after_setup_theme', 'snowbird_setup' );
+
 
 /**
  * Set the content width in pixels, based on the theme's design and stylesheet.
@@ -280,29 +290,6 @@ add_filter( 'tiny_mce_before_init', 'snowbird_editor_settings' );
 
 
 /**
- * Add Social Links for User/Profile.
- *
- * @param $user_contact_methods
- *
- * @return mixed
- */
-function snowbird_user_contacts_fields( $user_contact_methods ) {
-	unset( $user_contact_methods['yim'] );
-	unset( $user_contact_methods['aim'] );
-	unset( $user_contact_methods['jabber'] );
-
-	$user_contact_methods['facebook']     = esc_html_x( 'Facebook Profile URL', 'admin', 'snowbird' );
-	$user_contact_methods['twitter']      = esc_html_x( 'Twitter Profile URL', 'admin', 'snowbird' );
-	$user_contact_methods['gplus']        = esc_html_x( 'Google+ Profile URL', 'admin', 'snowbird' );
-	$user_contact_methods['linkedin']     = esc_html_x( 'LinkedIn Profile URL', 'admin', 'snowbird' );
-	$user_contact_methods['email_public'] = esc_html_x( 'Email (Public)', 'admin', 'snowbird' );
-
-	return $user_contact_methods;
-}
-
-add_filter( 'user_contactmethods', 'snowbird_user_contacts_fields' );
-
-/**
  * Returns Google Fonts URL for the theme
  *
  * @return string
@@ -336,17 +323,18 @@ if ( ! function_exists( 'snowbird_fonts_url' ) ) :
 
 endif;
 
+
 /**
  * Load the Core Files.
  */
 require get_template_directory() . '/inc/class-snowbird.php';
-require get_template_directory() . '/inc/class-snowbird-choices.php';
-require get_template_directory() . '/inc/class-snowbird-sanitize.php';
-require get_template_directory() . '/inc/class-snowbird-customize-controls.php';
 
 /**
  * Implements Customizer Settings and output.
  */
+require get_template_directory() . '/inc/customizer-choices.php';
+require get_template_directory() . '/inc/customizer-controls.php';
+require get_template_directory() . '/inc/customizer-sanitize.php';
 require get_template_directory() . '/inc/customizer.php';
 
 /**
