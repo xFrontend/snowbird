@@ -26,7 +26,7 @@ get_template_part( 'template-parts/primary-site-header' ); ?>
 					 * Widget - Recent Posts
 					 */
 					the_widget( 'WP_Widget_Recent_Posts', 'show_date=1', array(
-						'before_widget' => '<div id="%1$s" class="widget %2$s">',
+						'before_widget' => '<div class="widget widget-404-page">',
 						'after_widget'  => '</div>',
 						'before_title'  => '<h3 class="widget-title">',
 						'after_title'   => '</h3>',
