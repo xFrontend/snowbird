@@ -6,9 +6,9 @@
  */
 
 /**
- * Snowbird only works in WordPress 4.1.1 or later.
+ * Snowbird only works in WordPress 4.5 or later.
  */
-if ( version_compare( $GLOBALS['wp_version'], '4.1.1', '<' ) ) {
+if ( version_compare( $GLOBALS['wp_version'], '4.5', '<' ) ) {
 	require get_template_directory() . '/inc/back-compat.php';
 }
 
