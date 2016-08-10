@@ -203,30 +203,30 @@ function snowbird_scripts() {
 	 */
 	$ext_js = ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) ? '.js' : '.min.js';
 
-	wp_enqueue_script( 'fitvids',
+	wp_enqueue_script( 'jquery-fitvids',
 		Snowbird()->protocol( get_template_directory_uri() . '/assets/js/vendor/jquery.fitvids.min.js' ),
 		array( 'jquery' ),
 		'1.1',
 		true
 	);
 
-	wp_enqueue_script( 'nicescroll',
+	wp_enqueue_script( 'jquery-nicescroll',
 		Snowbird()->protocol( get_template_directory_uri() . '/assets/js/vendor/jquery.nicescroll.min.js' ),
 		array( 'jquery' ),
-		'3.6.0',
+		'3.6.8',
 		true
 	);
 
-	wp_enqueue_script( 'magnific-popup',
+	wp_enqueue_script( 'jquery-magnific-popup',
 		Snowbird()->protocol( get_template_directory_uri() . '/assets/js/vendor/jquery.magnific-popup.min.js' ),
 		array( 'jquery' ),
-		'1.0.0',
+		'1.1.0',
 		true
 	);
 
 	wp_enqueue_script( 'snowbird-script',
 		Snowbird()->protocol( get_template_directory_uri() . '/assets/js/functions' . $ext_js ),
-		array( 'jquery', 'fitvids', 'nicescroll', 'magnific-popup' ),
+		array( 'jquery', 'jquery-fitvids', 'jquery-nicescroll', 'jquery-magnific-popup' ),
 		Snowbird()->version(),
 		true
 	);
