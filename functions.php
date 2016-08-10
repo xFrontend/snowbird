@@ -189,7 +189,7 @@ function snowbird_scripts() {
 	wp_enqueue_style( 'font-awesome',
 		Snowbird()->protocol( get_template_directory_uri() . '/assets/css/font-awesome.min.css' ),
 		array(),
-		'4.4.0'
+		'4.6.3'
 	);
 
 	wp_enqueue_style( 'snowbird-style',
