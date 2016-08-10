@@ -1,25 +1,25 @@
 === Snowbird ===
 
-Contributors: xFrontend
+Theme Name: Snowbird
+Theme URI: https://xfrontend.com/themes/snowbird-wordpress-theme/
+Author: xFrontend
+Author URI: https://xfrontend.com/
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
-Tags: dark, light, left-sidebar, right-sidebar, responsive-layout, custom-colors, custom-header, custom-menu, editor-style, featured-images, microformats, sticky-post, theme-options, threaded-comments, translation-ready
-Requires at least: 4.1.1
-Tested up to: 4.3
-Stable tag: 1.2
+Requires at least: 4.5
 
 A responsive WordPress blog theme crafted specially for storytellers.
 
 == Description ==
 
-Snowbird is a responsive WordPress Blog Theme beautifully designed especially for storytellers. It’s a simple yet powerful WordPress theme- supports every native WordPress features, and extended with professional tools for ease of use. With beautifully crafted typography it works seamlessly on all devices.
+Snowbird is a responsive WordPress Blog Theme beautifully designed especially for storytellers. It's a simple yet powerful WordPress theme- supports every native WordPress features, and extended with professional tools for ease of use. With beautifully crafted typography it works seamlessly on all devices.
 
 
 == Installation ==
 	
-1. In your admin panel, go to Appearance > Themes and click the Add New button.
-2. Click Upload and Choose File, then select the theme's .zip file. Click Install Now.
-3. Click Activate to use your new theme right away.
+1. In your WordPress dashboard, go to `Appearance > Themes` and click the `Add New` button.
+2. Click `Upload Theme` and `Choose File`, then select the theme's .zip file. Click Install Now.
+3. Click `Activate` to use Snowbird right away.
 
 
 == Changelog ==
@@ -66,7 +66,7 @@ We have used the following opensource projects or other files as listed.
 * Fitvids http://fitvidsjs.com/
 * jQuery Nicescroll http://nicescroll.areaaperta.com/
 * Magnific Popup - http://dimsemenov.com/plugins/magnific-popup/
-
+* Screenshot Images - https://pixabay.com/
 
 Snowbird Colors Scheme are inspired from:
 

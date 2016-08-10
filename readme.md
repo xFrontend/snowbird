@@ -1,16 +1,15 @@
 # Snowbird  — Personal WordPress Blog Theme
 Snowbird is a responsive WordPress Blog Theme beautifully designed especially for storytellers. It's a simple yet powerful WordPress theme- supports every native WordPress features, and extended with professional tools for ease of use. With beautifully crafted typography it works seamlessly on all devices.
 
-Requires at least: WordPress v4.1.1
-Tags: dark, light, left-sidebar, right-sidebar, responsive-layout, custom-colors, custom-header, custom-menu, editor-style, featured-images, microformats, sticky-post, theme-options, threaded-comments, translation-ready
+Requires WordPress v4.5 or later.
 
 [Snowbird Features and More &rarr;](https://xfrontend.com/themes/snowbird-wordpress-theme/)
 
 ## Installation
 	
 1. In your WordPress dashboard, go to `Appearance > Themes` and click the `Add New` button.
-2. Click `Upload Theme` and Choose File, then select the theme's .zip file. Click Install Now.
-3. Click Activate to use Snowbird right away.
+2. Click `Upload Theme` and `Choose File`, then select the theme's .zip file. Click Install Now.
+3. Click `Activate` to use Snowbird right away.
 
 ## Changelog
 
@@ -55,7 +54,7 @@ We have used the following opensource projects or other files as listed.
 * Fitvids http://fitvidsjs.com/
 * jQuery Nicescroll http://nicescroll.areaaperta.com/
 * Magnific Popup - http://dimsemenov.com/plugins/magnific-popup/
-
+* Screenshot Images - https://pixabay.com/
 
 Snowbird Colors Scheme are inspired from:
 
