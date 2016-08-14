@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Snowbird 1.3\n"
 "Report-Msgid-Bugs-To: https://xfrontend.com/\n"
-"POT-Creation-Date: 2016-08-08 10:07:31+00:00\n"
+"POT-Creation-Date: 2016-08-14 10:54:37+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -96,7 +96,22 @@ msgstr ""
 msgid "Post Comment"
 msgstr ""
 
-#: footer.php:67
+#. translators: 1. Current Year 1. Site Link 3. WordPress Link 4. xFrontend
+#. Link
+
+#: footer.php:54
+msgid "&copy; %1$d %2$s. Powered by %3$s &amp; %4$s."
+msgstr ""
+
+#: footer.php:65 footer.php:66
+msgid "WordPress"
+msgstr ""
+
+#: footer.php:71 footer.php:72
+msgid "xFrontend"
+msgstr ""
+
+#: footer.php:87
 msgid "Show Sidebar"
 msgstr ""
 
@@ -153,10 +168,6 @@ msgstr ""
 #: inc/back-compat.php:37 inc/back-compat.php:47 inc/back-compat.php:61
 msgctxt "admin"
 msgid "Snowbird requires at least WordPress version 4.5. You are running version %s. Please upgrade and try again."
-msgstr ""
-
-#: inc/class-snowbird.php:363
-msgid "No posts to show."
 msgstr ""
 
 #: inc/class-tgm-plugin-activation.php:327
@@ -542,73 +553,73 @@ msgstr ""
 msgid "Installing Plugin %1$s (%2$d/%3$d)"
 msgstr ""
 
-#: inc/customizer-choices.php:13
+#: inc/customizer-choices.php:15
 msgctxt "admin"
 msgid "Secondary"
 msgstr ""
 
-#: inc/customizer-choices.php:14
+#: inc/customizer-choices.php:16
 msgctxt "admin"
 msgid "Social"
 msgstr ""
 
-#: inc/customizer-choices.php:24
+#: inc/customizer-choices.php:28
 msgctxt "admin"
 msgid "Disable"
 msgstr ""
 
-#: inc/customizer-choices.php:25
+#: inc/customizer-choices.php:29
 msgctxt "admin"
 msgid "One"
 msgstr ""
 
-#: inc/customizer-choices.php:26
+#: inc/customizer-choices.php:30
 msgctxt "admin"
 msgid "Two"
 msgstr ""
 
-#: inc/customizer-choices.php:27
+#: inc/customizer-choices.php:31
 msgctxt "admin"
 msgid "Three"
 msgstr ""
 
-#: inc/customizer-choices.php:28
+#: inc/customizer-choices.php:32
 msgctxt "admin"
 msgid "Four"
 msgstr ""
 
-#: inc/customizer-choices.php:38
+#: inc/customizer-choices.php:44
 msgctxt "admin"
 msgid "Full"
 msgstr ""
 
-#: inc/customizer-choices.php:39
+#: inc/customizer-choices.php:45
 msgctxt "admin"
 msgid "Excerpt"
 msgstr ""
 
-#: inc/customizer-choices.php:40
+#: inc/customizer-choices.php:46
 msgctxt "admin"
 msgid "None"
 msgstr ""
 
-#: inc/customizer-choices.php:62 inc/customizer-choices.php:85
+#: inc/customizer-choices.php:72 inc/customizer-choices.php:99
 #: inc/scheme-functions.php:16
 msgctxt "admin"
 msgid "Default"
 msgstr ""
 
-#: inc/customizer-choices.php:63 inc/customizer-choices.php:86
+#: inc/customizer-choices.php:73 inc/customizer-choices.php:100
 msgctxt "admin"
 msgid "Alternate"
 msgstr ""
 
-#: inc/customizer-choices.php:108
+#: inc/customizer-choices.php:126
 msgctxt "admin"
 msgid "Left"
 msgstr ""
 
-#: inc/customizer-choices.php:109
+#: inc/customizer-choices.php:127
 msgctxt "admin"
 msgid "Right"
 msgstr ""
@@ -693,125 +704,115 @@ msgctxt "admin"
 msgid "Footer Menu Location"
 msgstr ""
 
-#: inc/customizer.php:310
-msgctxt "admin"
-msgid "Footer Text"
-msgstr ""
-
-#: inc/customizer.php:311
-msgctxt "admin"
-msgid "For convenient you may use these macro: %CUR_YEAR% - Current year, %SITE_TITLE% - Site Title, %SITE_LINK% - Site Link, %WP_LINK% - Link to WordPress.org"
-msgstr ""
-
-#: inc/customizer.php:328
+#: inc/customizer.php:313
 msgctxt "admin"
 msgid "Base Color Scheme"
 msgstr ""
 
-#: inc/customizer.php:358
+#: inc/customizer.php:343
 msgctxt "admin"
 msgid "Header Text Color"
 msgstr ""
 
-#: inc/customizer.php:370
+#: inc/customizer.php:355
 msgctxt "admin"
 msgid "Header Background Color"
 msgstr ""
 
-#: inc/customizer.php:397
+#: inc/customizer.php:382
 msgctxt "admin"
 msgid "Content Title Color"
 msgstr ""
 
-#: inc/customizer.php:409
+#: inc/customizer.php:394
 msgctxt "admin"
 msgid "Content Text Color"
 msgstr ""
 
-#: inc/customizer.php:421
+#: inc/customizer.php:406
 msgctxt "admin"
 msgid "Content Secondary Color"
 msgstr ""
 
-#: inc/customizer.php:433
+#: inc/customizer.php:418
 msgctxt "admin"
 msgid "Content Accent Color"
 msgstr ""
 
-#: inc/customizer.php:445
+#: inc/customizer.php:430
 msgctxt "admin"
 msgid "Content Background Color"
 msgstr ""
 
-#: inc/customizer.php:472
+#: inc/customizer.php:457
 msgctxt "admin"
 msgid "Footer Title Color"
 msgstr ""
 
-#: inc/customizer.php:484
+#: inc/customizer.php:469
 msgctxt "admin"
 msgid "footer Text Color"
 msgstr ""
 
-#: inc/customizer.php:496
+#: inc/customizer.php:481
 msgctxt "admin"
 msgid "Footer Secondary Color"
 msgstr ""
 
-#: inc/customizer.php:508
+#: inc/customizer.php:493
 msgctxt "admin"
 msgid "Footer Accent Color"
 msgstr ""
 
-#: inc/customizer.php:520
+#: inc/customizer.php:505
 msgctxt "admin"
 msgid "Footer Background Color"
 msgstr ""
 
-#: inc/customizer.php:547
+#: inc/customizer.php:532
 msgctxt "admin"
 msgid "Button Text Color"
 msgstr ""
 
-#: inc/customizer.php:559
+#: inc/customizer.php:544
 msgctxt "admin"
 msgid "Button Background Color"
 msgstr ""
 
-#: inc/customizer.php:574
+#: inc/customizer.php:559
 msgctxt "admin"
 msgid "Overlay Color"
 msgstr ""
 
-#: inc/customizer.php:575
+#: inc/customizer.php:560
 msgctxt "admin"
 msgid "Adjust overlay color/opacity to display when you upload a header image."
 msgstr ""
 
-#: inc/customizer.php:586
+#: inc/customizer.php:571
 msgctxt "admin"
 msgid "Overlay Opacity"
 msgstr ""
 
-#: inc/customizer.php:597 inc/customizer.php:608
+#: inc/customizer.php:582 inc/customizer.php:594
 msgctxt "admin"
 msgid "Custom CSS"
 msgstr ""
 
-#: inc/customizer.php:609
+#: inc/customizer.php:595
 msgctxt "admin"
 msgid "Add your custom CSS rules here without any &lt;style&gt;&lt;/style&gt; tag."
 msgstr ""
 
-#: inc/extras.php:144 inc/extras.php:158
+#: inc/extras.php:146 inc/extras.php:160
 msgid "Read More"
 msgstr ""
 
-#: inc/extras.php:198
+#: inc/extras.php:200
 msgid "Search for:"
 msgstr ""
 
-#: inc/extras.php:199
+#: inc/extras.php:201
 msgid "Search..."
 msgstr ""
 
@@ -954,29 +955,29 @@ msgid_plural "%d articles"
 msgstr[0] ""
 msgstr[1] ""
 
-#: inc/template-functions.php:140
+#: inc/template-functions.php:129
+msgid "No posts to show."
+msgstr ""
+
+#: inc/template-functions.php:203
 msgid "Previous Post"
 msgstr ""
 
-#: inc/template-functions.php:140
+#: inc/template-functions.php:203
 msgid "Next Post"
-msgstr ""
-
-#: inc/template-functions.php:254
-msgid "WordPress"
 msgstr ""
 
 #. Translators: 1: date 2: time
 
-#: inc/template-functions.php:387
+#: inc/template-functions.php:413
 msgid "%1$s at %2$s"
 msgstr ""
 
-#: inc/template-functions.php:396
+#: inc/template-functions.php:422
 msgid "Your comment is awaiting moderation."
 msgstr ""
 
-#: inc/template-functions.php:445
+#: inc/template-functions.php:471
 msgid "%d Article"
 msgid_plural "%d Articles"
 msgstr[0] ""
