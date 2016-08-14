@@ -18,11 +18,28 @@ Snowbird is a responsive WordPress Blog Theme beautifully designed especially fo
 == Installation ==
 	
 1. In your WordPress dashboard, go to `Appearance > Themes` and click the `Add New` button.
-2. Click `Upload Theme` and `Choose File`, then select the theme's .zip file. Click Install Now.
+2. Click `Upload Theme` and `Choose File`, then select the theme's .zip file. Click `Install Now`.
 3. Click `Activate` to use Snowbird right away.
 
 
 == Changelog ==
+
+= 1.3 =
+Release Date: August 14, 2016
+
+* New - Requires WordPress 4.5 or later.
+* New - Supports for `custom-logo` introduced by WordPress.
+* New - Improves Live Customize experience.
+* Updates - Font-Awesome v4.6.3.
+* Updates - Fitvids v1.1.
+* Updates - jQuery Nicescroll v3.6.8.
+* Updates - jQuery Magnific-Popip v1.1.0.
+* Updates - TGM-Plugin-Activation v2.6.1.
+* Updates - Translation POT File.
+* Removes - Snowbird Logo Option.
+* Removes - Footer Text Option.
+* Fixes - PHP Warning (Too few arguments) in 404.php.
+* Code Cleanups.
 
 = 1.2 =
 Release Date: October 19, 2015
