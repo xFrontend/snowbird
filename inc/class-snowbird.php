@@ -110,7 +110,6 @@ if ( ! class_exists( 'Snowbird' ) ) :
 		public static function options() {
 
 			return apply_filters( 'snowbird_default_options', array(
-				'footer_text' => '&copy; %CUR_YEAR% %SITE_LINK%. Powered by %WP_LINK%.',
 				'custom_css'  => '',
 			) );
 		}
@@ -224,7 +223,7 @@ if ( ! class_exists( 'Snowbird' ) ) :
 		 */
 		public static function codename( $key = null ) {
 			if ( wp_get_theme()->parent() ) {
-				$codename = wp_get_theme()->parent()->get( 'Name' ) . '-' . wp_get_theme()->get( 'Name' );
+				$codename = wp_get_theme()->parent()->get( 'Name' );
 			} else {
 				$codename = wp_get_theme()->get( 'Name' );
 			}

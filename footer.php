@@ -49,16 +49,36 @@
 
 			endif; ?>
 
-			<?php if ( '' !== snowbird_get_footer_content() ) : ?>
-				<p class="xf__copyright"><?php echo snowbird_get_footer_content(); ?></p>
-			<?php endif; ?>
+			<?php /* translators: 1. Current Year 1. Site Link 3. WordPress Link 4. xFrontend Link */ ?>
+			<p class="xf__copyright"><?php echo apply_filters( 'snowbird_footer_text', sprintf(
+					esc_html__( '&copy; %1$d %2$s. Powered by %3$s &amp; %4$s.', 'snowbird' ),
+					date( 'Y' ),
+					sprintf(
+						'<a href="%1$s" title="%2$s">%3$s</a>',
+						esc_url( home_url( '/' ) ),
+						esc_attr( get_bloginfo( 'name' ) ),
+						esc_html( get_bloginfo( 'name' ) )
+					),
+					sprintf(
+						'<a href="%1$s" title="%2$s">%3$s</a>',
+						'https://wordpress.org/',
+						esc_attr__( 'WordPress', 'snowbird' ),
+						esc_html__( 'WordPress', 'snowbird' )
+					),
+					sprintf(
+						'<a href="%1$s" title="%2$s">%3$s</a>',
+						'https://xfrontend.com/',
+						esc_attr__( 'xFrontend', 'snowbird' ),
+						esc_html__( 'xFrontend', 'snowbird' )
+					)
+				) ); ?></p>
 		</div>
 	</div>
 </footer>
 
 </div>
 </div>
-<!--// End Site -->
+
 
 <?php get_sidebar(); ?>
 

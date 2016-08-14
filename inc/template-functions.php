@@ -287,43 +287,6 @@ function snowbird_get_header_image_src() {
 
 
 /**
- * Footer Content
- *
- * @return mixed|void
- */
-function snowbird_get_footer_content() {
-	// Get Footer text/macro
-	$html = Snowbird()->option( 'footer_text' );
-
-	// Current Year
-	$html = str_replace( '%CUR_YEAR%', date( 'Y' ), $html );
-	// Site Title
-	$html = str_replace( '%SITE_TITLE%', get_bloginfo( 'name' ), $html );
-	// Site Link
-	$html = str_replace( '%SITE_LINK%',
-		sprintf(
-			'<a href="%1$s" title="%3$s">%2$s</a>',
-			esc_url( home_url( '/' ) ),
-			esc_html( get_bloginfo( 'name' ) ),
-			esc_attr( get_bloginfo( 'name' ) )
-		),
-		$html
-	);
-	// WordPress Link
-	$html = str_replace( '%WP_LINK%',
-		sprintf(
-			'<a href="%1$s">%2$s</a>',
-			'https://wordpress.org',
-			esc_html__( 'WordPress', 'snowbird' )
-		),
-		$html
-	);
-
-	return apply_filters( 'snowbird_get_footer_content', $html );
-}
-
-
-/**
  * Footer Widget Classes
  *
  * @return string

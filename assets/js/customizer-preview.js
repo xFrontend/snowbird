@@ -4,16 +4,21 @@
  * Contains handlers to make Theme Customizer preview reload changes asynchronously.
  */
 
-(function ($, wp) {
+(function ($, api) {
     'use strict';
 
     var $body = $('body'),
         $style = $('#snowbird-color-scheme-css'),
-        api = wp.customize;
+        $custom_css = $('#snowbird-custom-css');
 
     if (!$style.length) {
         $style = $('head').append('<style type="text/css" id="snowbird-color-scheme-css" />')
             .find('#snowbird-color-scheme-css');
+    }
+
+    if (!$custom_css.length) {
+        $custom_css = $('head').append('<style type="text/css" id="snowbird-custom-css" />')
+            .find('#snowbird-custom-css');
     }
 
     // Site Title.
@@ -41,8 +46,14 @@
     // Color Scheme CSS.
     api.bind('preview-ready', function () {
         api.preview.bind('update-color-scheme-css', function (css) {
-            $style.html(css);
+            $style.text(css);
         });
     });
 
-})(jQuery, wp);
+    api('snowbird-settings[custom_css]', function (value) {
+        value.bind(function (to) {
+            $custom_css.text(to);
+        });
+    });
+
+})(jQuery, wp.customize);

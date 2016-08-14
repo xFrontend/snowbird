@@ -299,21 +299,6 @@ function snowbird_customize_register( $wp_customize ) {
 		'choices' => snowbird_choices_footer_menu_location(),
 	) );
 
-	// footer_text
-	$wp_customize->add_setting( Snowbird()->option_key( 'footer_text' ), array(
-		'default'           => Snowbird()->option_default( 'footer_text' ),
-		'sanitize_callback' => 'snowbird_sanitize_html',
-		'type'              => 'option'
-	) );
-
-	$wp_customize->add_control( Snowbird()->option_key( 'footer_text' ), array(
-		'label'       => esc_html_x( 'Footer Text', 'admin', 'snowbird' ),
-		'description' => esc_html_x( 'For convenient you may use these macro: %CUR_YEAR% - Current year, %SITE_TITLE% - Site Title, %SITE_LINK% - Site Link, %WP_LINK% - Link to WordPress.org', 'admin', 'snowbird' ),
-		'section'     => 'snowbird_settings',
-		'type'        => 'textarea',
-	) );
-
-
 	/**
 	 * Colors
 	 */
@@ -601,6 +586,7 @@ function snowbird_customize_register( $wp_customize ) {
 	$wp_customize->add_setting( Snowbird()->option_key( 'custom_css' ), array(
 		'default'           => Snowbird()->option_default( 'custom_css' ),
 		'sanitize_callback' => 'snowbird_sanitize_css_js',
+		'transport'         => 'postMessage',
 		'type'              => 'option'
 	) );
 
@@ -619,10 +605,13 @@ function snowbird_customize_register( $wp_customize ) {
 	$wp_customize->get_setting( 'blogdescription' )->transport = 'postMessage';
 
 	/**
-	 * Adjust Priority
+	 * Partials for Selective Refresh
 	 */
-	$wp_customize->get_control( 'blogname' )->priority        = 5;
-	$wp_customize->get_control( 'blogdescription' )->priority = 5;
+	$wp_customize->selective_refresh->add_partial( 'site_brand', array(
+		'selector'        => '.xf__header .content',
+		'settings'        => array( 'custom_logo' ),
+		'render_callback' => 'snowbird_site_brand',
+	) );
 
 	/**
 	 * Cleanup
