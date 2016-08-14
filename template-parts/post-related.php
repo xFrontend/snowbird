@@ -9,7 +9,7 @@ if ( ! Snowbird()->mod( 'post_display_related' ) ) {
 /**
  * Get Related posts data
  */
-$data = Snowbird()->posts_related( 4 );
+$data = snowbird_get_related_posts( 4 );
 
 if ( ! is_wp_error( $data ) && $data->have_posts() ) : ?>
 	<div class="xf__block xf__related">

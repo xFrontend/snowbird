@@ -6,6 +6,8 @@ endif;
 
 
 /**
+ * Sanitizes checkbox to save in database.
+ *
  * @param $value
  *
  * @return int
@@ -18,6 +20,8 @@ function snowbird_sanitize_checkbox( $value ) {
 
 
 /**
+ * Sanitizes checkbox for JavaScript.
+ *
  * @param $value
  *
  * @return bool
@@ -30,6 +34,8 @@ function snowbird_sanitize_checkbox_js( $value ) {
 
 
 /**
+ * Sanitizes select field.
+ *
  * @param $value
  * @param $field
  *
@@ -53,6 +59,8 @@ function snowbird_sanitize_choice( $value, $field ) {
 
 
 /**
+ * Sanitizes CSS/JavaScript code.
+ *
  * @param $code
  *
  * @return mixed|string
@@ -84,6 +92,8 @@ function snowbird_sanitize_css_js( $code ) {
 
 
 /**
+ * Sanitizes an email address.
+ *
  * @param $email
  *
  * @return string
@@ -96,6 +106,8 @@ function snowbird_sanitize_email( $email ) {
 
 
 /**
+ * Sanitizes and converts an email address characters to HTML entities to block spam bots.
+ *
  * @param $email
  *
  * @return string
@@ -163,6 +175,8 @@ function snowbird_sanitize_maybe_hash_hex_color( $color ) {
 
 
 /**
+ * Sanitize content for allowed HTML tags for post content.
+ *
  * @param $input
  *
  * @return string

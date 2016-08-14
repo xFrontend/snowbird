@@ -6,6 +6,8 @@ endif;
 
 
 /**
+ * Options for Footer Menu Location.
+ *
  * @return mixed|void
  */
 function snowbird_choices_footer_menu_location() {
@@ -17,6 +19,8 @@ function snowbird_choices_footer_menu_location() {
 
 
 /**
+ * Options for Footer Widget Area.
+ *
  * @return mixed|void
  */
 function snowbird_choices_footer_widget_area() {
@@ -31,6 +35,8 @@ function snowbird_choices_footer_widget_area() {
 
 
 /**
+ * Options for Loop Content.
+ *
  * @return mixed|void
  */
 function snowbird_choices_loop_content() {
@@ -43,6 +49,8 @@ function snowbird_choices_loop_content() {
 
 
 /**
+ * Options for Excerpt Length.
+ *
  * @return mixed|void
  */
 function snowbird_choices_loop_excerpt_length() {
@@ -55,6 +63,8 @@ function snowbird_choices_loop_excerpt_length() {
 
 
 /**
+ * Options for Loop Layout Type.
+ *
  * @return mixed|void
  */
 function snowbird_choices_loop_layout_type() {
@@ -66,6 +76,8 @@ function snowbird_choices_loop_layout_type() {
 
 
 /**
+ * Options for Opacity.
+ *
  * @return mixed|void
  */
 function snowbird_choices_opacity() {
@@ -78,6 +90,8 @@ function snowbird_choices_opacity() {
 
 
 /**
+ * Options for Post Layout Type.
+ *
  * @return mixed|void
  */
 function snowbird_choices_post_layout_type() {
@@ -89,6 +103,8 @@ function snowbird_choices_post_layout_type() {
 
 
 /**
+ * Options for Posts per Page.
+ *
  * @return mixed|void
  */
 function snowbird_choices_posts_per_page() {
@@ -101,6 +117,8 @@ function snowbird_choices_posts_per_page() {
 
 
 /**
+ * Options for Sidebar Type.
+ *
  * @return mixed|void
  */
 function snowbird_choices_sidebar_type() {

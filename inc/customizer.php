@@ -629,12 +629,6 @@ function snowbird_customize_register( $wp_customize ) {
 	 */
 	$wp_customize->remove_control( 'display_header_text' );
 	$wp_customize->remove_control( 'header_textcolor' );
-
-	/**
-	 * Filter for Site Logo Data
-	 */
-	add_filter( 'theme_mod_' . 'logo_data', 'snowbird_get_logo_data' );
-	add_filter( 'theme_mod_' . 'logo_data_2x', 'snowbird_get_logo_data_2x' );
 }
 
 add_action( 'customize_register', 'snowbird_customize_register' );

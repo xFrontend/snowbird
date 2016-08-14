@@ -347,68 +347,6 @@ if ( ! class_exists( 'Snowbird' ) ) :
 		//
 
 		/**
-		 * Query for Related Posts.
-		 *
-		 * @param int $count
-		 * @param int $current_post_id
-		 * @param bool|true $cache
-		 *
-		 * @return mixed|WP_Error|WP_Query
-		 */
-		public static function posts_related( $count = 4, $current_post_id = 0, $cache = true ) {
-			$count           = 0 < intval( $count ) ? $count : 4;
-			$current_post_id = 0 < $current_post_id ? $current_post_id : get_the_ID();
-
-			if ( ! is_single() || 1 > $current_post_id ) {
-				return new WP_Error( 'skipped', __( 'No posts to show.', 'snowbird' ) );
-			}
-
-			$cache_key  = self::cache_key( 'd', 'related_posts' . $count . $current_post_id );
-			$cache_time = apply_filters( 'snowbird_related_posts_cache_time', MINUTE_IN_SECONDS );
-
-			if ( false === ( $data = get_transient( $cache_key ) ) || false === $cache ) {
-				$post_cats = wp_get_object_terms( $current_post_id, 'category', array( 'fields' => 'ids' ) );
-				$post_tags = wp_get_object_terms( $current_post_id, 'post_tag', array( 'fields' => 'ids' ) );
-
-				$args = apply_filters( 'snowbird_related_posts_query', array(
-					// date | rand
-					'orderby'        => 'rand',
-					'order'          => 'DESC',
-					'post_status'    => 'publish',
-					'post_type'      => 'post',
-					'posts_per_page' => $count,
-					'paged'          => 1,
-					'post__not_in'   => array( $current_post_id ),
-					// Exclude current post
-					'has_password'   => false,
-					// has_password true means posts with passwords, false means posts without.
-					'no_found_rows'  => true,
-					'tax_query'      => array(
-						'relation' => 'OR',
-						array(
-							'taxonomy' => 'category',
-							'field'    => 'id',
-							'terms'    => $post_cats,
-							'operator' => 'IN',
-						),
-						array(
-							'taxonomy' => 'post_tag',
-							'field'    => 'id',
-							'terms'    => $post_tags,
-							'operator' => 'IN',
-						),
-					),
-				) );
-
-				$data = new WP_Query( $args );
-
-				set_transient( $cache_key, $data, $cache_time );
-			}
-
-			return $data;
-		}
-
-		/**
 		 * Helper function to Get image data based on image url.
 		 *
 		 * @param $url
