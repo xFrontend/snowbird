@@ -17,7 +17,7 @@ function snowbird_header_meta() {
 	echo '<meta charset="' . esc_attr( get_bloginfo( 'charset' ) ) . '">' . "\n";
 	echo '<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">' . "\n";
 
-	do_action( 'xf_head_meta' );
+	do_action( 'snowbird_head_meta' );
 }
 
 add_action( 'wp_head', 'snowbird_header_meta', 0 );
@@ -33,7 +33,7 @@ function snowbird_header_link() {
 		echo '<link rel="pingback" href="' . esc_url( get_bloginfo( 'pingback_url' ) ) . '">' . "\n";
 	}
 
-	do_action( 'xf_head_link' );
+	do_action( 'snowbird_head_link' );
 }
 
 add_action( 'wp_head', 'snowbird_header_link', 1 );
@@ -80,8 +80,7 @@ function snowbird_body_classes( $classes ) {
 
 	if ( is_single() && false != apply_filters( 'snowbird_single_full_content_width', Snowbird()->mod( 'post_full_content_width' ) ) ) {
 		$classes[] = 'full-content-width';
-	}
-	elseif ( is_page() && false != apply_filters( 'snowbird_page_full_content_width', Snowbird()->mod( 'page_full_content_width' ) ) ) {
+	} elseif ( is_page() && false != apply_filters( 'snowbird_page_full_content_width', Snowbird()->mod( 'page_full_content_width' ) ) ) {
 		$classes[] = 'full-content-width';
 	}
 
@@ -263,3 +262,26 @@ function snowbird_embed_html_wrapper( $html ) {
 
 add_filter( 'oembed_dataparse', 'snowbird_embed_html_wrapper', 11 );
 add_filter( 'video_embed_html', 'snowbird_embed_html_wrapper', 11 );
+
+
+/**
+ * Set up paginated links markup.
+ *
+ * @return string
+ */
+function snowbird_navigation_markup_template( $template, $class ) {
+
+	if ( 'pagination' == $class ) {
+		$template = '
+		<nav class="xf__nav-pagination %1$s" role="navigation">
+			<h2 class="screen-reader-text">%2$s</h2>
+			<div class="xf__container">
+				<div class="nav-links">%3$s</div>
+			</div>
+		</nav>';
+	}
+
+	return $template;
+}
+
+add_filter( 'navigation_markup_template', 'snowbird_navigation_markup_template', 10, 2 );
