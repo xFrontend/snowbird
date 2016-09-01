@@ -1,8 +1,11 @@
 <?php
+
+if ( ! defined( 'ABSPATH' ) ) :
+	exit; // Exit if accessed directly
+endif;
+
 /**
  * Snowbird functions and definitions
- *
- * @package Snowbird
  */
 
 /**

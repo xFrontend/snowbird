@@ -19,6 +19,7 @@ function snowbird_custom_header_and_background() {
 		'default-image'      => '',
 		'width'              => 1600,
 		'height'             => 360,
+		'header-text'        => false,
 	) ) );
 }
 
@@ -612,12 +613,6 @@ function snowbird_customize_register( $wp_customize ) {
 		'settings'        => array( 'custom_logo' ),
 		'render_callback' => 'snowbird_site_brand',
 	) );
-
-	/**
-	 * Cleanup
-	 */
-	$wp_customize->remove_control( 'display_header_text' );
-	$wp_customize->remove_control( 'header_textcolor' );
 }
 
 add_action( 'customize_register', 'snowbird_customize_register' );
