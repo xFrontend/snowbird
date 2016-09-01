@@ -176,7 +176,8 @@ function snowbird_get_related_posts( $count = 4, $current_post_id = 0, $cache = 
 
 
 /**
- * Next/Prev Links
+ * Next/Prev Links w/ thumbnail when available.
+ * A replacement for `get_adjacent_post_link` core function.
  *
  * @param $format
  * @param $link
@@ -235,7 +236,8 @@ function snowbird_get_post_link( $format, $link, $in_same_term = false, $exclude
 
 
 /**
- * Previous Post Link
+ * Previous Post Link w/ thumbnail when available.
+ * A replacement for `get_previous_post_link` core function.
  *
  * @param string $format
  * @param string $link
@@ -251,7 +253,8 @@ function snowbird_get_previous_post_link( $format = '&laquo; %link', $link = '%t
 
 
 /**
- * Next Post Link
+ * Next Post Link w/ thumbnail when available.
+ * A replacement for `get_next_post_link` core function.
  *
  * @param string $format
  * @param string $link

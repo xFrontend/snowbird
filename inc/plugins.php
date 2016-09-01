@@ -25,11 +25,6 @@ function snowbird_recommend_plugins() {
 			'slug'     => 'contact-form-7',
 			'required' => false,
 		),
-		array(
-			'name'     => 'WordPress SEO',
-			'slug'     => 'wordpress-seo',
-			'required' => false,
-		),
 	);
 
 	$config = array(

@@ -124,6 +124,7 @@ if ( ! function_exists( 'snowbird_setup' ) ) :
 		$ext_css = ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) ? '.css' : '.min.css';
 
 		add_editor_style( array(
+			Snowbird()->protocol( get_template_directory_uri() . '/assets/css/font-awesome.min.css?v=4.6.3' ),
 			Snowbird()->protocol( get_template_directory_uri() . '/assets/css/editor-style' . $ext_css . '?v=' . Snowbird()->version() ),
 			snowbird_fonts_url(),
 			admin_url( 'admin-ajax.php?action=' . Snowbird()->codename( 'editor-style' ) ),
