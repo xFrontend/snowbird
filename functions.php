@@ -48,12 +48,12 @@ if ( ! function_exists( 'snowbird_setup' ) ) :
 		add_theme_support( 'title-tag' );
 
 		/**
-		* Enable support for custom logo.
-		*/
+		 * Enable support for custom logo.
+		 */
 		add_theme_support( 'custom-logo', array(
-			'height'      => 200,
-			'width'       => 200,
-			'flex-width'  => true,
+			'height'     => 200,
+			'width'      => 200,
+			'flex-width' => true,
 		) );
 
 		/**
@@ -129,9 +129,12 @@ if ( ! function_exists( 'snowbird_setup' ) ) :
 		add_editor_style( array(
 			Snowbird()->protocol( get_template_directory_uri() . '/assets/css/font-awesome.min.css?v=4.6.3' ),
 			Snowbird()->protocol( get_template_directory_uri() . '/assets/css/editor-style' . $ext_css . '?v=' . Snowbird()->version() ),
-			snowbird_fonts_url(),
 			admin_url( 'admin-ajax.php?action=' . Snowbird()->codename( 'editor-style' ) ),
 		) );
+
+		if ( snowbird_fonts_url() ) {
+			add_editor_style( array( snowbird_fonts_url() ) );
+		}
 	}
 
 endif;
@@ -198,7 +201,9 @@ function snowbird_scripts() {
 	 */
 	$ext_css = ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) ? '.css' : '.min.css';
 
-	wp_enqueue_style( 'snowbird-fonts', snowbird_fonts_url(), array(), null );
+	if ( snowbird_fonts_url() ) {
+		wp_enqueue_style( 'snowbird-fonts', snowbird_fonts_url(), array(), null );
+	}
 
 	wp_enqueue_style( 'font-awesome',
 		Snowbird()->protocol( get_template_directory_uri() . '/assets/css/font-awesome.min.css' ),
@@ -312,12 +317,12 @@ if ( ! function_exists( 'snowbird_fonts_url' ) ) :
 
 		/* translators: If there are characters in your language that are not supported by Droid Serif, translate this to 'off'. Do not translate into your own language. */
 		if ( 'off' !== esc_html_x( 'on', 'Droid Serif font: on or off', 'snowbird' ) ) {
-			$fonts[] = 'Droid+Serif:400,400italic,700,700italic';
+			$fonts[] = 'Droid Serif:400,400italic,700,700italic';
 		}
 
 		if ( $fonts ) {
 			$fonts_url = add_query_arg( array(
-				'family' => implode( '%7C', $fonts ),
+				'family' => urlencode( implode( '|', $fonts ) ),
 				'subset' => urlencode( $subsets ),
 			), 'https://fonts.googleapis.com/css' );
 		}
