@@ -468,6 +468,16 @@ if ( ! function_exists( 'snowbird_list_contributors' ) ) :
 							<?php echo get_the_author_meta( 'description', $contributor_id ); ?>
 						</p>
 
+						<?php
+						/**
+						 * Make use of the spot for something cool.
+						 *
+						 * @see https://developer.wordpress.org/reference/functions/add_action/
+						 */
+						if ( has_action( 'snowbird_author_bio' ) ) :
+							do_action( 'snowbird_author_bio', array( 'user_id' => $contributor_id ) );
+						endif; ?>
+
 						<?php if ( $post_count ) : ?>
 							<a class="xf__button contributor-posts-link"
 							   href="<?php echo esc_url( get_author_posts_url( $contributor_id ) ); ?>">

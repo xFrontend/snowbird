@@ -8,7 +8,21 @@ $thumb     = wp_get_attachment_image_src( get_post_thumbnail_id(), 'large' );
 
 if ( isset( $thumb[0] ) ) {
 	$thumbnail = $thumb[0];
-} ?>
+}
+
+/**
+ * Check for registered action, if available
+ * bail to the action callback and exit.
+ *
+ * @see https://developer.wordpress.org/reference/functions/add_action/
+ */
+if ( has_action( 'snowbird_share_this' ) ) {
+	do_action( 'snowbird_share_this', array( 'thumbnail' => $thumbnail ) );
+
+	return;
+}
+
+?>
 
 <div class="xf__share-this">
 	<span><?php esc_html_e( 'Share this:', 'snowbird' ); ?></span>

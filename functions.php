@@ -112,6 +112,9 @@ if ( ! function_exists( 'snowbird_setup' ) ) :
 			'image_size_posts'       => 'snowbird-small',
 			'social_icons'           => true,
 			'social_icons_class'     => 'xf__social colors circle',
+			'contact_fields'         => array(
+				'action_hooks' => 'snowbird_author_bio'
+			)
 		) );
 
 		/**
@@ -308,22 +311,24 @@ if ( ! function_exists( 'snowbird_fonts_url' ) ) :
 	function snowbird_fonts_url() {
 		$fonts_url = '';
 		$fonts     = array();
-		$subsets   = 'latin,latin-ext';
 
 		/* translators: If there are characters in your language that are not supported by Anton, translate this to 'off'. Do not translate into your own language. */
 		if ( 'off' !== esc_html_x( 'on', 'Anton font: on or off', 'snowbird' ) ) {
-			$fonts[] = 'Anton';
+			$fonts['heading'] = 'Anton';
 		}
 
 		/* translators: If there are characters in your language that are not supported by Droid Serif, translate this to 'off'. Do not translate into your own language. */
 		if ( 'off' !== esc_html_x( 'on', 'Droid Serif font: on or off', 'snowbird' ) ) {
-			$fonts[] = 'Droid Serif:400,400italic,700,700italic';
+			$fonts['body'] = 'Droid Serif:400,400italic,700,700italic';
 		}
+
+		$fonts   = apply_filters( 'snowbird_google_fonts', $fonts );
+		$subsets = apply_filters( 'snowbird_google_fonts_subsets', array( 'latin', 'latin-ext' ), $fonts );
 
 		if ( $fonts ) {
 			$fonts_url = add_query_arg( array(
 				'family' => urlencode( implode( '|', $fonts ) ),
-				'subset' => urlencode( $subsets ),
+				'subset' => urlencode( implode( ',', array_unique( $subsets ) ) ),
 			), 'https://fonts.googleapis.com/css' );
 		}
 
