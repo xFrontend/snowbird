@@ -23,13 +23,11 @@
 		</header>
 	</div>
 
-	<div class="xf__container">
-		<?php
-		/**
-		 * Alternate Featured Image
-		 */
-		get_template_part( 'template-parts/featured-image-alternate' ); ?>
-	</div>
+	<?php
+	/**
+	 * Alternate Featured Image
+	 */
+	get_template_part( 'template-parts/featured-image-alternate' ); ?>
 
 	<div class="xf__post-wrapper">
 		<div class="xf__container xf__entry-container">

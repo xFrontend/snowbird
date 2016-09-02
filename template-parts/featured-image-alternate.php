@@ -3,6 +3,7 @@
  * Featured Image
  */
 if ( has_post_thumbnail() && ! post_password_required() && ! is_attachment() ) : ?>
+<div class="xf__container">
 	<figure class="xf__feaured-image xf__feaured-image-alt" aria-hidden="true">
 		<?php
 		if ( is_singular() ) {
@@ -25,4 +26,5 @@ if ( has_post_thumbnail() && ! post_password_required() && ! is_attachment() ) :
 
 		} ?>
 	</figure>
+</div>
 <?php endif; ?>
