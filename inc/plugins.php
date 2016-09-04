@@ -13,17 +13,15 @@ function snowbird_recommend_plugins() {
 		array(
 			'name'     => 'SuperPack',
 			'slug'     => 'superpack',
-			'required' => false,
+			'version'  => '0.3.1',
 		),
 		array(
 			'name'     => 'Jetpack by WordPress.com',
 			'slug'     => 'jetpack',
-			'required' => false,
 		),
 		array(
 			'name'     => 'Contact Form 7',
 			'slug'     => 'contact-form-7',
-			'required' => false,
 		),
 	);
 

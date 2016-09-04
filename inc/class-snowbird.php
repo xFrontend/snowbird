@@ -25,7 +25,7 @@ if ( ! class_exists( 'Snowbird' ) ) :
 		 *
 		 * @return array
 		 */
-		public static function mods() {
+		public function mods() {
 			$color_scheme = snowbird_get_color_scheme();
 
 			return apply_filters( 'snowbird_default_mods', array(
@@ -107,7 +107,7 @@ if ( ! class_exists( 'Snowbird' ) ) :
 		 *
 		 * @return mixed|null|void
 		 */
-		public static function options() {
+		public function options() {
 
 			return apply_filters( 'snowbird_default_options', array(
 				'custom_css'  => '',
@@ -121,7 +121,7 @@ if ( ! class_exists( 'Snowbird' ) ) :
 		 *
 		 * @return mixed|null|void
 		 */
-		public static function mod_default( $name ) {
+		public function mod_default( $name ) {
 			$def = self::mods();
 
 
@@ -140,7 +140,7 @@ if ( ! class_exists( 'Snowbird' ) ) :
 		 *
 		 * @return mixed|string|void
 		 */
-		public static function mod( $name, $default = false ) {
+		public function mod( $name, $default = false ) {
 			// Look into WordPress
 			if ( false !== get_theme_mod( $name ) ) {
 				return get_theme_mod( $name );
@@ -165,7 +165,7 @@ if ( ! class_exists( 'Snowbird' ) ) :
 		 *
 		 * @return mixed|null|void
 		 */
-		public static function option_default( $name ) {
+		public function option_default( $name ) {
 			$def = self::options();
 
 			if ( isset( $def[ $name ] ) ) {
@@ -180,7 +180,7 @@ if ( ! class_exists( 'Snowbird' ) ) :
 		 *
 		 * @return string
 		 */
-		public static function option_key( $name = null ) {
+		public function option_key( $name = null ) {
 			$codename = self::codename( 'settings' );
 
 			return ! is_null( $name ) ? $codename . '[' . sanitize_title_with_dashes( $name ) . ']' : $codename;
@@ -194,7 +194,7 @@ if ( ! class_exists( 'Snowbird' ) ) :
 		 *
 		 * @return mixed|void
 		 */
-		public static function option( $name, $default = false ) {
+		public function option( $name, $default = false ) {
 
 			$options = get_option( self::option_key() );
 
@@ -221,7 +221,7 @@ if ( ! class_exists( 'Snowbird' ) ) :
 		 *
 		 * @return string
 		 */
-		public static function codename( $key = null ) {
+		public function codename( $key = null ) {
 			if ( wp_get_theme()->parent() ) {
 				$codename = wp_get_theme()->parent()->get( 'Name' );
 			} else {
@@ -233,19 +233,14 @@ if ( ! class_exists( 'Snowbird' ) ) :
 			return ! is_null( $key ) ? $codename . '-' . sanitize_title_with_dashes( $key ) : $codename;
 		}
 
-
 		/**
 		 * Current Theme Version value to enqueue CSS/JS.
 		 *
 		 * @return string
 		 */
-		public static function version() {
+		public function version() {
 			return wp_get_theme()->get( 'Version' );
 		}
-
-		//
-		// Helpers
-		//
 
 		/**
 		 * Helper to prepare name for generating cache.
@@ -255,7 +250,7 @@ if ( ! class_exists( 'Snowbird' ) ) :
 		 *
 		 * @return string
 		 */
-		public static function cache_key( $group, $key ) {
+		public function cache_key( $group, $key ) {
 			return substr( self::codename(), 0, 6 ) . '-' . substr( $group, 0, 4 ) . '-' . md5( self::version() . $key );
 		}
 
@@ -264,7 +259,7 @@ if ( ! class_exists( 'Snowbird' ) ) :
 		 *
 		 * @return string
 		 */
-		public static function cache_group() {
+		public function cache_group() {
 			return self::codename() . '-' . self::version();
 		}
 
@@ -275,7 +270,7 @@ if ( ! class_exists( 'Snowbird' ) ) :
 		 *
 		 * @return float|mixed
 		 */
-		public static function css_opacity( $value ) {
+		public function css_opacity( $value ) {
 			$value = intval( $value );
 			$value = min( $value, 100 );
 
@@ -289,7 +284,7 @@ if ( ! class_exists( 'Snowbird' ) ) :
 		 *
 		 * @return string
 		 */
-		public static function protocol( $url ) {
+		public function protocol( $url ) {
 			$url = str_replace( array( 'http://', 'https://' ), '//', $url );
 
 			return esc_url( $url );
@@ -302,7 +297,7 @@ if ( ! class_exists( 'Snowbird' ) ) :
 		 *
 		 * @return array
 		 */
-		public static function hex_to_rgb( $color ) {
+		public function hex_to_rgb( $color ) {
 			$color = trim( $color, '#' );
 
 			if ( 3 == strlen( $color ) ) {
@@ -328,7 +323,7 @@ if ( ! class_exists( 'Snowbird' ) ) :
 		 *
 		 * @return string|void
 		 */
-		public static function rgba( $color, $opacity ) {
+		public function rgba( $color, $opacity ) {
 			$array = self::hex_to_rgb( $color );
 			$alpha = self::css_opacity( $opacity );
 
@@ -341,10 +336,6 @@ if ( ! class_exists( 'Snowbird' ) ) :
 			return vsprintf( 'rgba( %1$s, %2$s, %3$s, %4$1.2f)', $array );
 		}
 
-		//
-		// Data Helpers
-		//
-
 		/**
 		 * Helper function to Get image data based on image url.
 		 *
@@ -353,7 +344,7 @@ if ( ! class_exists( 'Snowbird' ) ) :
 		 *
 		 * @return array|string
 		 */
-		public static function url_to_image_data( $url, $size = 'full' ) {
+		public function url_to_image_data( $url, $size = 'full' ) {
 			$data = '';
 
 			if ( $id = attachment_url_to_postid( $url ) ) {
@@ -377,10 +368,6 @@ if ( ! class_exists( 'Snowbird' ) ) :
 			return $data;
 		}
 
-		//
-		// Conditional Helpers
-		//
-
 		/**
 		 * Helper function to Identify Browser/OS.
 		 *
@@ -388,7 +375,7 @@ if ( ! class_exists( 'Snowbird' ) ) :
 		 *
 		 * @return bool
 		 */
-		public static function is_current_agent( $query ) {
+		public function current_agent( $query ) {
 			if ( ! isset( $_SERVER['HTTP_USER_AGENT'] ) ) {
 				return false;
 			}
@@ -430,7 +417,7 @@ if ( ! class_exists( 'Snowbird' ) ) :
 		 *
 		 * @return bool
 		 */
-		public static function is_woo_commerce() {
+		public function woo_commerce_is_active() {
 			if ( ! class_exists( 'WC', false ) ) {
 				return false;
 			}
@@ -442,30 +429,30 @@ if ( ! class_exists( 'Snowbird' ) ) :
 		// Debug Helpers
 		//
 
-		public static function esc_array( &$item, $key ) {
+		public function esc_array( &$item, $key ) {
 			$item = is_string( $item ) ? esc_html( $item ) : $item;
 		}
 
-		public static function print_pre( $var, $esc = true ) {
+		public function print_pre( $var, $esc = true ) {
 			if ( $esc && is_array( $var ) ) {
 				array_walk_recursive( $var, array( __CLASS__, 'esc_array' ) );
 			} elseif ( $esc && is_string( $var ) ) {
 				$var = esc_html( $var );
 			}
 
-			print '<pre>';
+			print '<pre class="alignleft">';
 			print_r( $var );
 			print '</pre>';
 		}
 
-		public static function print_dump( $var, $esc = true ) {
+		public function print_dump( $var, $esc = true ) {
 			if ( $esc && is_array( $var ) ) {
 				array_walk_recursive( $var, array( __CLASS__, 'esc_array' ) );
 			} elseif ( $esc && is_string( $var ) ) {
 				$var = esc_html( $var );
 			}
 
-			print '<pre>';
+			print '<pre class="alignleft">';
 			var_dump( $var );
 			print '</pre>';
 		}

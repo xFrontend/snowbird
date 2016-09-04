@@ -110,11 +110,13 @@ if ( ! function_exists( 'snowbird_setup' ) ) :
 			'enqueue_widgets_css'    => false,
 			'image_size_about'       => 'snowbird-thumb',
 			'image_size_posts'       => 'snowbird-small',
-			'social_icons'           => true,
-			'social_icons_class'     => 'xf__social colors circle',
+			'social_icons'           => array(
+				'menu_class' => 'xf__social colors circle',
+			),
 			'contact_fields'         => array(
-				'action_hooks' => 'snowbird_author_bio'
-			)
+				'container_class' => 'author-links',
+				'action_hooks'    => 'snowbird_author_bio',
+			),
 		) );
 
 		/**

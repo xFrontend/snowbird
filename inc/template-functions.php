@@ -475,7 +475,7 @@ if ( ! function_exists( 'snowbird_list_contributors' ) ) :
 						 * @see https://developer.wordpress.org/reference/functions/add_action/
 						 */
 						if ( has_action( 'snowbird_author_bio' ) ) :
-							do_action( 'snowbird_author_bio', array( 'user_id' => $contributor_id ) );
+							do_action( 'snowbird_author_bio', $contributor_id );
 						endif; ?>
 
 						<?php if ( $post_count ) : ?>

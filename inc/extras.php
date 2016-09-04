@@ -47,7 +47,7 @@ add_action( 'wp_head', 'snowbird_header_link', 1 );
  * @return mixed
  */
 function snowbird_add_ie_header( $headers ) {
-	if ( Snowbird()->is_current_agent( 'IE' ) ) {
+	if ( Snowbird()->current_agent( 'IE' ) ) {
 		$headers['X-UA-Compatible'] = 'IE=edge,chrome=1';
 	}
 

@@ -31,6 +31,6 @@ $author_bio = snowbird_get_author_bio(); ?>
 	 * @see https://developer.wordpress.org/reference/functions/add_action/
 	 */
 	if ( has_action( 'snowbird_author_bio' ) ) :
-		do_action( 'snowbird_author_bio', array( 'user_id' => get_the_author_meta( 'ID' ) ) );
+		do_action( 'snowbird_author_bio', get_the_author_meta( 'ID' ) );
 	endif; ?>
 </div>
