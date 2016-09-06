@@ -91,7 +91,7 @@
 
             newImg.src = img.attr('src');
 
-            $(newImg).bind(function () {
+            $(newImg).on('load.snowbird', function () {
                 var imgWidth = newImg.width;
 
                 if (imgPosTop > entryFooterPosBottom) {
@@ -161,20 +161,20 @@
             // Sidebar Toggle Button
             var toggleClass = 'xf__toggle-on';
 
-            $('.xf__toggle').on('click', function () {
+            $('.xf__toggle').on('click.snowbird', function () {
                 $body.addClass(toggleClass);
             });
 
-            $('.xf__close').on('click', function () {
+            $('.xf__close').on('click.snowbird', function () {
                 $body.removeClass(toggleClass);
             });
 
-            $('.content-area').on('click', function () {
+            $('.content-area').on('click.snowbird', function () {
                 $body.removeClass(toggleClass);
             });
 
             // Go Top button
-            $('.xf__top').on('click', function (e) {
+            $('.xf__top').on('click.snowbird', function (e) {
                 e.preventDefault();
 
                 $('.xf__sidebar').getNiceScroll(0).doScrollTop(0);
@@ -217,7 +217,7 @@
         })
 
         // Re-initialize the main navigation when it is updated, persisting any existing submenu expanded states.
-        .on('customize-preview-menu-refreshed', function (e, params) {
+        .on('customize-preview-menu-refreshed.snowbird', function (e, params) {
             if ('primary' === params.wpNavMenuArgs.theme_location) {
                 initMainNavigation(params.newContainer);
 
