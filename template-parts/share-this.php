@@ -17,7 +17,7 @@ if ( isset( $thumb[0] ) ) {
  * @see https://developer.wordpress.org/reference/functions/add_action/
  */
 if ( has_action( 'snowbird_share_this' ) ) {
-	do_action( 'snowbird_share_this', array( 'thumbnail' => $thumbnail ) );
+	do_action( 'snowbird_share_this', $thumbnail );
 
 	return;
 }

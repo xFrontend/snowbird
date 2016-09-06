@@ -56,6 +56,10 @@ if ( ! is_wp_error( $data ) && $data->have_posts() ) : ?>
 								<?php the_post_thumbnail( 'snowbird-thumb' ); ?>
 
 								<div class="overlay"></div>
+							<?php elseif ( has_action( 'snowbird_related_post_default_thumbnail' ) ) :
+								do_action( 'snowbird_related_post_default_thumbnail' ); ?>
+
+								<div class="overlay"></div>
 							<?php endif; ?>
 						</a>
 					</div>

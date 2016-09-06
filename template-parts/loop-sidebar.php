@@ -62,7 +62,7 @@
 	 * @see https://developer.wordpress.org/reference/functions/add_action/
 	 */
 	if ( has_action( 'snowbird_share_this_loop' ) ) :
-		do_action( 'snowbird_share_this_loop', array( 'thumbnail' => $thumbnail ) );
+		do_action( 'snowbird_share_this_loop', $thumbnail );
 	else : ?>
 		<div class="xf__entry-share">
 			<p class="share-title"><?php esc_html_e( 'Share on:', 'snowbird' ); ?></p>

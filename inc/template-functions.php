@@ -164,7 +164,7 @@ function snowbird_get_related_posts( $count = 4, $current_post_id = 0, $cache = 
 					'operator' => 'IN',
 				),
 			),
-		) );
+		), $current_post_id, $count );
 
 		$data = new WP_Query( $args );
 
