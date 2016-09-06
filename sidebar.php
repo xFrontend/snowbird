@@ -31,11 +31,11 @@
 		</header>
 
 		<div class="widget-area">
-			<?php if ( Snowbird()->mod( 'site_display_search' ) ): ?>
-				<div class="widget">
-					<?php echo snowbird_filter_get_search_form(); ?>
-				</div>
-			<?php endif; ?>
+			<?php
+			/**
+			 * Display Search
+			 */
+			snowbird_display_sidebar_search(); ?>
 
 			<?php
 			/**

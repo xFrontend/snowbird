@@ -91,7 +91,7 @@
 
             newImg.src = img.attr('src');
 
-            $(newImg).load(function () {
+            $(newImg).bind(function () {
                 var imgWidth = newImg.width;
 
                 if (imgPosTop > entryFooterPosBottom) {

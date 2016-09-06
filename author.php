@@ -18,12 +18,12 @@
 
 		<div class="xf__page-author">
 			<div class="content xf__container">
-				<?php echo get_avatar( get_the_author_meta( 'ID' ), '170' ); ?>
+				<?php echo get_avatar( get_post()->post_author, '170' ); ?>
 
 				<p><?php echo snowbird_get_author_bio( $generate = true ); ?></p>
 
 				<?php if ( has_action( 'snowbird_author_bio' ) ) :
-					do_action( 'snowbird_author_bio', get_the_author_meta( 'ID' ) );
+					do_action( 'snowbird_author_bio', get_post()->post_author );
 				endif; ?>
 			</div>
 		</div>

@@ -27,7 +27,7 @@ if ( 'alternate' == Snowbird()->mod( 'post_layout_type' ) ) {
 			/**
 			 * Related Posts
 			 */
-			get_template_part( 'template-parts/post-related' ); ?>
+			snowbird_display_related_posts(); ?>
 
 			<?php
 			/**

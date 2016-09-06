@@ -71,12 +71,12 @@ function snowbird_get_author() {
 	if ( is_multi_author() ) {
 		$the_author = sprintf(
 			'<a class="url" href="%1$s" title="%2$s" itemprop="url" rel="author">%3$s</a>',
-			esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ),
-			esc_attr( sprintf( esc_html__( 'Posts by %s', 'snowbird' ), get_the_author() ) ),
-			esc_html( get_the_author() )
+			esc_url( get_author_posts_url( get_post()->post_author ) ),
+			esc_attr( sprintf( esc_html__( 'Posts by %s', 'snowbird' ), get_the_author_meta( 'display_name', get_post()->post_author ) ) ),
+			esc_html( get_the_author_meta( 'display_name', get_post()->post_author ) )
 		);
 	} else {
-		$the_author = esc_html( get_the_author() );
+		$the_author = esc_html( get_the_author_meta( 'display_name', get_post()->post_author ) );
 	}
 
 	return apply_filters( 'snowbird_get_author', $the_author );
@@ -93,15 +93,15 @@ function snowbird_get_author() {
 if ( ! function_exists( 'snowbird_get_author_bio' ) ) :
 
 	function snowbird_get_author_bio( $generate = false ) {
-		$bio = get_the_author_meta( 'description', get_the_author_meta( 'ID' ) );
+		$bio = get_the_author_meta( 'description', get_post()->post_author );
 
 		if ( $generate && empty( $bio ) ) {
-			$post_count = count_user_posts( get_the_author_meta( 'ID' ) );
+			$post_count = count_user_posts( get_post()->post_author );
 
 			// Translators: 1: author 2: total posts count
 			$bio = sprintf(
 				esc_html__( '%1$s has been contributed to a whooping %2$s.', 'snowbird' ),
-				get_the_author_meta( 'display_name', get_the_author_meta( 'ID' ) ),
+				get_the_author_meta( 'display_name', get_post()->post_author ),
 				sprintf( _n( '%d article', '%d articles', number_format_i18n( $post_count ), 'snowbird' ), number_format_i18n( $post_count ) )
 			);
 		}
@@ -329,6 +329,148 @@ function snowbird_get_footer_widget_classes() {
 }
 
 
+if ( ! function_exists( 'snowbird_display_author_bio' ) ) :
+
+	function snowbird_display_sidebar_search() {
+		if ( Snowbird()->mod( 'site_display_search' ) ): ?>
+			<div class="xf__search_container widget">
+				<?php echo snowbird_filter_get_search_form(); ?>
+			</div>
+		<?php else : ?>
+			<div class="xf__search_container" style="display: none;"></div>
+			<?php
+		endif;
+	}
+
+endif;
+
+
+if ( ! function_exists( 'snowbird_display_author_bio' ) ) :
+
+	function snowbird_display_author_bio() {
+
+		if ( is_customize_preview() && ! Snowbird()->mod( 'post_display_author_bio' ) ) :
+			?>
+			<div class="xf__author-bio" style="display: none"></div>
+			<?php
+		elseif ( ! Snowbird()->mod( 'post_display_author_bio' ) ) : ?>
+			<p class="entry-author vcard screen-reader-text" itemtype="http://schema.org/Person" itemscope="itemscope"
+			   itemprop="author">
+				<span><?php esc_html_e( 'Written by', 'snowbird' ); ?></span>
+				<span class="fn" itemprop="name"><?php echo snowbird_get_author(); ?></span></p>
+			<?php
+		else :
+			get_template_part( 'template-parts/post-author' );
+		endif;
+	}
+
+endif;
+
+
+if ( ! function_exists( 'snowbird_display_share_this' ) ) :
+
+	function snowbird_display_share_this() {
+		if ( is_single() && ! is_attachment() && Snowbird()->mod( 'post_display_share_this' ) ) :
+			get_template_part( 'template-parts/share-this' );
+		elseif ( is_page() && Snowbird()->mod( 'page_display_share_this' ) ) :
+			get_template_part( 'template-parts/share-this' );
+		elseif ( is_customize_preview() ) : ?>
+			<div class="xf__share-container" style="display: none;"></div>
+		<?php endif;
+	}
+
+endif;
+
+
+if ( ! function_exists( 'snowbird_display_related_posts' ) ) :
+
+	function snowbird_display_related_posts() {
+		/**
+		 * Return early based on the setting
+		 */
+		if ( is_customize_preview() && ! Snowbird()->mod( 'post_display_related' ) ) {
+			?>
+			<div class="xf__block xf__related" style="display: none;"></div><?php
+
+			return;
+		} elseif ( ! Snowbird()->mod( 'post_display_related' ) ) {
+			return;
+		}
+
+		/**
+		 * Get Related posts data
+		 */
+		$data = snowbird_get_related_posts( 4 );
+
+		if ( ! is_wp_error( $data ) && $data->have_posts() ) : ?>
+			<div class="xf__block xf__related">
+				<?php
+				switch ( $data->post_count ) {
+					case 4:
+						$class_container = 'xf__full-width';
+						$class_item      = 'related-item one-fourth';
+						break;
+
+					case 3:
+						$class_container = 'xf__full-width';
+						$class_item      = 'related-item one-third';
+						break;
+
+					default:
+						$class_container = 'xf__container';
+						$class_item      = 'related-item one-half';
+				} ?>
+				<div class="<?php echo esc_attr( $class_container ); ?>">
+					<div class="xf__block-header screen-reader-text">
+						<h3 class="xf__block-title related-title"><?php _e( 'Related Entries', 'snowbird' ); ?></h3>
+					</div>
+
+					<div class="row">
+						<?php while ( $data->have_posts() ) : $data->the_post(); ?>
+
+							<div class="column <?php echo esc_attr( $class_item ); ?>">
+								<a href="<?php the_permalink(); ?>">
+									<div class="wrapper">
+										<div class="content">
+											<h4 class="post-title"><?php the_title(); ?></h4>
+
+											<?php
+											printf(
+												'<span class="post-date"><time class="entry-date published" datetime="%1$s">%2$s</time></span>',
+												esc_attr( get_the_time( 'c' ) ),
+												esc_html( get_the_time( get_option( 'date_format' ) ) )
+											); ?>
+										</div>
+									</div>
+
+									<?php if ( has_post_thumbnail() ) : ?>
+										<?php the_post_thumbnail( 'snowbird-thumb' ); ?>
+
+										<div class="overlay"></div>
+									<?php elseif ( has_action( 'snowbird_related_post_default_thumbnail' ) ) :
+										do_action( 'snowbird_related_post_default_thumbnail' ); ?>
+
+										<div class="overlay"></div>
+									<?php endif; ?>
+								</a>
+							</div>
+
+						<?php endwhile; ?>
+					</div>
+				</div>
+			</div>
+		<?php endif; ?>
+
+		<?php
+		/**
+		 * Restores the $post global
+		 */
+		wp_reset_postdata();
+	}
+
+endif;
+
+
 /**
  * Whether to display Footer Widgets Area?
  *
@@ -372,6 +514,67 @@ if ( ! function_exists( 'snowbird_maybe_display_footer' ) ) :
 		}
 
 		return false;
+	}
+
+endif;
+
+
+if ( ! function_exists( 'snowbird_display_footer_widgets' ) ) :
+
+	function snowbird_display_footer_widgets() {
+		if ( $columns = snowbird_maybe_display_footer() ) :
+			?>
+			<div class="widget-area">
+				<div class="xf__container row clear">
+					<?php
+					for ( $i = 1; $i <= $columns; $i ++ ) {
+						if ( is_active_sidebar( 'footer-' . $i ) ) {
+							echo '<div class="' . esc_attr( snowbird_get_footer_widget_classes() ) . ( 1 == $i ? ' first' : '' ) . ( $i == $columns ? ' last' : '' ) . '">';
+
+							dynamic_sidebar( 'footer-' . $i );
+
+							echo '</div>';
+						}
+					} ?>
+				</div>
+			</div>
+			<?php
+
+		elseif ( is_customize_preview() ) :
+			echo '<nav class="widget-area" style="display:none;"></nav>';
+		endif;
+	}
+
+endif;
+
+
+if ( ! function_exists( 'snowbird_display_footer_menu' ) ) :
+
+	function snowbird_display_footer_menu() {
+		if ( 'social' === Snowbird()->mod( 'footer_menu_location' ) && has_nav_menu( 'social' ) ) :
+
+			wp_nav_menu( array(
+				'theme_location'  => 'social',
+				'container'       => 'nav',
+				'container_class' => 'xf__footer-menu xf__nav-social',
+				'depth'           => 1,
+				'menu_class'      => 'xf__social colors circle',
+				'link_before'     => '<span class="screen-reader-text">',
+				'link_after'      => '</span>',
+			) );
+
+		elseif ( 'secondary' === Snowbird()->mod( 'footer_menu_location' ) && has_nav_menu( 'secondary' ) ) :
+
+			wp_nav_menu( array(
+				'theme_location'  => 'secondary',
+				'container'       => 'nav',
+				'container_class' => 'xf__footer-menu xf__nav-footer',
+				'depth'           => 1,
+			) );
+
+		elseif ( is_customize_preview() ) :
+			echo '<nav class="xf__footer-menu" style="display:none;"></nav>';
+		endif;
 	}
 
 endif;

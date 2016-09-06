@@ -21,11 +21,10 @@
 
 		<?php else : ?>
 
-			<?php echo get_avatar( get_the_author_meta( 'ID' ), '85' ); ?>
+			<?php echo get_avatar( get_post()->post_author, '85' ); ?>
 			<p class="entry-author vcard" itemtype="http://schema.org/Person" itemscope="itemscope" itemprop="author">
-				<span><?php esc_html_e( 'by:', 'snowbird' ); ?></span> <span class="fn author"
-				                                                             itemprop="name"><?php echo snowbird_get_author(); ?></span>
-			</p>
+				<span><?php esc_html_e( 'by:', 'snowbird' ); ?></span>
+				<span class="fn author" itemprop="name"><?php echo snowbird_get_author(); ?></span></p>
 
 			<?php if ( ! post_password_required() ) : ?>
 				<p class="comment-count">

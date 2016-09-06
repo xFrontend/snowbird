@@ -24,7 +24,7 @@ if ( has_action( 'snowbird_share_this' ) ) {
 
 ?>
 
-<div class="xf__share-this">
+<div class="xf__share-container xf__share-this">
 	<span><?php esc_html_e( 'Share this:', 'snowbird' ); ?></span>
 
 	<a class="facebook" title="<?php esc_html_e( 'Share on Facebook', 'snowbird' ); ?>"

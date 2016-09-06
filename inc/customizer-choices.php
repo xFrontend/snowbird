@@ -82,7 +82,7 @@ function snowbird_choices_loop_layout_type() {
  */
 function snowbird_choices_opacity() {
 	return apply_filters( 'snowbird_choices_opacity', array(
-		'min'  => 0,
+		'min'  => 1,
 		'max'  => 100,
 		'step' => 1,
 	) );
@@ -109,7 +109,7 @@ function snowbird_choices_post_layout_type() {
  */
 function snowbird_choices_posts_per_page() {
 	return apply_filters( 'snowbird_choices_posts_per_page', array(
-		'min'  => 4,
+		'min'  => 2,
 		'max'  => 20,
 		'step' => 1,
 	) );

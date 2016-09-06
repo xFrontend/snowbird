@@ -34,11 +34,7 @@
 			/**
 			 * Social Share
 			 */
-			if ( Snowbird()->mod( 'page_display_share_this' ) ) : ?>
-				<footer class="xf__post-footer">
-					<?php get_template_part( 'template-parts/share-this' ); ?>
-				</footer>
-			<?php endif; ?>
+			snowbird_display_share_this(); ?>
 		</div>
 	</div>
 </article>

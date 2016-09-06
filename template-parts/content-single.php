@@ -33,17 +33,7 @@
 			/**
 			 * Post Author Bio
 			 */
-			if ( Snowbird()->mod( 'post_display_author_bio' ) ) :
-
-				get_template_part( 'template-parts/post-author' );
-
-			else : ?>
-				<p class="entry-author vcard screen-reader-text" itemtype="http://schema.org/Person"
-				   itemscope="itemscope" itemprop="author">
-					<span><?php esc_html_e( 'Written by', 'snowbird' ); ?></span> <span class="fn"
-					                                                                    itemprop="name"><?php echo snowbird_get_author(); ?></span>
-				</p>
-			<?php endif; ?>
+			snowbird_display_author_bio(); ?>
 
 			<div class="content entry-content" itemprop="text">
 				<?php
@@ -81,11 +71,7 @@
 				/**
 				 * Social Share
 				 */
-				if ( ! is_attachment() && Snowbird()->mod( 'post_display_share_this' ) ) :
-
-					get_template_part( 'template-parts/share-this' );
-
-				endif; ?>
+				snowbird_display_share_this(); ?>
 			</footer>
 		</div>
 

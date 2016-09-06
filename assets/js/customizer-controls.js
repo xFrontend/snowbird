@@ -1,9 +1,9 @@
 /* global snowbirdColorScheme, Color */
+
 /**
  * Add a listener to the Color Scheme control to update other color controls to new values/defaults.
  * Also trigger an update of the Color Scheme CSS when a color is changed.
  */
-
 (function (wp) {
     'use strict';
 
@@ -61,8 +61,41 @@
             // Button
             'button_text_color',
             'button_background_color'
-        ];
+        ],
 
+        // Generate the CSS for the current Color Scheme.
+        updateCSS = function () {
+            var scheme = api('color_scheme')(), css,
+                colors = _.object(colorSchemeKeys, snowbirdColorScheme[scheme].colors);
+
+            // Merge in color scheme overrides.
+            _.each(colorSettings, function (setting) {
+                colors[setting] = api(setting)();
+            });
+
+            // Add additional color.
+            colors.header_border_rgba = new Color(colors.content_text_color).toCSS('rgba', 0.1);
+
+            colors.content_border_rgba = new Color(colors.content_text_color).toCSS('rgba', 0.1);
+            colors.content_accent_rgba = new Color(colors.content_accent_color).toCSS('rgba', 0.85);
+
+            colors.footer_border_rgba = new Color(colors.footer_text_color).toCSS('rgba', 0.1);
+            colors.footer_accent_rgba = new Color(colors.footer_accent_color).toCSS('rgba', 0.85);
+
+            css = cssTemplate(colors);
+
+            api.previewer.send('update-color-scheme-css', css);
+        },
+
+        // Generate the css for header image overlay.
+        overlay_css = function () {
+            var rgba = new Color(api('header_overlay_color')()).toCSS('rgba', api('header_overlay_opacity')() / 100),
+                css = '.xf__header .background .overlay { background-color: ' + rgba + '; }';
+
+            api.previewer.send('update-header-overlay-css', css);
+        };
+
+    // Default colors for current scheme.
     api.controlConstructor.select = api.Control.extend({
         ready: function () {
             if ('color_scheme' === this.id) {
@@ -83,34 +116,17 @@
         }
     });
 
-    // Generate the CSS for the current Color Scheme.
-    function updateCSS() {
-        var scheme = api('color_scheme')(), css,
-            colors = _.object(colorSchemeKeys, snowbirdColorScheme[scheme].colors);
-
-        // Merge in color scheme overrides.
-        _.each(colorSettings, function (setting) {
-            colors[setting] = api(setting)();
-        });
-
-        // Add additional color.
-        colors.header_border_rgba = new Color(colors.content_text_color).toCSS('rgba', 0.1);
-
-        colors.content_border_rgba = new Color(colors.content_text_color).toCSS('rgba', 0.1);
-        colors.content_accent_rgba = new Color(colors.content_accent_color).toCSS('rgba', 0.85);
-
-        colors.footer_border_rgba = new Color(colors.footer_text_color).toCSS('rgba', 0.1);
-        colors.footer_accent_rgba = new Color(colors.footer_accent_color).toCSS('rgba', 0.85);
-
-        css = cssTemplate(colors);
-
-        api.previewer.send('update-color-scheme-css', css);
-    }
-
     // Update the CSS whenever a color setting is changed.
     _.each(colorSettings, function (setting) {
-        api(setting, function (setting) {
-            setting.bind(updateCSS);
+        api(setting, function (control) {
+            control.bind(updateCSS);
+        });
+    });
+
+    // Update the CSS for header image overlay.
+    _.each(['header_overlay_color', 'header_overlay_opacity'], function (setting) {
+        api(setting, function (control) {
+            control.bind(overlay_css);
         });
     });
 
