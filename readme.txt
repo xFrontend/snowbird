@@ -24,7 +24,7 @@ Snowbird is a responsive WordPress Blog Theme beautifully designed especially fo
 
 == Changelog ==
 
-= 1.3 =
+= v1.3 =
 Release Date: August 14, 2016
 
 * New - Requires WordPress 4.5 or later.
@@ -41,7 +41,7 @@ Release Date: August 14, 2016
 * Fixes - PHP Warning (Too few arguments) in 404.php.
 * Code Cleanups.
 
-= 1.2 =
+= v1.2 =
 Release Date: October 19, 2015
 
 * New - Alternate Layout for Posts Listing.
@@ -56,7 +56,7 @@ Release Date: October 19, 2015
 * Fixes - Header Logo Image size.
 * Fixes - CSS for Gallery columns.
 
-= 1.1 =
+= v1.1 =
 Release Date: October 12, 2015
 
 * New - Built-in Lightbox for Gallery/Image Links.
@@ -67,7 +67,7 @@ Release Date: October 12, 2015
 * Fixes - Data Sanitization for Editors Style.
 * Fixes - CSS Media Queries for Posts Listing.
 
-= 1.0 =
+= v1.0 =
 Release Date: October 4, 2015
 
 * Initial release.
@@ -75,17 +75,27 @@ Release Date: October 4, 2015
 
 == Credits ==
 
-We have used the following opensource projects or other files as listed.
-
-* Underscores - http://underscores.me/
-* Normalize.css http://necolas.github.io/normalize.css/
-* Font Awesome http://fortawesome.github.io/Font-Awesome/
-* Fitvids http://fitvidsjs.com/
-* jQuery Nicescroll http://nicescroll.areaaperta.com/
-* Magnific Popup - http://dimsemenov.com/plugins/magnific-popup/
-* Screenshot Images - https://pixabay.com/
-
 Snowbird Colors Scheme are inspired from:
 
-* Google Material Design Colors - https://www.google.com/design/spec/style/color.html
-* Twenty Sixteen WordPress Theme - https://wordpress.org/themes/twentysixteen/
+* [Google Material Design Colors](https://www.google.com/design/spec/style/color.html).
+* [Twenty Sixteen WordPress Theme](https://wordpress.org/themes/twentysixteen/).
+
+== Copyright and License ==
+
+The following resources are not included with the theme but are external resources linked to within the theme.
+
+* [Droid Serif Font](http://www.google.com/fonts/specimen/Droid+Serif) by Steve Matteson - Licensed under the [Apache License, version 2.0](http://www.apache.org/licenses/LICENSE-2.0.html).
+* [Anton Font](http://www.google.com/fonts/specimen/Open+Sans) by Vernon Adams - Licensed under the [Open Font License](http://scripts.sil.org/cms/scripts/page.php?site_id=nrsi&id=OFL_web).
+
+The following resources are included within the theme package.
+
+* [Normalize](ttp://necolas.github.io/normalize.css/) by Nicolas Gallagher, co-created with Jonathan Neal - Licensed under the [MIT License](http://opensource.org/licenses/MIT).
+* [Font Awesome](http://fontawesome.io/) by Dave Gandy - Font Licensed under the [SIL OFL 1.1](http://scripts.sil.org/OFL), CSS Licensed under the [MIT License](http://opensource.org/licenses/MIT).
+* [Fitvids](http://fitvidsjs.com/) by Chris Coyier - Licensed under the [WTFPL license](http://sam.zoy.org/wtfpl/).
+* [jQuery Nicescroll](https://github.com/inuyaksa/jquery.nicescroll) by InuYaksa - Licensed under the [MIT License](http://opensource.org/licenses/MIT).
+* [Magnific Popup](http://dimsemenov.com/plugins/magnific-popup/) by Dmitry Semenov - Licensed under the [MIT License](http://opensource.org/licenses/MIT).
+* [Photograph used on Screenshot](https://pixabay.com/en/beach-relaxation-sunbathing-female-591125/) by Gregory Kirk Johnson - Licensed under the [CC0 Public Domain](https://creativecommons.org/publicdomain/zero/1.0/deed.en).
+
+All other resources and theme elements are licensed under the [GNU GPL](http://www.gnu.org/licenses/old-licenses/gpl-2.0.html), version 2 or later.
+
+&copy; 2015&thinsp;&ndash;&thinsp;2016 [Omaar Osmaan](https://moonomo.com/).
