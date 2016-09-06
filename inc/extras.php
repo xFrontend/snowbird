@@ -303,3 +303,52 @@ function snowbird_navigation_markup_template( $template, $class ) {
 }
 
 add_filter( 'navigation_markup_template', 'snowbird_navigation_markup_template', 10, 2 );
+
+
+/**
+ * Update old snowbird logo data to custom-logo.
+ *
+ * TODO: Remove in a future release.
+ */
+function snowbird_logo_data_update() {
+
+	/**
+	 * Bail early if we're not in Admin, or current user does not have proper permission.
+	 */
+	if ( ! is_admin() || ! current_user_can( 'edit_theme_options') ) {
+		return;
+	}
+
+	$the_key = Snowbird()->codename( 'update_logo_data' );
+
+	/**
+	 * Bail if we've done it before.
+	 */
+	if ( get_option( $the_key ) ) {
+		return;
+	}
+
+	$logo_data = Snowbird()->url_to_image_data( Snowbird()->mod( 'logo_image' ) );
+
+	if ( '' !== $logo_data ) {
+		/**
+		 * Sets custom-logo data.
+		 */
+		set_theme_mod( 'custom_logo', $logo_data['id'] );
+
+		/**
+		 * Removes old data.
+		 */
+		remove_theme_mod( 'logo_image' );
+		remove_theme_mod( 'logo_image_data' );
+		remove_theme_mod( 'logo_image_2x' );
+		remove_theme_mod( 'logo_image_2x_data' );
+	}
+
+	/**
+	 * Mark we're done.
+	 */
+	add_option( $the_key, Snowbird()->version() );
+}
+
+add_action( 'after_setup_theme', 'snowbird_logo_data_update', 99 );
