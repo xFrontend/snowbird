@@ -620,7 +620,7 @@ function snowbird_customize_register( $wp_customize ) {
 	 * Partials for Selective Refresh
 	 */
 	$wp_customize->selective_refresh->add_partial( 'site_brand', array(
-		'selector'        => '.xf__header > .content',
+		'selector'        => '.xf__header-logo',
 		'settings'        => array( 'custom_logo' ),
 		'render_callback' => 'snowbird_site_brand',
 	) );

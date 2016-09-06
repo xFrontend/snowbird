@@ -1,5 +1,5 @@
 <header class="xf__header">
-	<div class="content xf__container">
+	<div class="content xf__header-logo xf__container">
 		<?php
 		/**
 		 * Site Logo/Title

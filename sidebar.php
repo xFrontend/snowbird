@@ -2,7 +2,7 @@
 	<div class="sidebar-area">
 
 		<header class="xf__header" itemtype="http://schema.org/WPHeader" itemscope="itemscope">
-			<div class="content">
+			<div class="content xf__header-logo">
 				<?php
 				/**
 				 * Site Logo/Title
