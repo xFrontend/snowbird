@@ -2,9 +2,9 @@
 # This file is distributed under the GNU General Public License v2 or later.
 msgid ""
 msgstr ""
-"Project-Id-Version: Snowbird 1.3\n"
+"Project-Id-Version: Snowbird 1.4\n"
 "Report-Msgid-Bugs-To: https://xfrontend.com/\n"
-"POT-Creation-Date: 2016-08-14 10:54:37+00:00\n"
+"POT-Creation-Date: 2016-09-07 19:30:47+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -24,134 +24,134 @@ msgstr ""
 msgid "Most Used Categories"
 msgstr ""
 
-#: archive.php:23 author.php:30
+#: archive.php:23 author.php:34
 msgid "Recent Posts"
 msgstr ""
 
-#: comments.php:38
+#: comments.php:36
 msgctxt "comments title"
 msgid "One Comment"
 msgid_plural "%1$s Comments"
 msgstr[0] ""
 msgstr[1] ""
 
-#: comments.php:60
+#: comments.php:58
 msgid "Comment navigation"
 msgstr ""
 
-#: comments.php:64
+#: comments.php:62
 msgid "Older Comments"
 msgstr ""
 
-#: comments.php:66
+#: comments.php:64
 msgid "Newer Comments"
 msgstr ""
 
-#: comments.php:79
+#: comments.php:77
 msgid "Comments are closed."
 msgstr ""
 
-#: comments.php:93
+#: comments.php:91
 msgctxt "required field mark"
 msgid "*"
 msgstr ""
 
-#: comments.php:97
+#: comments.php:95
 msgid "Leave a Reply"
 msgstr ""
 
-#: comments.php:98
+#: comments.php:96
 msgid "Leave a Reply to %s"
 msgstr ""
 
-#: comments.php:99
+#: comments.php:97
 msgid "Cancel Reply"
 msgstr ""
 
-#: comments.php:100
+#: comments.php:98
 msgid "Your email address will not be published."
 msgstr ""
 
-#: comments.php:100
+#: comments.php:98
 msgid "Required fields are marked %s"
 msgstr ""
 
-#: comments.php:102 template-parts/loop-sidebar.php:16
+#: comments.php:100 template-parts/loop-sidebar.php:16
 msgid "Comment"
 msgstr ""
 
-#: comments.php:104
+#: comments.php:102
 msgid "Name %s"
 msgstr ""
 
-#: comments.php:105
+#: comments.php:103
 msgid "Email %s"
 msgstr ""
 
-#: comments.php:106
+#: comments.php:104
 msgid "Website"
 msgstr ""
 
-#: comments.php:108
+#: comments.php:106
 msgid "Post Comment"
 msgstr ""
 
 #. translators: 1. Current Year 1. Site Link 3. WordPress Link 4. xFrontend
 #. Link
 
-#: footer.php:54
+#: footer.php:18
 msgid "&copy; %1$d %2$s. Powered by %3$s &amp; %4$s."
 msgstr ""
 
-#: footer.php:65 footer.php:66
+#: footer.php:29 footer.php:30
 msgid "WordPress"
 msgstr ""
 
-#: footer.php:71 footer.php:72
+#: footer.php:35 footer.php:36
 msgid "xFrontend"
 msgstr ""
 
-#: footer.php:87
+#: footer.php:51
 msgid "Show Sidebar"
 msgstr ""
 
-#: functions.php:68
+#: functions.php:71
 msgctxt "admin"
 msgid "Primary Menu"
 msgstr ""
 
-#: functions.php:69
+#: functions.php:72
 msgctxt "admin"
 msgid "Secondary Menu"
 msgstr ""
 
-#: functions.php:70
+#: functions.php:73
 msgctxt "admin"
 msgid "Social Menu"
 msgstr ""
 
-#: functions.php:163
+#: functions.php:174
 msgctxt "admin"
 msgid "Sidebar"
 msgstr ""
 
-#: functions.php:175
+#: functions.php:186
 msgctxt "admin"
 msgid "Footer-%s"
 msgstr ""
 
-#: functions.php:265
+#: functions.php:278
 msgid "expand child menu"
 msgstr ""
 
-#: functions.php:266
+#: functions.php:279
 msgid "collapse child menu"
 msgstr ""
 
 #. translators: If there are characters in your language that are not supported
 #. by Anton, translate this to 'off'. Do not translate into your own language.
 
-#: functions.php:305
+#: functions.php:304
 msgctxt "Anton font: on or off"
 msgid "on"
 msgstr ""
@@ -160,12 +160,12 @@ msgstr ""
 #. by Droid Serif, translate this to 'off'. Do not translate into your own
 #. language.
 
-#: functions.php:310
+#: functions.php:309
 msgctxt "Droid Serif font: on or off"
 msgid "on"
 msgstr ""
 
-#: inc/back-compat.php:37 inc/back-compat.php:47 inc/back-compat.php:61
+#: inc/back-compat.php:39 inc/back-compat.php:50 inc/back-compat.php:65
 msgctxt "admin"
 msgid "Snowbird requires at least WordPress version 4.5. You are running version %s. Please upgrade and try again."
 msgstr ""
@@ -624,292 +624,292 @@ msgctxt "admin"
 msgid "Right"
 msgstr ""
 
-#: inc/customizer.php:39
+#: inc/customizer.php:40
 msgctxt "admin"
 msgid "Theme Settings"
 msgstr ""
 
-#: inc/customizer.php:51
+#: inc/customizer.php:52
 msgctxt "admin"
 msgid "Sidebar Position"
 msgstr ""
 
-#: inc/customizer.php:65
+#: inc/customizer.php:67
 msgctxt "admin"
 msgid "Display \"Search\" in Sidebar"
 msgstr ""
 
-#: inc/customizer.php:81
+#: inc/customizer.php:83
 msgctxt "admin"
 msgid "Posts Listing"
 msgstr ""
 
-#: inc/customizer.php:93 inc/customizer.php:161
+#: inc/customizer.php:95 inc/customizer.php:164
 msgctxt "admin"
 msgid "Layout"
 msgstr ""
 
-#: inc/customizer.php:106
+#: inc/customizer.php:108
 msgctxt "admin"
 msgid "Display Content"
 msgstr ""
 
-#: inc/customizer.php:119
+#: inc/customizer.php:121
 msgctxt "admin"
 msgid "Excerpt Length (Max Words)"
 msgstr ""
 
-#: inc/customizer.php:133
+#: inc/customizer.php:135
 msgctxt "admin"
 msgid "Posts Per Page"
 msgstr ""
 
-#: inc/customizer.php:149
+#: inc/customizer.php:152
 msgctxt "admin"
 msgid "Post (Single)"
 msgstr ""
 
-#: inc/customizer.php:175 inc/customizer.php:243
+#: inc/customizer.php:179 inc/customizer.php:251
 msgctxt "admin"
 msgid "Display in Full Content Width"
 msgstr ""
 
-#: inc/customizer.php:188
+#: inc/customizer.php:193
 msgctxt "admin"
 msgid "Display Author Bio"
 msgstr ""
 
-#: inc/customizer.php:201 inc/customizer.php:256
+#: inc/customizer.php:207 inc/customizer.php:265
 msgctxt "admin"
 msgid "Display Share This"
 msgstr ""
 
-#: inc/customizer.php:214
+#: inc/customizer.php:221
 msgctxt "admin"
 msgid "Display Related Posts"
 msgstr ""
 
-#: inc/customizer.php:230
+#: inc/customizer.php:237
 msgctxt "admin"
 msgid "Page"
 msgstr ""
 
-#: inc/customizer.php:283
+#: inc/customizer.php:293
 msgctxt "admin"
 msgid "Footer Widgets Area"
 msgstr ""
 
-#: inc/customizer.php:296
+#: inc/customizer.php:307
 msgctxt "admin"
 msgid "Footer Menu Location"
 msgstr ""
 
-#: inc/customizer.php:313
+#: inc/customizer.php:325
 msgctxt "admin"
 msgid "Base Color Scheme"
 msgstr ""
 
-#: inc/customizer.php:343
+#: inc/customizer.php:355
 msgctxt "admin"
 msgid "Header Text Color"
 msgstr ""
 
-#: inc/customizer.php:355
+#: inc/customizer.php:367
 msgctxt "admin"
 msgid "Header Background Color"
 msgstr ""
 
-#: inc/customizer.php:382
+#: inc/customizer.php:394
 msgctxt "admin"
 msgid "Content Title Color"
 msgstr ""
 
-#: inc/customizer.php:394
+#: inc/customizer.php:406
 msgctxt "admin"
 msgid "Content Text Color"
 msgstr ""
 
-#: inc/customizer.php:406
+#: inc/customizer.php:418
 msgctxt "admin"
 msgid "Content Secondary Color"
 msgstr ""
 
-#: inc/customizer.php:418
+#: inc/customizer.php:430
 msgctxt "admin"
 msgid "Content Accent Color"
 msgstr ""
 
-#: inc/customizer.php:430
+#: inc/customizer.php:442
 msgctxt "admin"
 msgid "Content Background Color"
 msgstr ""
 
-#: inc/customizer.php:457
+#: inc/customizer.php:469
 msgctxt "admin"
 msgid "Footer Title Color"
 msgstr ""
 
-#: inc/customizer.php:469
+#: inc/customizer.php:481
 msgctxt "admin"
 msgid "footer Text Color"
 msgstr ""
 
-#: inc/customizer.php:481
+#: inc/customizer.php:493
 msgctxt "admin"
 msgid "Footer Secondary Color"
 msgstr ""
 
-#: inc/customizer.php:493
+#: inc/customizer.php:505
 msgctxt "admin"
 msgid "Footer Accent Color"
 msgstr ""
 
-#: inc/customizer.php:505
+#: inc/customizer.php:517
 msgctxt "admin"
 msgid "Footer Background Color"
 msgstr ""
 
-#: inc/customizer.php:532
+#: inc/customizer.php:544
 msgctxt "admin"
 msgid "Button Text Color"
 msgstr ""
 
-#: inc/customizer.php:544
+#: inc/customizer.php:556
 msgctxt "admin"
 msgid "Button Background Color"
 msgstr ""
 
-#: inc/customizer.php:559
+#: inc/customizer.php:572
 msgctxt "admin"
 msgid "Overlay Color"
 msgstr ""
 
-#: inc/customizer.php:560
+#: inc/customizer.php:573
 msgctxt "admin"
 msgid "Adjust overlay color/opacity to display when you upload a header image."
 msgstr ""
 
-#: inc/customizer.php:571
+#: inc/customizer.php:585
 msgctxt "admin"
 msgid "Overlay Opacity"
 msgstr ""
 
-#: inc/customizer.php:582 inc/customizer.php:594
+#: inc/customizer.php:596 inc/customizer.php:608
 msgctxt "admin"
 msgid "Custom CSS"
 msgstr ""
 
-#: inc/customizer.php:595
+#: inc/customizer.php:609
 msgctxt "admin"
 msgid "Add your custom CSS rules here without any &lt;style&gt;&lt;/style&gt; tag."
 msgstr ""
 
-#: inc/extras.php:146 inc/extras.php:160
+#: inc/extras.php:165 inc/extras.php:179
 msgid "Read More"
 msgstr ""
 
-#: inc/extras.php:200
+#: inc/extras.php:219
 msgid "Search for:"
 msgstr ""
 
-#: inc/extras.php:201
+#: inc/extras.php:220
 msgid "Search..."
 msgstr ""
 
-#: inc/plugins.php:51
+#: inc/plugins.php:44
 msgctxt "admin"
 msgid "Install Recommended Plugins"
 msgstr ""
 
-#: inc/plugins.php:52
+#: inc/plugins.php:45
 msgctxt "admin"
 msgid "Install Plugins"
 msgstr ""
 
-#: inc/plugins.php:54
+#: inc/plugins.php:47
 msgctxt "admin"
 msgid "Installing Plugin: %s"
 msgstr ""
 
-#: inc/plugins.php:55
+#: inc/plugins.php:48
 msgctxt "admin"
 msgid "Something went wrong with the plugin API."
 msgstr ""
 
-#: inc/plugins.php:57
+#: inc/plugins.php:50
 msgctxt "admin"
 msgid "Current theme requires the following plugin: %1$s."
 msgid_plural "Current Theme requires the following plugins: %1$s."
 msgstr[0] ""
 msgstr[1] ""
 
-#: inc/plugins.php:59
+#: inc/plugins.php:52
 msgctxt "admin"
 msgid "Current theme recommends the following plugin: %1$s."
 msgid_plural "Current Theme recommends the following plugins: %1$s."
 msgstr[0] ""
 msgstr[1] ""
 
-#: inc/plugins.php:61
+#: inc/plugins.php:54
 msgctxt "admin"
 msgid "Sorry, but you do not have the correct permissions to install the %s plugin. Contact the administrator of this site for help on getting the plugin installed."
 msgid_plural "Sorry, but you do not have the correct permissions to install the %s plugins. Contact the administrator of this site for help on getting the plugins installed."
 msgstr[0] ""
 msgstr[1] ""
 
-#: inc/plugins.php:63 inc/plugins.php:65
+#: inc/plugins.php:56 inc/plugins.php:58
 msgctxt "admin"
 msgid "The following recommended plugin is currently inactive: %1$s."
 msgid_plural "The following recommended plugins are currently inactive: %1$s."
 msgstr[0] ""
 msgstr[1] ""
 
-#: inc/plugins.php:67
+#: inc/plugins.php:60
 msgctxt "admin"
 msgid "Sorry, but you do not have the correct permissions to activate the %s plugin. Contact the administrator of this site for help on getting the plugin activated."
 msgid_plural "Sorry, but you do not have the correct permissions to activate the %s plugins. Contact the administrator of this site for help on getting the plugins activated."
 msgstr[0] ""
 msgstr[1] ""
 
-#: inc/plugins.php:69
+#: inc/plugins.php:62
 msgctxt "admin"
 msgid "The following plugin needs to be updated to its latest version to ensure maximum compatibility with current Theme: %1$s."
 msgid_plural "The following plugins need to be updated to their latest version to ensure maximum compatibility with current Theme: %1$s."
 msgstr[0] ""
 msgstr[1] ""
 
-#: inc/plugins.php:71
+#: inc/plugins.php:64
 msgctxt "admin"
 msgid "Sorry, but you do not have the correct permissions to update the %s plugin. Contact the administrator of this site for help on getting the plugin updated."
 msgid_plural "Sorry, but you do not have the correct permissions to update the %s plugins. Contact the administrator of this site for help on getting the plugins updated."
 msgstr[0] ""
 msgstr[1] ""
 
-#: inc/plugins.php:72
+#: inc/plugins.php:65
 msgctxt "admin"
 msgid "Begin installing plugin"
 msgid_plural "Begin installing plugins"
 msgstr[0] ""
 msgstr[1] ""
 
-#: inc/plugins.php:73
+#: inc/plugins.php:66
 msgctxt "admin"
 msgid "Begin activating plugin"
 msgid_plural "Begin activating plugins"
 msgstr[0] ""
 msgstr[1] ""
 
-#: inc/plugins.php:74
+#: inc/plugins.php:67
 msgctxt "admin"
 msgid "Return to Recommended Plugins Installer"
 msgstr ""
 
-#: inc/plugins.php:75
+#: inc/plugins.php:68
 msgctxt "admin"
 msgid "Plugin activated successfully."
 msgstr ""
 
-#: inc/plugins.php:77
+#: inc/plugins.php:70
 msgctxt "admin"
 msgid "All plugins installed and activated successfully. %s"
 msgstr ""
@@ -939,45 +939,54 @@ msgctxt "admin"
 msgid "Yellow"
 msgstr ""
 
-#: inc/template-functions.php:75
+#: inc/template-functions.php:45
 msgid "Posts by %s"
 msgstr ""
 
 #. Translators: 1: author 2: total posts count
 
-#: inc/template-functions.php:103
+#: inc/template-functions.php:72
 msgid "%1$s has been contributed to a whooping %2$s."
 msgstr ""
 
-#: inc/template-functions.php:105
+#: inc/template-functions.php:74
 msgid "%d article"
 msgid_plural "%d articles"
 msgstr[0] ""
 msgstr[1] ""
 
-#: inc/template-functions.php:129
+#: inc/template-functions.php:98
 msgid "No posts to show."
 msgstr ""
 
-#: inc/template-functions.php:203
+#: inc/template-functions.php:173
 msgid "Previous Post"
 msgstr ""
 
-#: inc/template-functions.php:203
+#: inc/template-functions.php:173
 msgid "Next Post"
+msgstr ""
+
+#: inc/template-functions.php:409
+#: template-parts/content-single-alternate.php:45
+msgid "Written by"
+msgstr ""
+
+#: inc/template-functions.php:479
+msgid "Related Entries"
 msgstr ""
 
 #. Translators: 1: date 2: time
 
-#: inc/template-functions.php:413
+#: inc/template-functions.php:628
 msgid "%1$s at %2$s"
 msgstr ""
 
-#: inc/template-functions.php:422
+#: inc/template-functions.php:637
 msgid "Your comment is awaiting moderation."
 msgstr ""
 
-#: inc/template-functions.php:471
+#: inc/template-functions.php:695
 msgid "%d Article"
 msgid_plural "%d Articles"
 msgstr[0] ""
@@ -1005,41 +1014,36 @@ msgstr ""
 msgid "Posted on:"
 msgstr ""
 
-#: template-parts/content-none.php:16
+#: template-parts/content-none.php:14
 msgid "Nothing Found"
 msgstr ""
 
-#: template-parts/content-none.php:20
+#: template-parts/content-none.php:18
 msgid "Ready to publish your first post? <a href=\"%1$s\">Get started here</a>."
 msgstr ""
 
-#: template-parts/content-none.php:24
+#: template-parts/content-none.php:22
 msgid "Sorry, but nothing matched your search terms. Please try again with some different keywords."
 msgstr ""
 
-#: template-parts/content-none.php:29
+#: template-parts/content-none.php:27
 msgid "It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps searching can help."
 msgstr ""
 
-#: template-parts/content-page.php:29
-#: template-parts/content-single-alternate.php:66
-#: template-parts/content-single.php:62
+#: template-parts/content-page.php:27
+#: template-parts/content-single-alternate.php:62
+#: template-parts/content-single.php:50
 msgid "Pages:"
 msgstr ""
 
-#: template-parts/content-single-alternate.php:49
-#: template-parts/content-single.php:45
-msgid "Written by"
-msgstr ""
-
-#: template-parts/content-single-alternate.php:78
-#: template-parts/content-single.php:74
+#: template-parts/content-single-alternate.php:74
+#: template-parts/content-single.php:62
 msgctxt "tags separator"
 msgid ", "
 msgstr ""
 
-#: template-parts/content-single-alternate.php:82
-#: template-parts/content-single.php:78
+#: template-parts/content-single-alternate.php:78
+#: template-parts/content-single.php:66
 msgid "Tagged with: "
 msgstr ""
 
@@ -1047,17 +1051,17 @@ msgstr ""
 msgid "Image navigation"
 msgstr ""
 
-#: template-parts/loop-pagination.php:9
+#: template-parts/loop-pagination.php:7
 msgctxt "previous page"
 msgid "Newer Entries"
 msgstr ""
 
-#: template-parts/loop-pagination.php:10
+#: template-parts/loop-pagination.php:8
 msgctxt "next page"
 msgid "Older Entries"
 msgstr ""
 
-#: template-parts/loop-pagination.php:11
+#: template-parts/loop-pagination.php:9
 msgid "Posts navigation"
 msgstr ""
 
@@ -1066,7 +1070,7 @@ msgstr ""
 msgid "by:"
 msgstr ""
 
-#: template-parts/loop-sidebar.php:15 template-parts/loop-sidebar.php:33
+#: template-parts/loop-sidebar.php:15 template-parts/loop-sidebar.php:32
 msgid "Add Comment"
 msgstr ""
 
@@ -1074,67 +1078,67 @@ msgstr ""
 msgid "Comments"
 msgstr ""
 
-#: template-parts/loop-sidebar.php:34
+#: template-parts/loop-sidebar.php:33
 msgid "1 Comment"
 msgstr ""
 
-#: template-parts/loop-sidebar.php:35
+#: template-parts/loop-sidebar.php:34
 msgid "% Comments"
 msgstr ""
 
-#: template-parts/loop-sidebar.php:57
+#: template-parts/loop-sidebar.php:67
 msgid "Share on:"
 msgstr ""
 
-#: template-parts/loop-sidebar.php:60 template-parts/share-this.php:16
+#: template-parts/loop-sidebar.php:70 template-parts/share-this.php:30
 msgid "Share on Facebook"
 msgstr ""
 
-#: template-parts/loop-sidebar.php:63 template-parts/share-this.php:19
+#: template-parts/loop-sidebar.php:73 template-parts/share-this.php:33
 msgid "Facebook"
 msgstr ""
 
-#: template-parts/loop-sidebar.php:64 template-parts/share-this.php:20
+#: template-parts/loop-sidebar.php:74 template-parts/share-this.php:34
 msgid "Tweet This"
 msgstr ""
 
-#: template-parts/loop-sidebar.php:67 template-parts/share-this.php:23
+#: template-parts/loop-sidebar.php:77 template-parts/share-this.php:37
 msgid "Twitter"
 msgstr ""
 
-#: template-parts/loop-sidebar.php:68 template-parts/share-this.php:24
+#: template-parts/loop-sidebar.php:78 template-parts/share-this.php:38
 msgid "Pin This"
 msgstr ""
 
-#: template-parts/loop-sidebar.php:71 template-parts/share-this.php:27
+#: template-parts/loop-sidebar.php:81 template-parts/share-this.php:41
 msgid "Pinterest"
 msgstr ""
 
-#: template-parts/loop-sidebar.php:72 template-parts/share-this.php:28
+#: template-parts/loop-sidebar.php:82 template-parts/share-this.php:42
 msgid "Share on Google+"
 msgstr ""
 
-#: template-parts/loop-sidebar.php:75 template-parts/share-this.php:31
+#: template-parts/loop-sidebar.php:85 template-parts/share-this.php:45
 msgid "Google+"
 msgstr ""
 
-#: template-parts/loop-sidebar.php:76 template-parts/share-this.php:32
+#: template-parts/loop-sidebar.php:86 template-parts/share-this.php:46
 msgid "Share on LinkedIn"
 msgstr ""
 
-#: template-parts/loop-sidebar.php:79 template-parts/share-this.php:35
+#: template-parts/loop-sidebar.php:89 template-parts/share-this.php:49
 msgid "LinkedIn"
 msgstr ""
 
-#: template-parts/loop-sidebar.php:80 template-parts/share-this.php:36
+#: template-parts/loop-sidebar.php:90 template-parts/share-this.php:50
 msgid "Email This"
 msgstr ""
 
-#: template-parts/loop-sidebar.php:83 template-parts/share-this.php:39
+#: template-parts/loop-sidebar.php:93 template-parts/share-this.php:53
 msgid "Email"
 msgstr ""
 
-#: template-parts/post-author.php:15
+#: template-parts/post-author.php:12
 msgid "Written by %1$s"
 msgstr ""
 
@@ -1147,11 +1151,7 @@ msgstr ""
 msgid "Post navigation"
 msgstr ""
 
-#: template-parts/post-related.php:34
-msgid "Related Entries"
-msgstr ""
-
-#: template-parts/share-this.php:14
+#: template-parts/share-this.php:28
 msgid "Share this:"
 msgstr ""
 #. Theme Name of the plugin/theme
@@ -1163,7 +1163,7 @@ msgid "https://xfrontend.com/themes/snowbird-wordpress-theme/"
 msgstr ""
 
 #. Description of the plugin/theme
-msgid "A responsive WordPress blog theme crafted specially for storytellers."
+msgid "Snowbird is a responsive WordPress Blog Theme beautifully designed especially for storytellers. It's a simple yet powerful WordPress theme- supports every native WordPress features, and extended with professional tools for ease of use. With beautifully crafted typography it works seamlessly on all devices."
 msgstr ""
 
 #. Author of the plugin/theme
