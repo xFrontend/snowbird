@@ -13,6 +13,18 @@ Requires WordPress v4.5 or later.
 
 ## Changelog
 
+#### v1.4
+Release Date: September 7, 2016
+
+* New - Improves Live Customize Experiences for Theme Settings.
+* New - Introduces actions/filters for advanced customization.
+* New - Update script to migrate old logo data to WordPress core custom-logo feature.
+* New - Supports SuperPack Contact Fields for Author Social Links.
+* Fixes - Honors layout settings to load Posts w/ Jetpack Infinite Scroll.
+* Fixes - Removes JavaScript notices for jQuery deprecated function.
+* Updates - Translation POT File.
+* Updates - Code Improvement and Cleanups.
+
 #### v1.3
 Release Date: August 14, 2016
 
@@ -87,4 +99,4 @@ The following resources are included within the theme package.
 
 All other resources and theme elements are licensed under the [GNU GPL](http://www.gnu.org/licenses/old-licenses/gpl-2.0.html), version 2 or later.
 
-&copy; 2015&thinsp;&ndash;&thinsp;2016 [Omaar Osmaan](https://moonomo.com/).
+Copyright &copy; 2015&thinsp;&ndash;&thinsp;2016 [Omaar Osmaan](https://moonomo.com/).
