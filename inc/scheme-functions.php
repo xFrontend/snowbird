@@ -154,7 +154,7 @@ function snowbird_get_color_schemes() {
 }
 
 /**
- * Returns colors value for the color scheme.
+ * Returns colors value for active color scheme.
  *
  * @return array
  */
@@ -187,7 +187,7 @@ function snowbird_get_color_scheme_choices() {
 }
 
 /**
- * Returns CSS for the color schemes.
+ * Returns CSS for the color scheme.
  *
  * @param array $colors Color scheme colors.
  *

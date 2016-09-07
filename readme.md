@@ -78,7 +78,7 @@ The following resources are not included with the theme but are external resourc
 
 The following resources are included within the theme package.
 
-* [Normalize](ttp://necolas.github.io/normalize.css/) by Nicolas Gallagher, co-created with Jonathan Neal - Licensed under the [MIT License](http://opensource.org/licenses/MIT).
+* [Normalize](http://necolas.github.io/normalize.css/) by Nicolas Gallagher, co-created with Jonathan Neal - Licensed under the [MIT License](http://opensource.org/licenses/MIT).
 * [Font Awesome](http://fontawesome.io/) by Dave Gandy - Font Licensed under the [SIL OFL 1.1](http://scripts.sil.org/OFL), CSS Licensed under the [MIT License](http://opensource.org/licenses/MIT).
 * [Fitvids](http://fitvidsjs.com/) by Chris Coyier - Licensed under the [WTFPL license](http://sam.zoy.org/wtfpl/).
 * [jQuery Nicescroll](https://github.com/inuyaksa/jquery.nicescroll) by InuYaksa - Licensed under the [MIT License](http://opensource.org/licenses/MIT).

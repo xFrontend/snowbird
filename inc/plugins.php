@@ -5,27 +5,27 @@ if ( ! defined( 'ABSPATH' ) ) :
 endif;
 
 /**
- * Recommends Plugins for Snowbird
+ * Recommends Plugins for the theme.
  */
-function snowbird_recommend_plugins() {
+function snowbird_recommended_plugins() {
 
-	$plugins = array(
+	$plugins = apply_filters( 'snowbird_recommended_plugins', array(
 		array(
-			'name'     => 'SuperPack',
-			'slug'     => 'superpack',
-			'version'  => '0.3.1',
+			'name'    => 'SuperPack',
+			'slug'    => 'superpack',
+			'version' => '0.3.1',
 		),
 		array(
-			'name'     => 'Jetpack by WordPress.com',
-			'slug'     => 'jetpack',
+			'name' => 'Jetpack by WordPress.com',
+			'slug' => 'jetpack',
 		),
 		array(
-			'name'     => 'Contact Form 7',
-			'slug'     => 'contact-form-7',
+			'name' => 'Contact Form 7',
+			'slug' => 'contact-form-7',
 		),
-	);
+	) );
 
-	$config = array(
+	$config = apply_filters( 'snowbird_recommended_plugins_config', array(
 		// Default absolute path to pre-packaged plugins.
 		'default_path' => '',
 		// Menu slug.
@@ -71,9 +71,9 @@ function snowbird_recommend_plugins() {
 			// Determines admin notice type - can only be 'updated', 'update-nag' or 'error'.
 			'nag_type'                        => 'updated'
 		)
-	);
+	) );
 
 	tgmpa( $plugins, $config );
 }
 
-add_action( 'tgmpa_register', 'snowbird_recommend_plugins' );
+add_action( 'tgmpa_register', 'snowbird_recommended_plugins' );

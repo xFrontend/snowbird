@@ -6,8 +6,9 @@ endif;
 
 
 /**
- * Add theme support for Infinite Scroll.
- * See: https://jetpack.me/support/infinite-scroll/
+ * Add theme support for Jetpack Infinite Scroll.
+ *
+ * @See: https://jetpack.me/support/infinite-scroll/
  */
 function snowbird_jetpack_setup() {
 
@@ -17,7 +18,7 @@ function snowbird_jetpack_setup() {
 		'type'           => ( $footer_widgets ) ? 'click' : 'scroll',
 		'footer_widgets' => $footer_widgets,
 		'container'      => 'main',
-		'render'         => 'snowbird_infinite_scroll_render',
+		'render'         => 'snowbird_jetpack_infinite_scroll_render',
 	) );
 }
 
@@ -25,9 +26,9 @@ add_action( 'after_setup_theme', 'snowbird_jetpack_setup' );
 
 
 /**
- * Custom render function for Infinite Scroll.
+ * Custom render function for Jetpack Infinite Scroll.
  */
-function snowbird_infinite_scroll_render() {
+function snowbird_jetpack_infinite_scroll_render() {
 	while ( have_posts() ) {
 		the_post();
 		get_template_part( 'template-parts/content', get_post_format() );

@@ -5,38 +5,8 @@ if ( ! defined( 'ABSPATH' ) ) :
 endif;
 
 
-if ( ! function_exists( 'snowbird_site_brand' ) ) :
-	/**
-	 * Display Site Brand - Text or Image based on Settings
-	 */
-	function snowbird_site_brand() {
-
-		if ( has_custom_logo() ) :
-
-			the_custom_logo();
-
-		else : ?>
-
-			<h2 class="site-title" itemprop="headline">
-				<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h2>
-
-			<?php
-			/**
-			 * Site Tagline
-			 */
-			$description = get_bloginfo( 'description', 'display' );
-			if ( $description || is_customize_preview() ) : ?>
-				<p class="site-description"><?php echo esc_html( $description ); ?></p>
-			<?php endif; ?>
-
-		<?php endif;
-	}
-
-endif;
-
-
 /**
- * List IDs of Contributors.
+ * Returns IDs of Contributors.
  *
  * @return array
  */
@@ -51,7 +21,7 @@ function snowbird_get_contributor_ids() {
 
 
 /**
- * Count Blog Authors. Reusing the same query used in `snowbird_list_authors` function.
+ * Returns Blog Authors Count, using `snowbird_get_contributor_ids` function.
  *
  * @return int
  */
@@ -63,7 +33,7 @@ function snowbird_get_contributor_count() {
 
 
 /**
- * Author Name/Link
+ * Returns Author Name/Link.
  *
  * @return string
  */
@@ -83,15 +53,14 @@ function snowbird_get_author() {
 }
 
 
-/**
- * Author Biography
- *
- * @param bool|false $generate
- *
- * @return string
- */
 if ( ! function_exists( 'snowbird_get_author_bio' ) ) :
-
+	/**
+	 * Returns Author Biography.
+	 *
+	 * @param bool|false $generate
+	 *
+	 * @return string
+	 */
 	function snowbird_get_author_bio( $generate = false ) {
 		$bio = get_the_author_meta( 'description', get_post()->post_author );
 
@@ -113,7 +82,7 @@ endif;
 
 
 /**
- * Query for Related Posts.
+ * Returns Query object for Related Posts.
  *
  * @param int $count
  * @param int $current_post_id
@@ -176,7 +145,7 @@ function snowbird_get_related_posts( $count = 4, $current_post_id = 0, $cache = 
 
 
 /**
- * Next/Prev Links w/ thumbnail when available.
+ * Returns Next/Prev Link w/ thumbnail when available.
  * A replacement for `get_adjacent_post_link` core function.
  *
  * @param $format
@@ -236,7 +205,7 @@ function snowbird_get_post_link( $format, $link, $in_same_term = false, $exclude
 
 
 /**
- * Previous Post Link w/ thumbnail when available.
+ * Returns Previous Post Link w/ thumbnail when available.
  * A replacement for `get_previous_post_link` core function.
  *
  * @param string $format
@@ -253,7 +222,7 @@ function snowbird_get_previous_post_link( $format = '&laquo; %link', $link = '%t
 
 
 /**
- * Next Post Link w/ thumbnail when available.
+ * Returns Next Post Link w/ thumbnail when available.
  * A replacement for `get_next_post_link` core function.
  *
  * @param string $format
@@ -270,7 +239,7 @@ function snowbird_get_next_post_link( $format = '%link &raquo;', $link = '%title
 
 
 /**
- * Sidebar Header Image
+ * Returns Image Data for Sidebar Header.
  *
  * @return array|false
  */
@@ -290,7 +259,7 @@ function snowbird_get_header_image_src() {
 
 
 /**
- * Footer Widget Classes
+ * Returns Footer Widget Classes.
  *
  * @return string
  */
@@ -329,8 +298,87 @@ function snowbird_get_footer_widget_classes() {
 }
 
 
-if ( ! function_exists( 'snowbird_display_author_bio' ) ) :
+if ( ! function_exists( 'snowbird_maybe_display_footer' ) ) :
+	/**
+	 * Returns whether to display Footer Widgets Area.
+	 *
+	 * @return bool|int
+	 */
+	function snowbird_maybe_display_footer() {
+		$option = Snowbird()->mod( 'footer_widget_area' );
 
+		switch ( $option ) {
+			case 'one-fourth':
+				$columns = 4;
+				break;
+
+			case 'one-third':
+				$columns = 3;
+				break;
+
+			case 'one-half':
+				$columns = 2;
+				break;
+
+			case 'one':
+				$columns = 1;
+				break;
+
+			default:
+				$columns = 0;
+				break;
+		}
+
+		if ( 1 > $columns ) {
+			return false;
+		}
+
+		for ( $i = 1; $i <= $columns; $i ++ ) {
+			if ( is_active_sidebar( 'footer-' . $i ) ) {
+				return $columns;
+			}
+		}
+
+		return false;
+	}
+
+endif;
+
+
+if ( ! function_exists( 'snowbird_site_brand' ) ) :
+	/**
+	 * Displays Site Brand - Text or Image based on Settings.
+	 */
+	function snowbird_site_brand() {
+
+		if ( has_custom_logo() ) :
+
+			the_custom_logo();
+
+		else : ?>
+
+			<h2 class="site-title" itemprop="headline">
+				<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h2>
+
+			<?php
+			/**
+			 * Site Tagline
+			 */
+			$description = get_bloginfo( 'description', 'display' );
+			if ( $description || is_customize_preview() ) : ?>
+				<p class="site-description"><?php echo esc_html( $description ); ?></p>
+			<?php endif; ?>
+
+		<?php endif;
+	}
+
+endif;
+
+
+if ( ! function_exists( 'snowbird_display_sidebar_search' ) ) :
+	/**
+	 * Displays Serach box on Sidebar based on Settings.
+	 */
 	function snowbird_display_sidebar_search() {
 		if ( Snowbird()->mod( 'site_display_search' ) ): ?>
 			<div class="xf__search_container widget">
@@ -346,7 +394,9 @@ endif;
 
 
 if ( ! function_exists( 'snowbird_display_author_bio' ) ) :
-
+	/**
+	 * Displays Author Bio on Single Post based on Settings.
+	 */
 	function snowbird_display_author_bio() {
 
 		if ( is_customize_preview() && ! Snowbird()->mod( 'post_display_author_bio' ) ) :
@@ -368,7 +418,9 @@ endif;
 
 
 if ( ! function_exists( 'snowbird_display_share_this' ) ) :
-
+	/**
+	 * Displays Share This on Single Post/Page based on Settings.
+	 */
 	function snowbird_display_share_this() {
 		if ( is_single() && ! is_attachment() && Snowbird()->mod( 'post_display_share_this' ) ) :
 			get_template_part( 'template-parts/share-this' );
@@ -383,7 +435,9 @@ endif;
 
 
 if ( ! function_exists( 'snowbird_display_related_posts' ) ) :
-
+	/**
+	 * Displays Related Posts based on Settings.
+	 */
 	function snowbird_display_related_posts() {
 		/**
 		 * Return early based on the setting
@@ -471,56 +525,10 @@ if ( ! function_exists( 'snowbird_display_related_posts' ) ) :
 endif;
 
 
-/**
- * Whether to display Footer Widgets Area?
- *
- * @return bool|int
- */
-if ( ! function_exists( 'snowbird_maybe_display_footer' ) ) :
-
-	function snowbird_maybe_display_footer() {
-		$option = Snowbird()->mod( 'footer_widget_area' );
-
-		switch ( $option ) {
-			case 'one-fourth':
-				$columns = 4;
-				break;
-
-			case 'one-third':
-				$columns = 3;
-				break;
-
-			case 'one-half':
-				$columns = 2;
-				break;
-
-			case 'one':
-				$columns = 1;
-				break;
-
-			default:
-				$columns = 0;
-				break;
-		}
-
-		if ( 1 > $columns ) {
-			return false;
-		}
-
-		for ( $i = 1; $i <= $columns; $i ++ ) {
-			if ( is_active_sidebar( 'footer-' . $i ) ) {
-				return $columns;
-			}
-		}
-
-		return false;
-	}
-
-endif;
-
-
 if ( ! function_exists( 'snowbird_display_footer_widgets' ) ) :
-
+	/**
+	 * Displays Footer Widgets based on Settings.
+	 */
 	function snowbird_display_footer_widgets() {
 		if ( $columns = snowbird_maybe_display_footer() ) :
 			?>
@@ -549,7 +557,9 @@ endif;
 
 
 if ( ! function_exists( 'snowbird_display_footer_menu' ) ) :
-
+	/**
+	 * Displays Footer Menu based on Settings.
+	 */
 	function snowbird_display_footer_menu() {
 		if ( 'social' === Snowbird()->mod( 'footer_menu_location' ) && has_nav_menu( 'social' ) ) :
 
@@ -580,15 +590,14 @@ if ( ! function_exists( 'snowbird_display_footer_menu' ) ) :
 endif;
 
 
-/**
- * Display Comments
- *
- * @param $comment
- * @param $args
- * @param $depth
- */
 if ( ! function_exists( 'snowbird_list_comments' ) ) :
-
+	/**
+	 * Displays Comments.
+	 *
+	 * @param $comment
+	 * @param $args
+	 * @param $depth
+	 */
 	function snowbird_list_comments( $comment, $args, $depth ) {
 		$GLOBALS['comment'] = $comment;
 		?>
@@ -643,11 +652,10 @@ if ( ! function_exists( 'snowbird_list_comments' ) ) :
 endif;
 
 
-/**
- * Display Contributors
- */
 if ( ! function_exists( 'snowbird_list_contributors' ) ) :
-
+	/**
+	 * Displays Contributors.
+	 */
 	function snowbird_list_contributors() {
 		$contributor_ids = snowbird_get_contributor_ids();
 

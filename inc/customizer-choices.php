@@ -49,7 +49,7 @@ function snowbird_choices_loop_content() {
 
 
 /**
- * Options for Excerpt Length.
+ * Options for Loop Excerpt Length.
  *
  * @return mixed|void
  */

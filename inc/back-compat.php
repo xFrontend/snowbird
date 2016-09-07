@@ -12,8 +12,9 @@ endif;
  * relies on many newer functions and markup changes introduced in 4.5.
  */
 
+
 /**
- * Prevent switching to Snowbird on old versions of WordPress.
+ * Prevents switching to Snowbird on old versions of WordPress.
  *
  * Switches to the default theme.
  */
@@ -25,8 +26,9 @@ function snowbird_switch_theme() {
 
 add_action( 'after_switch_theme', 'snowbird_switch_theme' );
 
+
 /**
- * Add message for unsuccessful theme switch.
+ * Adds message for unsuccessful theme switch.
  *
  * Prints an update nag after an unsuccessful attempt to switch to
  * Snowbird on WordPress versions prior to 4.5.
@@ -38,8 +40,9 @@ function snowbird_upgrade_notice() {
 	printf( '<div class="error"><p>%s</p></div>', $message );
 }
 
+
 /**
- * Prevent the Customizer from being loaded on WordPress versions prior to 4.5.
+ * Prevents the Customizer from being loaded on WordPress versions prior to 4.5.
  *
  * @global string $wp_version
  */
@@ -51,8 +54,9 @@ function snowbird_customize() {
 
 add_action( 'load-customize.php', 'snowbird_customize' );
 
+
 /**
- * Prevent the Theme Preview from being loaded on WordPress versions prior to 4.5.
+ * Prevents the Theme Preview from being loaded on WordPress versions prior to 4.5.
  *
  * @global string $wp_version
  */

@@ -8,6 +8,7 @@ endif;
  * Snowbird functions and definitions
  */
 
+
 /**
  * Snowbird only works in WordPress 4.5 or later.
  */
@@ -16,15 +17,14 @@ if ( version_compare( $GLOBALS['wp_version'], '4.5', '<' ) ) {
 }
 
 
-/**
- * Sets up theme defaults and registers support for various WordPress features.
- *
- * Note that this function is hooked into the after_setup_theme hook, which
- * runs before the init hook. The init hook is too late for some features, such
- * as indicating support for post thumbnails.
- */
 if ( ! function_exists( 'snowbird_setup' ) ) :
-
+	/**
+	 * Sets up theme defaults and registers support for various WordPress features.
+	 *
+	 * Note that this function is hooked into the after_setup_theme hook, which
+	 * runs before the init hook. The init hook is too late for some features, such
+	 * as indicating support for post thumbnails.
+	 */
 	function snowbird_setup() {
 		/**
 		 * Make theme available for translation.
@@ -147,15 +147,14 @@ endif;
 add_action( 'after_setup_theme', 'snowbird_setup' );
 
 
-/**
- * Set the content width in pixels, based on the theme's design and stylesheet.
- *
- * Priority 0 to make it available to lower priority callbacks.
- *
- * @global int $content_width
- */
 if ( ! function_exists( 'snowbird_content_width' ) ) :
-
+	/**
+	 * Sets the content width in pixels, based on the theme's design and stylesheet.
+	 *
+	 * Priority 0 to make it available to lower priority callbacks.
+	 *
+	 * @global int $content_width
+	 */
 	function snowbird_content_width() {
 		$GLOBALS['content_width'] = apply_filters( 'snowbird_content_width', 1110 );
 	}
@@ -166,7 +165,7 @@ add_action( 'after_setup_theme', 'snowbird_content_width', 0 );
 
 
 /**
- * Register widget area.
+ * Registers widget area for the theme.
  *
  * @link http://codex.wordpress.org/Function_Reference/register_sidebar
  */
@@ -197,7 +196,7 @@ add_action( 'widgets_init', 'snowbird_widgets_init' );
 
 
 /**
- * Enqueue scripts and styles.
+ * Enqueues scripts and styles for the theme.
  */
 function snowbird_scripts() {
 
@@ -291,25 +290,12 @@ function snowbird_scripts() {
 add_action( 'wp_enqueue_scripts', 'snowbird_scripts' );
 
 
-/**
- * Adds classes for the TinyMCE Editor
- */
-function snowbird_editor_settings( $settings ) {
-	$settings['body_class'] .= ' xf__entry xf__singular entry-content';
-
-	return $settings;
-}
-
-add_filter( 'tiny_mce_before_init', 'snowbird_editor_settings' );
-
-
-/**
- * Returns Google Fonts URL for the theme
- *
- * @return string
- */
 if ( ! function_exists( 'snowbird_fonts_url' ) ) :
-
+	/**
+	 * Returns Google Fonts URL for the theme.
+	 *
+	 * @return string
+	 */
 	function snowbird_fonts_url() {
 		$fonts_url = '';
 		$fonts     = array();
@@ -341,7 +327,7 @@ endif;
 
 
 /**
- * Load the Core Files.
+ * Core File for the theme.
  */
 require get_template_directory() . '/inc/class-snowbird.php';
 
@@ -359,7 +345,7 @@ require get_template_directory() . '/inc/customizer.php';
 require get_template_directory() . '/inc/scheme-functions.php';
 
 /**
- * Custom template functions for this theme.
+ * Custom template functions for the theme.
  */
 require get_template_directory() . '/inc/template-functions.php';
 
@@ -369,12 +355,12 @@ require get_template_directory() . '/inc/template-functions.php';
 require get_template_directory() . '/inc/extras.php';
 
 /**
- * Load Jetpack compatibility file.
+ * Jetpack compatibility file.
  */
 require get_template_directory() . '/inc/jetpack.php';
 
 /**
- * Plugins Recommendation
+ * Plugins Recommendation for theme.
  */
 require get_template_directory() . '/inc/class-tgm-plugin-activation.php';
 require get_template_directory() . '/inc/plugins.php';

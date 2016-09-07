@@ -4,6 +4,7 @@ if ( ! defined( 'ABSPATH' ) ) :
 	exit; // Exit if accessed directly
 endif;
 
+
 /**
  * Registers Controls for the Theme Customizer.
  *

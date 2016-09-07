@@ -6,6 +6,11 @@ endif;
 
 if ( ! class_exists( 'Snowbird' ) ) :
 
+	/**
+	 * Core Class for the theme.
+	 *
+	 * Helper functions to handle Theme Options/Mods/Cache.
+	 */
 	final class Snowbird {
 		protected static $instance = null;
 
@@ -21,7 +26,7 @@ if ( ! class_exists( 'Snowbird' ) ) :
 		}
 
 		/**
-		 * Theme Default Mods.
+		 * Returns Default Mods for the theme.
 		 *
 		 * @return array
 		 */
@@ -103,7 +108,7 @@ if ( ! class_exists( 'Snowbird' ) ) :
 		}
 
 		/**
-		 * Theme Default Options.
+		 * Returns Default Options for the theme.
 		 *
 		 * @return mixed|null|void
 		 */
@@ -115,7 +120,7 @@ if ( ! class_exists( 'Snowbird' ) ) :
 		}
 
 		/**
-		 * Default Theme Mod value.
+		 * Returns Default Theme Mod value.
 		 *
 		 * @param $name
 		 *
@@ -133,7 +138,7 @@ if ( ! class_exists( 'Snowbird' ) ) :
 		}
 
 		/**
-		 * Wrapper function for get_theme_mod.
+		 * Returns Theme Setting value. Wrapper function for get_theme_mod.
 		 *
 		 * @param $name
 		 * @param bool|false $default
@@ -159,7 +164,7 @@ if ( ! class_exists( 'Snowbird' ) ) :
 		}
 
 		/**
-		 * Default Theme Option value.
+		 * Returns Default Theme Option value.
 		 *
 		 * @param $name
 		 *
@@ -176,7 +181,7 @@ if ( ! class_exists( 'Snowbird' ) ) :
 		}
 
 		/**
-		 * Current Theme Settings Key
+		 * Returns Theme Option Key.
 		 *
 		 * @return string
 		 */
@@ -187,7 +192,7 @@ if ( ! class_exists( 'Snowbird' ) ) :
 		}
 
 		/**
-		 * Helper function to get theme option.
+		 * Returns Theme Option value. Wrapper function for get_option.
 		 *
 		 * @param $name
 		 * @param bool|false $default
@@ -215,7 +220,7 @@ if ( ! class_exists( 'Snowbird' ) ) :
 		}
 
 		/**
-		 * Current Theme Name
+		 * Returns Theme Name. Helper function to generate handler/setting name.
 		 *
 		 * @param null $key
 		 *
@@ -234,7 +239,7 @@ if ( ! class_exists( 'Snowbird' ) ) :
 		}
 
 		/**
-		 * Current Theme Version value to enqueue CSS/JS.
+		 * Returns Theme Version.
 		 *
 		 * @return string
 		 */
@@ -243,7 +248,7 @@ if ( ! class_exists( 'Snowbird' ) ) :
 		}
 
 		/**
-		 * Helper to prepare name for generating cache.
+		 * Helper function to prepare name for generating cache.
 		 *
 		 * @param $group
 		 * @param $key
@@ -255,7 +260,7 @@ if ( ! class_exists( 'Snowbird' ) ) :
 		}
 
 		/**
-		 * Helper to prepare group name for cache.
+		 * Helper function to prepare group name for cache.
 		 *
 		 * @return string
 		 */
@@ -264,7 +269,7 @@ if ( ! class_exists( 'Snowbird' ) ) :
 		}
 
 		/**
-		 * Helper function for convert Opacity to float.
+		 * Helper function for converting Opacity to float.
 		 *
 		 * @param $value
 		 *
@@ -278,7 +283,7 @@ if ( ! class_exists( 'Snowbird' ) ) :
 		}
 
 		/**
-		 * Wrapper function for Schema less URL.
+		 * Helper function for Schema less URL.
 		 *
 		 * @param $url
 		 *
@@ -462,7 +467,7 @@ endif;
 
 
 /**
- * Returns the main instance of Snowbird
+ * Returns the main instance of Snowbird Core Class.
  *
  * @return Snowbird instance.
  */

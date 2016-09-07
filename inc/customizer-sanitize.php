@@ -106,7 +106,7 @@ function snowbird_sanitize_email( $email ) {
 
 
 /**
- * Sanitizes and converts an email address characters to HTML entities to block spam bots.
+ * Sanitizes and converts an email address to link w/ HTML entities to block spam bots.
  *
  * @param $email
  *
@@ -141,7 +141,7 @@ function snowbird_sanitize_hex_color( $color ) {
 
 
 /**
- * Sanitizes a hex color without a hash. Use hex_color() when possible.
+ * Sanitizes a hex color without a hash. Use snowbird_sanitize_hex_color() when possible.
  *
  * @param $color
  *
@@ -159,7 +159,7 @@ function snowbird_sanitize_hex_color_no_hash( $color ) {
 
 
 /**
- * Ensures that any hex color is properly hashed.
+ * Sanitizes and ensures that any hex color is properly hashed.
  *
  * @param $color
  *

@@ -6,7 +6,7 @@ endif;
 
 
 /**
- * Set up the WordPress core custom header feature.
+ * Sets up the WordPress core custom header feature.
  */
 function snowbird_custom_header_and_background() {
 	$color_scheme = snowbird_get_color_scheme();
@@ -137,6 +137,7 @@ function snowbird_customize_register( $wp_customize ) {
 		'type'        => 'range',
 		'input_attrs' => snowbird_choices_posts_per_page(),
 	) );
+
 
 	/**
 	 * Post (Single)
@@ -308,6 +309,7 @@ function snowbird_customize_register( $wp_customize ) {
 		'type'    => 'radio',
 		'choices' => snowbird_choices_footer_menu_location(),
 	) );
+
 
 	/**
 	 * Colors
@@ -616,6 +618,7 @@ function snowbird_customize_register( $wp_customize ) {
 	$wp_customize->get_setting( 'blogname' )->transport        = 'postMessage';
 	$wp_customize->get_setting( 'blogdescription' )->transport = 'postMessage';
 
+
 	/**
 	 * Partials for Selective Refresh
 	 */
@@ -721,10 +724,9 @@ add_action( 'customize_controls_print_footer_scripts', 'snowbird_customize_contr
 
 
 /**
- * Output an Underscore template for generating CSS for the color scheme.
+ * Outputs an Underscore template for generating CSS for active color scheme.
  *
- * The template generates the css dynamically for instant display in the Customizer
- * preview.
+ * The template generates the css dynamically for instant display in Live Customize Panel.
  */
 function snowbird_color_scheme_css_template() {
 
@@ -764,7 +766,7 @@ add_action( 'customize_controls_print_footer_scripts', 'snowbird_color_scheme_cs
 
 
 /**
- * Enqueues front-end CSS for the Header Overlay
+ * Enqueues front-end CSS for the Header Overlay.
  *
  * @see wp_add_inline_style()
  */
@@ -930,7 +932,7 @@ add_action( 'wp_enqueue_scripts', 'snowbird_user_defined_css', 999 );
 
 
 /**
- * Output Editor CSS for color scheme via wp_ajax callback.
+ * Outputs Editor CSS for color scheme via wp_ajax callback.
  */
 function snowbird_editor_colors_css() {
 	ob_clean();

@@ -11,20 +11,26 @@ endif;
 
 
 /**
- * Add Header Meta via wp_head()
+ * Displays Header Meta markups for the theme.
+ *
+ * @see wp_head()
  */
 function snowbird_header_meta() {
 	echo '<meta charset="' . esc_attr( get_bloginfo( 'charset' ) ) . '">' . "\n";
 	echo '<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">' . "\n";
 
-	do_action( 'snowbird_head_meta' );
+	if ( has_action( 'snowbird_head_meta' ) ) {
+		do_action( 'snowbird_head_meta' );
+	}
 }
 
 add_action( 'wp_head', 'snowbird_header_meta', 0 );
 
 
 /**
- * Add Header Link via wp_head()
+ * Displays Header Link markups for the theme.
+ *
+ * @see wp_head()
  */
 function snowbird_header_link() {
 	echo '<link rel="profile" href="http://gmpg.org/xfn/11" >' . "\n";
@@ -33,14 +39,16 @@ function snowbird_header_link() {
 		echo '<link rel="pingback" href="' . esc_url( get_bloginfo( 'pingback_url' ) ) . '">' . "\n";
 	}
 
-	do_action( 'snowbird_head_link' );
+	if ( has_action( 'snowbird_head_link' ) ) {
+		do_action( 'snowbird_head_link' );
+	}
 }
 
 add_action( 'wp_head', 'snowbird_header_link', 1 );
 
 
 /**
- * Adds a header to Force IE Edge
+ * Adds a header to Force IE Edge.
  *
  * @param $headers
  *
@@ -58,7 +66,19 @@ add_filter( 'wp_headers', 'snowbird_add_ie_header' );
 
 
 /**
- * Body Classes
+ * Adds classes for the TinyMCE Editor
+ */
+function snowbird_editor_settings( $settings ) {
+	$settings['body_class'] .= ' xf__entry xf__singular entry-content';
+
+	return $settings;
+}
+
+add_filter( 'tiny_mce_before_init', 'snowbird_editor_settings' );
+
+
+/**
+ * Returns Body Classes.
  *
  * @param $classes
  *
@@ -107,7 +127,7 @@ add_filter( 'body_class', 'snowbird_body_classes' );
 
 
 /**
- * Post Classes
+ * Returns Post Classes.
  *
  * @param $classes
  *
@@ -135,7 +155,7 @@ add_filter( 'post_class', 'snowbird_post_classes' );
 
 
 /**
- * Read More button for Post Content
+ * Returns Read More Button markup for Post Content.
  *
  * @param $more
  *
@@ -151,7 +171,7 @@ add_filter( 'the_content_more_link', 'snowbird_filter_content_more_link' );
 
 
 /**
- * Read More button for Post Excerpt
+ * Returns Read More Button markup for Post Excerpt.
  *
  * @return string
  */
@@ -165,7 +185,7 @@ add_filter( 'excerpt_more', 'snowbird_filter_excerpt_more' );
 
 
 /**
- * Post Excerpt Length
+ * Returns Post Excerpt Length based on Setting.
  *
  * @param $length
  *
@@ -179,7 +199,7 @@ add_filter( 'excerpt_length', 'snowbird_filter_excerpt_length', 999 );
 
 
 /**
- * Search Form
+ * Returns Search Form markup. Ensures proper ID of the form html.
  *
  * @return string
  */
@@ -206,7 +226,7 @@ add_filter( 'get_search_form', 'snowbird_filter_get_search_form' );
 
 
 /**
- * html5 Validation for oEmbed
+ * Cleanups for html5 Validation of oEmbed markup.
  *
  * @param $html
  *
@@ -252,9 +272,11 @@ add_filter( 'video_embed_html', 'snowbird_oembed_dataparse' );
 
 
 /**
- * Wrap embed object for proper margin
+ * Wraps embed html for proper styling.
  *
  * @param $html
+ *
+ * @return mixed|void
  */
 function snowbird_embed_html_wrapper( $html ) {
 	return apply_filters( 'snowbird_embed_html_wrapper', '<div class="embed-wrappar">' . $html . '</div>', $html );
@@ -265,7 +287,7 @@ add_filter( 'video_embed_html', 'snowbird_embed_html_wrapper', 11 );
 
 
 /**
- * Set up paginated links markup.
+ * Sets up paginated links markup template.
  *
  * @return string
  */
@@ -306,9 +328,9 @@ add_filter( 'navigation_markup_template', 'snowbird_navigation_markup_template',
 
 
 /**
- * Update old snowbird logo data to custom-logo.
+ * Updates old snowbird logo data to WordPress core custom-logo feature.
  *
- * TODO: Remove in a future release.
+ * @todo: Remove the procedure in a future release.
  */
 function snowbird_logo_data_update() {
 
