@@ -1,5 +1,5 @@
 # Snowbird - Personal WordPress Blog Theme
-Snowbird is a responsive WordPress Blog Theme beautifully designed especially for storytellers. It's a simple yet powerful WordPress theme- supports every native WordPress features, and extended with professional tools for ease of use. With beautifully crafted typography it works seamlessly on all devices.
+Snowbird is a responsive WordPress Blog and Photography theme beautifully designed especially for storytellers and content makers. It's a simple yet powerful WordPress theme with unforgettable design and SEO optimized markups. Snowbird supports every native WordPress features, and extended with professional tools for ease of use. With beautifully crafted typography it works fast, seamlessly on all devices.
 
 Requires WordPress v4.5 or later.
 

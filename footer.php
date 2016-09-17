@@ -24,13 +24,13 @@
 						esc_html( get_bloginfo( 'name' ) )
 					),
 					sprintf(
-						'<a href="%1$s" title="%2$s">%3$s</a>',
+						'<a href="%1$s" title="%2$s" rel="nofollow">%3$s</a>',
 						'https://wordpress.org/',
 						esc_attr__( 'WordPress', 'snowbird' ),
 						esc_html__( 'WordPress', 'snowbird' )
 					),
 					sprintf(
-						'<a href="%1$s" title="%2$s">%3$s</a>',
+						'<a href="%1$s" title="%2$s" rel="nofollow">%3$s</a>',
 						'https://xfrontend.com/',
 						esc_attr__( 'xFrontend', 'snowbird' ),
 						esc_html__( 'xFrontend', 'snowbird' )
