@@ -5,7 +5,7 @@
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?> itemtype="http://schema.org/BlogPosting"
-         itemscope="itemscope" itemprop="blogPost">
+	itemscope="itemscope" itemprop="blogPost">
 
 	<?php
 	/**
@@ -38,7 +38,7 @@
 		/**
 		 * Post Content
 		 */
-		if ( 'excerpt' == Snowbird()->mod( 'loop_content' ) && get_the_excerpt() ) :
+		if ( 'excerpt' === Snowbird()->mod( 'loop_content' ) && get_the_excerpt() ) :
 			/**
 			 * Post Excerpt
 			 */?>
@@ -46,7 +46,7 @@
 				<?php the_excerpt(); ?>
 			</div>
 			<?php
-		elseif ( 'full' == Snowbird()->mod( 'loop_content' ) && get_the_content() ) :
+		elseif ( 'full' === Snowbird()->mod( 'loop_content' ) && get_the_content() ) :
 			/**
 			 * Full Content
 			 */?>
