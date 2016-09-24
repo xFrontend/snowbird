@@ -22,8 +22,8 @@
 			if ( $header_img = snowbird_get_header_image_src() ) : ?>
 				<div class="background">
 					<img src="<?php echo esc_url( $header_img[0] ); ?>"
-					     width="<?php echo esc_attr( $header_img[1] ); ?>"
-					     height="<?php echo esc_attr( $header_img[2] ); ?>" alt="">
+						width="<?php echo esc_attr( $header_img[1] ); ?>"
+						height="<?php echo esc_attr( $header_img[2] ); ?>" alt="">
 
 					<div class="overlay"></div>
 				</div>
@@ -48,7 +48,7 @@
 					'menu_class'      => 'menu',
 					'container'       => 'nav',
 					'container_class' => 'widget widget_nav_menu main-navigation',
-					'items_wrap'      => '<ul class="%2$s">%3$s</ul>'
+					'items_wrap'      => '<ul class="%2$s">%3$s</ul>',
 				) );
 
 			endif; ?>
