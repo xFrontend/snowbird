@@ -45,7 +45,7 @@ if ( have_comments() || comments_open() ) : ?>
 						'style'       => 'ol',
 						'short_ping'  => true,
 						'avatar_size' => 80,
-						'callback'    => 'snowbird_list_comments'
+						'callback'    => 'snowbird_list_comments',
 					) ); ?>
 				</ol>
 
@@ -97,11 +97,11 @@ if ( have_comments() || comments_open() ) : ?>
 					'cancel_reply_link'    => esc_html__( 'Cancel Reply', 'snowbird' ),
 					'comment_notes_before' => '<p class="comment-notes">' . esc_html__( 'Your email address will not be published.', 'snowbird' ) . ( $req ? ' ' . sprintf( esc_html__( 'Required fields are marked %s', 'snowbird' ), $req_text ) : '' ) . '</p>',
 					'comment_notes_after'  => '',
-					'comment_field'        => '<p class="form-comment"><label  class="screen-reader-text" for="comment">' . esc_html__( 'Comment', 'snowbird' ) . '</label><textarea id="comment" name="comment" cols="45" rows="8" aria-required="true"></textarea></p>',
-					'fields'               => apply_filters( 'snowbird_comment_form_default_fields', array(
-						'author' => '<p class="form-author"><label class="screen-reader-text" for="author">' . sprintf( esc_html__( 'Name %s', 'snowbird' ), $req_text ) . '</label><input id="author" name="author" type="text" placeholder="' . sprintf( esc_attr__( 'Name %s', 'snowbird' ), $req_text ) . '" value="' . esc_attr( $commenter['comment_author'] ) . '" size="30" ' . $req_aria . ' ></p>',
-						'email'  => '<p class="form-email"><label class="screen-reader-text" for="email">' . sprintf( esc_html__( 'Email %s', 'snowbird' ), $req_text ) . '</label><input id="email" name="email" type="text" placeholder="' . sprintf( esc_attr__( 'Email %s', 'snowbird' ), $req_text ) . '" value="' . esc_attr( $commenter['comment_author_email'] ) . '" size="30" ' . $req_aria . ' ></p>',
-						'url'    => '<p class="form-url"><label class="screen-reader-text" for="url">' . esc_html__( 'Website', 'snowbird' ) . '</label><input id="url" name="url" type="text"  placeholder="' . esc_attr__( 'Website', 'snowbird' ) . '" value="' . esc_attr( $commenter['comment_author_url'] ) . '" size="30" ></p>'
+					'comment_field'        => '<p class="form-comment"><label class="screen-reader-text" for="comment">' . esc_html__( 'Comment', 'snowbird' ) . '</label><textarea id="comment" name="comment" cols="45" rows="8" aria-required="true"></textarea></p>',
+					'fields'               => (array) apply_filters( 'snowbird_comment_form_default_fields', array(
+						'author' => '<p class="form-author"><label class="screen-reader-text" for="author">' . esc_html__( 'Name', 'snowbird' ) . ( $req ? ' ' . esc_html( $req_text ) : '' ) . '</label><input id="author" name="author" type="text" placeholder="' . esc_attr__( 'Name', 'snowbird' ) . ( $req ? ' ' . esc_attr( $req_text ) : '' ) . '" value="' . esc_attr( $commenter['comment_author'] ) . '" size="30" ' . $req_aria . '></p>',
+						'email'  => '<p class="form-email"><label class="screen-reader-text" for="email">' . esc_html__( 'Email', 'snowbird' ) . ( $req ? ' ' . esc_html( $req_text ) : '' ) . '</label><input id="email" name="email" type="text" placeholder="' . esc_attr__( 'Email', 'snowbird' ) . ( $req ? ' ' . esc_attr( $req_text ) : '' ) . '" value="' . esc_attr( $commenter['comment_author_email'] ) . '" size="30" ' . $req_aria . '></p>',
+						'url'    => '<p class="form-url"><label class="screen-reader-text" for="url">' . esc_html__( 'Website', 'snowbird' ) . '</label><input id="url" name="url" type="text"  placeholder="' . esc_attr__( 'Website', 'snowbird' ) . '" value="' . esc_attr( $commenter['comment_author_url'] ) . '" size="30"></p>',
 					) ),
 					'label_submit'         => esc_html__( 'Post Comment', 'snowbird' ),
 				) );
