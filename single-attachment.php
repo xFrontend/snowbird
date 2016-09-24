@@ -12,7 +12,7 @@ get_template_part( 'template-parts/primary-site-header' ); ?>
 		<div itemscope="itemscope" itemtype="http://schema.org/Blog">
 
 			<article id="post-<?php the_ID(); ?>" <?php post_class(); ?> itemtype="http://schema.org/BlogPosting"
-			         itemscope="itemscope" itemprop="blogPost">
+				itemscope="itemscope" itemprop="blogPost">
 
 				<div class="xf__post-wrapper">
 					<div class="xf__container xf__entry-container">
@@ -25,7 +25,7 @@ get_template_part( 'template-parts/primary-site-header' ); ?>
 								 */
 								printf(
 									'<span class="xf__meta-item posted-on"><a href="%1$s" rel="bookmark"><time class="entry-date published" datetime="%2$s" itemprop="datePublished" >%3$s</time></a></span>',
-									esc_attr( get_the_permalink() ),
+									esc_url( get_the_permalink() ),
 									esc_attr( get_the_time( 'c' ) ),
 									esc_html( get_the_time( get_option( 'date_format' ) ) )
 								);
@@ -37,7 +37,7 @@ get_template_part( 'template-parts/primary-site-header' ); ?>
 								); ?>
 
 								<span
-									class="xf__meta-item parent-post"><?php echo esc_html__( 'Posted on:', 'snowbird' ) . ' ' . get_previous_post_link( '%link' ); ?></span>
+									class="xf__meta-item parent-post"><?php esc_html_e( 'Posted on:', 'snowbird' ); ?> <?php previous_post_link( '%link' ); ?></span>
 							</div>
 
 							<?php
