@@ -2,7 +2,7 @@
 
 <header class="xf__header">
 	<div class="content xf__container">
-		<h1 class="xf__page-title" itemprop="headline"><?php echo get_the_author(); ?></h1>
+		<h1 class="xf__page-title" itemprop="headline"><?php the_author(); ?></h1>
 	</div>
 
 	<?php
@@ -20,7 +20,7 @@
 			<div class="content xf__container">
 				<?php echo get_avatar( get_post()->post_author, '170' ); ?>
 
-				<p><?php echo snowbird_get_author_bio( $generate = true ); ?></p>
+				<p><?php echo snowbird_get_author_bio( true ); ?></p>
 
 				<?php if ( has_action( 'snowbird_author_bio' ) ) :
 					do_action( 'snowbird_author_bio', get_post()->post_author );
@@ -42,9 +42,9 @@
 				/**
 				 * Post Contents
 				 */
-				if ( 'alternate' == Snowbird()->mod( 'loop_layout_type' ) ) :
+				if ( 'alternate' === Snowbird()->mod( 'loop_layout_type' ) ) :
 					get_template_part( 'template-parts/content-alternate', get_post_format() );
-				else:
+				else :
 					get_template_part( 'template-parts/content', get_post_format() );
 				endif;
 				?>
