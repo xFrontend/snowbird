@@ -5,7 +5,7 @@
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?> itemtype="http://schema.org/BlogPosting"
-         itemscope="itemscope" itemprop="blogPost">
+	itemscope="itemscope" itemprop="blogPost">
 	<?php
 	/**
 	 * Featured Image
@@ -50,21 +50,25 @@
 					'before'      => '<div class="xf__nav-pagination">' . esc_html__( 'Pages:', 'snowbird' ),
 					'after'       => '</div>',
 					'link_before' => '<span class="page-numbers">',
-					'link_after'  => '</span>'
+					'link_after'  => '</span>',
 				) ); ?>
 			</div>
 
 			<footer class="xf__post-footer">
-				<?php
-				/**
-				 * Post Tags
-				 */
-				$tags_list = get_the_tag_list( '', esc_html_x( ', ', 'tags separator', 'snowbird' ) );
+				<?php if ( ! post_password_required() ) : ?>
 
-				if ( $tags_list && ! post_password_required() ) : ?>
-					<p class="xf__meta-item link-tag" itemprop="text">
-						<span><?php esc_html_e( 'Tagged with: ', 'snowbird' ); ?></span> <?php echo $tags_list; ?>
-					</p>
+					<?php
+					/**
+					 * Post Tags
+					 */
+					$tags_list = get_the_tag_list( '', esc_html_x( ', ', 'tags separator', 'snowbird' ) );
+
+					if ( $tags_list ) : ?>
+						<p class="xf__meta-item link-tag" itemprop="text">
+							<span><?php esc_html_e( 'Tagged with: ', 'snowbird' ); ?></span> <?php echo $tags_list; ?>
+						</p>
+					<?php endif; ?>
+
 				<?php endif; ?>
 
 				<?php
