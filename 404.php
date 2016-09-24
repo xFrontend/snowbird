@@ -6,7 +6,7 @@
  */
 get_template_part( 'template-parts/primary-site-header' ); ?>
 
-<main class="xf__mainn xf__entry" itemprop="mainContentOfPage">
+<main class="xf__main xf__entry" itemprop="mainContentOfPage">
 	<div class="xf__container xf__entry-container error-404 not-found">
 		<div class="entry-content">
 			<h1 class="page-title"><?php esc_html_e( "Doh! You've found it!", 'snowbird' ); ?></h1>
