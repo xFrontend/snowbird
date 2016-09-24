@@ -70,7 +70,7 @@ if ( ! function_exists( 'snowbird_setup' ) ) :
 		register_nav_menus( array(
 			'primary'   => esc_html_x( 'Primary Menu', 'admin', 'snowbird' ),
 			'secondary' => esc_html_x( 'Secondary Menu', 'admin', 'snowbird' ),
-			'social'    => esc_html_x( 'Social Menu', 'admin', 'snowbird' )
+			'social'    => esc_html_x( 'Social Menu', 'admin', 'snowbird' ),
 		) );
 
 		/**
@@ -156,7 +156,7 @@ if ( ! function_exists( 'snowbird_content_width' ) ) :
 	 * @global int $content_width
 	 */
 	function snowbird_content_width() {
-		$GLOBALS['content_width'] = apply_filters( 'snowbird_content_width', 1110 );
+		$GLOBALS['content_width'] = (int) apply_filters( 'snowbird_content_width', 1110 );
 	}
 
 endif;
@@ -310,8 +310,8 @@ if ( ! function_exists( 'snowbird_fonts_url' ) ) :
 			$fonts['body'] = 'Droid Serif:400,400italic,700,700italic';
 		}
 
-		$fonts   = apply_filters( 'snowbird_google_fonts', $fonts );
-		$subsets = apply_filters( 'snowbird_google_fonts_subsets', array( 'latin', 'latin-ext' ), $fonts );
+		$fonts   = (array) apply_filters( 'snowbird_google_fonts', $fonts );
+		$subsets = (array) apply_filters( 'snowbird_google_fonts_subsets', array( 'latin', 'latin-ext' ), $fonts );
 
 		if ( $fonts ) {
 			$fonts_url = add_query_arg( array(
