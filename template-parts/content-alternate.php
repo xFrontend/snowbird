@@ -6,7 +6,7 @@
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?> itemtype="http://schema.org/BlogPosting"
-         itemscope="itemscope" itemprop="blogPost">
+	itemscope="itemscope" itemprop="blogPost">
 
 	<div class="xf__container">
 		<header class="xf__post-header">
@@ -30,7 +30,7 @@
 	 */
 	get_template_part( 'template-parts/featured-image-alternate' ); ?>
 
-	<?php if ( 'none' != Snowbird()->mod( 'loop_content' ) ) : ?>
+	<?php if ( 'none' !== Snowbird()->mod( 'loop_content' ) ) : ?>
 		<div class="xf__post-wrapper">
 			<div class="xf__container xf__entry-container">
 				<?php
@@ -42,7 +42,7 @@
 				/**
 				 * Post Content
 				 */
-				if ( 'excerpt' == Snowbird()->mod( 'loop_content' ) && get_the_excerpt() ) :
+				if ( 'excerpt' === Snowbird()->mod( 'loop_content' ) && get_the_excerpt() ) :
 					/**
 					 * Post Excerpt
 					 */
@@ -51,7 +51,7 @@
 						<?php the_excerpt(); ?>
 					</div>
 					<?php
-				elseif ( 'full' == Snowbird()->mod( 'loop_content' ) && get_the_content() ) :
+				elseif ( 'full' === Snowbird()->mod( 'loop_content' ) && get_the_content() ) :
 					/**
 					 * Full Content
 					 */
