@@ -13,7 +13,7 @@
 			 */
 			snowbird_display_footer_menu(); ?>
 
-			<?php /* translators: 1. Current Year 1. Site Link 3. WordPress Link 4. xFrontend Link */ ?>
+			<?php /* translators: 1. Current Year 2. Site Link 3. WordPress Link 4. xFrontend Link */ ?>
 			<p class="xf__copyright"><?php echo apply_filters( 'snowbird_footer_text', sprintf(
 					esc_html__( '&copy; %1$d %2$s. Powered by %3$s &amp; %4$s.', 'snowbird' ),
 					date( 'Y' ),
