@@ -16,7 +16,7 @@ $author_bio = snowbird_get_author_bio(); ?>
 	<hr class="separator">
 
 	<?php if ( ! empty( $author_bio ) ) : ?>
-		<p class="bio-content" itemprop="description"><?php echo $author_bio; ?></p>
+		<div class="bio-content" itemprop="description"><?php echo wpautop( $author_bio ); ?></div>
 
 		<hr class="separator">
 	<?php endif; ?>
