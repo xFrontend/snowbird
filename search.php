@@ -2,7 +2,7 @@
 
 <header class="xf__header">
 	<div class="content xf__container">
-		<h1 class="xf__page-title" itemprop="headline"><?php echo get_search_query(); ?></h1>
+		<h1 class="xf__page-title" itemprop="headline"><?php echo esc_html( get_search_query( false ) ); ?></h1>
 	</div>
 
 	<?php
@@ -18,7 +18,7 @@
 	<div class="xf__page-meta">
 		<div class="xf__container">
 			<span class="item-icon"><i class="fa fa-clock-o"></i></span>
-			<span class="item-content"><?php printf( esc_html__( 'Search results for: %s', 'snowbird' ), get_search_query() ); ?></span>
+			<span class="item-content"><?php echo esc_html( sprintf( __( 'Search results for: %s', 'snowbird' ), get_search_query( false ) ) ); ?></span>
 		</div>
 	</div>
 
@@ -31,9 +31,9 @@
 				/**
 				 * Post Contents
 				 */
-				if ( 'alternate' == Snowbird()->mod( 'loop_layout_type' ) ) :
+				if ( 'alternate' === Snowbird()->mod( 'loop_layout_type' ) ) :
 					get_template_part( 'template-parts/content-alternate', get_post_format() );
-				else:
+				else :
 					get_template_part( 'template-parts/content', get_post_format() );
 				endif;
 				?>
