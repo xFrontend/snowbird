@@ -25,7 +25,7 @@ get_template_part( 'template-parts/primary-site-header' ); ?>
 								 */
 								printf(
 									'<span class="xf__meta-item posted-on"><a href="%1$s" rel="bookmark"><time class="entry-date published" datetime="%2$s" itemprop="datePublished" >%3$s</time></a></span>',
-									esc_attr( get_the_permalink() ),
+									esc_url( get_the_permalink() ),
 									esc_attr( get_the_time( 'c' ) ),
 									esc_html( get_the_time( get_option( 'date_format' ) ) )
 								);
@@ -34,10 +34,17 @@ get_template_part( 'template-parts/primary-site-header' ); ?>
 									'<span class="xf__meta-item updated-on screen-reader-text"><time class="entry-date updated" datetime="%1$s" itemprop="dateModified" >%2$s</time></span>',
 									esc_attr( get_the_modified_time( 'c' ) ),
 									esc_html( get_the_modified_time( get_option( 'date_format' ) ) )
+								);
+								/**
+								 * Previous Post Link - Posted on
+								 */
+								printf(
+									'<span class="xf__meta-item parent-post">%s</span>',
+									sprintf(
+										esc_html__( 'Posted on: %s', 'snowbird' ),
+										get_previous_post_link( '%link' )
+									)
 								); ?>
-
-								<span
-									class="xf__meta-item parent-post"><?php echo esc_html__( 'Posted on:', 'snowbird' ) . ' ' . get_previous_post_link( '%link' ); ?></span>
 							</div>
 
 							<?php
