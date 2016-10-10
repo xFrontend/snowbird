@@ -70,7 +70,7 @@ if ( ! function_exists( 'snowbird_setup' ) ) :
 		register_nav_menus( array(
 			'primary'   => esc_html_x( 'Primary Menu', 'admin', 'snowbird' ),
 			'secondary' => esc_html_x( 'Secondary Menu', 'admin', 'snowbird' ),
-			'social'    => esc_html_x( 'Social Menu', 'admin', 'snowbird' ),
+			'social'    => esc_html_x( 'Social Menu', 'admin', 'snowbird' )
 		) );
 
 		/**
