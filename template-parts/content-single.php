@@ -55,16 +55,20 @@
 			</div>
 
 			<footer class="xf__post-footer">
-				<?php
-				/**
-				 * Post Tags
-				 */
-				$tags_list = get_the_tag_list( '', esc_html_x( ', ', 'tags separator', 'snowbird' ) );
+				<?php if ( ! post_password_required() ) : ?>
 
-				if ( $tags_list && ! post_password_required() ) : ?>
-					<p class="xf__meta-item link-tag" itemprop="text">
-						<span><?php esc_html_e( 'Tagged with: ', 'snowbird' ); ?></span> <?php echo $tags_list; ?>
-					</p>
+					<?php
+					/**
+					 * Post Tags
+					 */
+					$tags_list = get_the_tag_list( '', esc_html_x( ', ', 'tags separator', 'snowbird' ) );
+
+					if ( $tags_list ) : ?>
+						<p class="xf__meta-item link-tag" itemprop="text">
+							<span><?php esc_html_e( 'Tagged with: ', 'snowbird' ); ?></span> <?php echo $tags_list; ?>
+						</p>
+					<?php endif; ?>
+
 				<?php endif; ?>
 
 				<?php
