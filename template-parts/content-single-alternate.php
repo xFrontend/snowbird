@@ -5,7 +5,7 @@
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?> itemtype="http://schema.org/BlogPosting"
-	itemscope="itemscope" itemprop="blogPost">
+         itemscope="itemscope" itemprop="blogPost">
 
 	<div class="xf__container xf__entry-container">
 		<header class="xf__post-header">
@@ -41,7 +41,7 @@
 
 			else : ?>
 				<p class="entry-author vcard screen-reader-text" itemtype="http://schema.org/Person"
-					itemscope="itemscope" itemprop="author">
+				   itemscope="itemscope" itemprop="author">
 					<span><?php esc_html_e( 'Written by', 'snowbird' ); ?></span>
 					<span class="fn" itemprop="name"><?php echo snowbird_get_author(); ?></span>
 				</p>
@@ -62,7 +62,7 @@
 					'before'      => '<div class="xf__nav-pagination">' . esc_html__( 'Pages:', 'snowbird' ),
 					'after'       => '</div>',
 					'link_before' => '<span class="page-numbers">',
-					'link_after'  => '</span>',
+					'link_after'  => '</span>'
 				) ); ?>
 			</div>
 
