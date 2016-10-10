@@ -12,7 +12,7 @@ get_template_part( 'template-parts/primary-site-header' ); ?>
 		<div itemscope="itemscope" itemtype="http://schema.org/Blog">
 
 			<article id="post-<?php the_ID(); ?>" <?php post_class(); ?> itemtype="http://schema.org/BlogPosting"
-				itemscope="itemscope" itemprop="blogPost">
+			         itemscope="itemscope" itemprop="blogPost">
 
 				<div class="xf__post-wrapper">
 					<div class="xf__container xf__entry-container">
@@ -34,10 +34,17 @@ get_template_part( 'template-parts/primary-site-header' ); ?>
 									'<span class="xf__meta-item updated-on screen-reader-text"><time class="entry-date updated" datetime="%1$s" itemprop="dateModified" >%2$s</time></span>',
 									esc_attr( get_the_modified_time( 'c' ) ),
 									esc_html( get_the_modified_time( get_option( 'date_format' ) ) )
+								);
+								/**
+								 * Previous Post Link - Posted on
+								 */
+								printf(
+									'<span class="xf__meta-item parent-post">%s</span>',
+									sprintf(
+										esc_html__( 'Posted on: %s', 'snowbird' ),
+										get_previous_post_link( '%link' )
+									)
 								); ?>
-
-								<span
-									class="xf__meta-item parent-post"><?php esc_html_e( 'Posted on:', 'snowbird' ); ?> <?php previous_post_link( '%link' ); ?></span>
 							</div>
 
 							<?php
