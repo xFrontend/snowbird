@@ -42,8 +42,8 @@
 			else : ?>
 				<p class="entry-author vcard screen-reader-text" itemtype="http://schema.org/Person"
 				   itemscope="itemscope" itemprop="author">
-					<span><?php esc_html_e( 'Written by', 'snowbird' ); ?></span> <span class="fn"
-					                                                                    itemprop="name"><?php echo snowbird_get_author(); ?></span>
+					<span><?php esc_html_e( 'Written by', 'snowbird' ); ?></span>
+					<span class="fn" itemprop="name"><?php echo snowbird_get_author(); ?></span>
 				</p>
 			<?php endif; ?>
 
@@ -67,16 +67,20 @@
 			</div>
 
 			<footer class="xf__post-footer">
-				<?php
-				/**
-				 * Post Tags
-				 */
-				$tags_list = get_the_tag_list( '', esc_html_x( ', ', 'tags separator', 'snowbird' ) );
+				<?php if ( ! post_password_required() ) : ?>
 
-				if ( $tags_list && ! post_password_required() ) : ?>
-					<p class="xf__meta-item link-tag" itemprop="text">
-						<span><?php esc_html_e( 'Tagged with: ', 'snowbird' ); ?></span> <?php echo $tags_list; ?>
-					</p>
+					<?php
+					/**
+					 * Post Tags
+					 */
+					$tags_list = get_the_tag_list( '', esc_html_x( ', ', 'tags separator', 'snowbird' ) );
+
+					if ( $tags_list ) : ?>
+						<p class="xf__meta-item link-tag" itemprop="text">
+							<span><?php esc_html_e( 'Tagged with: ', 'snowbird' ); ?></span> <?php echo $tags_list; ?>
+						</p>
+					<?php endif; ?>
+
 				<?php endif; ?>
 
 				<?php
