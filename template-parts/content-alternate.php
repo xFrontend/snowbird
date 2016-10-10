@@ -6,7 +6,7 @@
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?> itemtype="http://schema.org/BlogPosting"
-	itemscope="itemscope" itemprop="blogPost">
+         itemscope="itemscope" itemprop="blogPost">
 
 	<div class="xf__container">
 		<header class="xf__post-header">
