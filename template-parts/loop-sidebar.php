@@ -5,8 +5,8 @@
 
 			<p class="entry-author vcard screen-reader-text" itemtype="http://schema.org/Person" itemscope="itemscope"
 			   itemprop="author">
-				<span><?php esc_html_e( 'by:', 'snowbird' ); ?></span> <span class="fn author"
-				                                                             itemprop="name"><?php echo snowbird_get_author(); ?></span>
+				<span><?php esc_html_e( 'by:', 'snowbird' ); ?></span>
+				<span class="fn author" itemprop="name"><?php echo snowbird_get_author(); ?></span>
 			</p>
 
 			<?php if ( ! post_password_required() ) : ?>
@@ -14,7 +14,7 @@
 					<?php comments_popup_link(
 						esc_html__( 'Add Comment', 'snowbird' ),
 						'<span class="count">' . number_format_i18n( 1 ) . '</span> ' . esc_html__( 'Comment', 'snowbird' ),
-						'<span class="count">%</span> ' . esc_html__( 'Comments', 'snowbird' )
+						'<span class="count">%s</span> ' . esc_html__( 'Comments', 'snowbird' )
 					); ?>
 				</p>
 			<?php endif; ?>
