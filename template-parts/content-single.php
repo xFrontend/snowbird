@@ -5,7 +5,7 @@
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?> itemtype="http://schema.org/BlogPosting"
-	itemscope="itemscope" itemprop="blogPost">
+         itemscope="itemscope" itemprop="blogPost">
 	<?php
 	/**
 	 * Featured Image
@@ -50,7 +50,7 @@
 					'before'      => '<div class="xf__nav-pagination">' . esc_html__( 'Pages:', 'snowbird' ),
 					'after'       => '</div>',
 					'link_before' => '<span class="page-numbers">',
-					'link_after'  => '</span>',
+					'link_after'  => '</span>'
 				) ); ?>
 			</div>
 
