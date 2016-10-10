@@ -26,10 +26,10 @@
 		 * Page Author (for the Scheme markup).
 		 */ ?>
 		<span class="xf__meta-item entry-author vcard" itemtype="http://schema.org/Person"
-			itemscope="itemscope" itemprop="author">
+		      itemscope="itemscope" itemprop="author">
 			<?php esc_html_e( 'by:', 'snowbird' ); ?>
 			<span class="fn author"
-				itemprop="name"><?php echo snowbird_get_author(); ?></span>
+			      itemprop="name"><?php echo snowbird_get_author(); ?></span>
 		</span>
 	</p>
 
