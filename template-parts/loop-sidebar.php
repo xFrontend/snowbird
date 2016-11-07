@@ -14,7 +14,7 @@
 					<?php comments_popup_link(
 						esc_html__( 'Add Comment', 'snowbird' ),
 						'<span class="count">' . number_format_i18n( 1 ) . '</span> ' . esc_html__( 'Comment', 'snowbird' ),
-						'<span class="count">%s</span> ' . esc_html__( 'Comments', 'snowbird' )
+						'<span class="count">%</span> ' . esc_html__( 'Comments', 'snowbird' )
 					); ?>
 				</p>
 			<?php endif; ?>
