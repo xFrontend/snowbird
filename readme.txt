@@ -25,6 +25,12 @@ For more information about Snowbird please go to https://xfrontend.com/themes/sn
 
 == Changelog ==
 
+= v1.4.1 =
+Release Date: November 8, 2016
+
+* Updates - Code Improvement and Minor Fixes.
+* Updates - Translation POT File.
+
 = v1.4 =
 Release Date: September 7, 2016
 

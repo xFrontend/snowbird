@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Snowbird 1.4\n"
 "Report-Msgid-Bugs-To: https://xfrontend.com/\n"
-"POT-Creation-Date: 2016-09-07 19:30:47+00:00\n"
+"POT-Creation-Date: 2016-11-07 20:07:43+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -53,7 +53,7 @@ msgstr ""
 
 #: comments.php:91
 msgctxt "required field mark"
-msgid "*"
+msgid " *"
 msgstr ""
 
 #: comments.php:95
@@ -73,7 +73,7 @@ msgid "Your email address will not be published."
 msgstr ""
 
 #: comments.php:98
-msgid "Required fields are marked %s"
+msgid "Required fields are marked%s"
 msgstr ""
 
 #: comments.php:100 template-parts/loop-sidebar.php:16
@@ -81,11 +81,11 @@ msgid "Comment"
 msgstr ""
 
 #: comments.php:102
-msgid "Name %s"
+msgid "Name%s"
 msgstr ""
 
 #: comments.php:103
-msgid "Email %s"
+msgid "Email%s"
 msgstr ""
 
 #: comments.php:104
@@ -96,7 +96,7 @@ msgstr ""
 msgid "Post Comment"
 msgstr ""
 
-#. translators: 1. Current Year 1. Site Link 3. WordPress Link 4. xFrontend
+#. translators: 1. Current Year 2. Site Link 3. WordPress Link 4. xFrontend
 #. Link
 
 #: footer.php:18
@@ -1010,8 +1010,8 @@ msgstr ""
 msgid "Back to Top"
 msgstr ""
 
-#: single-attachment.php:40
-msgid "Posted on:"
+#: single-attachment.php:44
+msgid "Posted on: %s"
 msgstr ""
 
 #: template-parts/content-none.php:14
@@ -1019,7 +1019,7 @@ msgid "Nothing Found"
 msgstr ""
 
 #: template-parts/content-none.php:18
-msgid "Ready to publish your first post? <a href=\"%1$s\">Get started here</a>."
+msgid "Ready to publish your first post? <a href=\"%s\">Get started here</a>."
 msgstr ""
 
 #: template-parts/content-none.php:22
@@ -1036,14 +1036,14 @@ msgstr ""
 msgid "Pages:"
 msgstr ""
 
-#: template-parts/content-single-alternate.php:74
-#: template-parts/content-single.php:62
+#: template-parts/content-single-alternate.php:76
+#: template-parts/content-single.php:64
 msgctxt "tags separator"
 msgid ", "
 msgstr ""
 
-#: template-parts/content-single-alternate.php:78
-#: template-parts/content-single.php:66
+#: template-parts/content-single-alternate.php:80
+#: template-parts/content-single.php:68
 msgid "Tagged with: "
 msgstr ""
 
@@ -1066,7 +1066,7 @@ msgid "Posts navigation"
 msgstr ""
 
 #: template-parts/loop-sidebar.php:8 template-parts/loop-sidebar.php:26
-#: template-parts/page-meta.php:31
+#: template-parts/page-meta.php:30
 msgid "by:"
 msgstr ""
 
@@ -1163,7 +1163,7 @@ msgid "https://xfrontend.com/themes/snowbird-wordpress-theme/"
 msgstr ""
 
 #. Description of the plugin/theme
-msgid "Snowbird is a responsive WordPress Blog Theme beautifully designed especially for storytellers. It's a simple yet powerful WordPress theme- supports every native WordPress features, and extended with professional tools for ease of use. With beautifully crafted typography it works seamlessly on all devices."
+msgid "Snowbird is a responsive WordPress Blog and Photography theme beautifully designed especially for storytellers and content makers. It's a simple yet powerful WordPress theme with unforgettable design and SEO optimized markups. Snowbird supports every native WordPress features, and extended with professional tools for ease of use. With beautifully crafted typography it works fast, seamlessly on all devices."
 msgstr ""
 
 #. Author of the plugin/theme
