@@ -13,6 +13,11 @@ Requires WordPress v4.5 or later.
 
 ## Changelog
 
+#### v1.4.2
+Release Date: November 8, 2016
+
+* Fixes - Removes extra `s` from comment count.
+
 #### v1.4.1
 Release Date: November 8, 2016
 
