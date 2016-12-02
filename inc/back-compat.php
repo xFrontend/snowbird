@@ -36,8 +36,13 @@ add_action( 'after_switch_theme', 'snowbird_switch_theme' );
  * @global string $wp_version
  */
 function snowbird_upgrade_notice() {
-	$message = sprintf( esc_html_x( 'Snowbird requires at least WordPress version 4.5. You are running version %s. Please upgrade and try again.', 'admin', 'snowbird' ), $GLOBALS['wp_version'] );
-	printf( '<div class="error"><p>%s</p></div>', $message );
+	?>
+	<div class="error">
+		<p>
+			<?php printf( esc_html_x( 'Snowbird requires at least WordPress version 4.5. You are running version %s. Please upgrade and try again.', 'admin', 'snowbird' ), $GLOBALS['wp_version'] ); ?>
+		</p>
+	</div>
+	<?php
 }
 
 
