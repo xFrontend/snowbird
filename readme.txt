@@ -25,6 +25,11 @@ For more information about Snowbird please go to https://xfrontend.com/themes/sn
 
 == Changelog ==
 
+= v1.4.3 =
+Release Date: April 17, 2017
+
+* Fixes - Off-Canvas sidebar on iOS device had some issues, now works fine.
+
 = v1.4.2 =
 Release Date: November 8, 2016
 
@@ -122,4 +127,4 @@ The following resources are included within the theme package.
 
 All other resources and theme elements are licensed under the [GNU GPL](http://www.gnu.org/licenses/old-licenses/gpl-2.0.html), version 2 or later.
 
-Copyright &copy; 2015&thinsp;&ndash;&thinsp;2016 [Omaar Osmaan](https://moonomo.com/).
+Copyright &copy; 2015&thinsp;&ndash;&thinsp;2017 [Omaar Osmaan](https://moonomo.com/).
