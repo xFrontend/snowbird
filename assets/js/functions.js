@@ -177,18 +177,13 @@
             $('.xf__top').on('click.snowbird', function (e) {
                 e.preventDefault();
 
-                $('.xf__sidebar').getNiceScroll(0).doScrollTop(0);
+                $('.xf__sidebar').scrollTop(0);
             });
 
             // Sidebar
-            $('.xf__sidebar').niceScroll('.sidebar-area', {
-                cursorcolor: '#929292',
-                cursoropacitymax: 0.7,
-                cursorwidth: '6px',
-                cursorborder: 'none',
-                boxzoom: false,
-                gesturezoom: false,
-                grabcursorenabled: false
+            $('.xf__sidebar').perfectScrollbar({
+                wheelSpeed: 2,
+                wheelPropagation: true
             });
 
             $(window)

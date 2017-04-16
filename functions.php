@@ -233,10 +233,10 @@ function snowbird_scripts() {
 		true
 	);
 
-	wp_enqueue_script( 'jquery-nicescroll',
-		Snowbird()->protocol( get_template_directory_uri() . '/assets/js/vendor/jquery.nicescroll.min.js' ),
+	wp_enqueue_script( 'jquery-perfect-scrollbar',
+		Snowbird()->protocol( get_template_directory_uri() . '/assets/js/vendor/perfect-scrollbar.jquery.min.js' ),
 		array( 'jquery' ),
-		'3.6.8',
+		'0.6.16',
 		true
 	);
 
@@ -249,7 +249,7 @@ function snowbird_scripts() {
 
 	wp_enqueue_script( 'snowbird-script',
 		Snowbird()->protocol( get_template_directory_uri() . '/assets/js/functions' . $ext_js ),
-		array( 'jquery', 'jquery-fitvids', 'jquery-nicescroll', 'jquery-magnific-popup' ),
+		array( 'jquery', 'jquery-fitvids', 'jquery-perfect-scrollbar', 'jquery-magnific-popup' ),
 		Snowbird()->version(),
 		true
 	);
