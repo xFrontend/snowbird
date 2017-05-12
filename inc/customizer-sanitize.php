@@ -46,9 +46,8 @@ function snowbird_sanitize_choice( $value, $field ) {
 	$choices = array();
 
 	if ( is_object( $field ) ) {
-		$ID      = $field->id;
-		$default = $field->manager->get_setting( $ID )->default;
-		$choices = $field->manager->get_control( $ID )->choices;
+		$default = $field->manager->get_setting( $field->id )->default;
+		$choices = $field->manager->get_control( $field->id )->choices;
 	} elseif ( is_array( $field ) && isset( $field['control']['choices'] ) ) {
 		$default = isset( $field['default'] ) ? $field['default'] : null;
 		$choices = $field['control']['choices'];
@@ -71,7 +70,7 @@ function snowbird_sanitize_css_js( $code ) {
 	 */
 	$code = preg_replace( '/\\\\([0-9a-fA-F]{4})/', '\\\\\\\\$1', $prev = $code );
 
-	if ( $code != $prev ) {
+	if ( $code !== $prev ) {
 		return ''; // preg_replace found stuff'
 	}
 
@@ -83,7 +82,7 @@ function snowbird_sanitize_css_js( $code ) {
 	// Why both KSES and strip_tags?  Because we just added some '>'.
 	$code = strip_tags( $code );
 
-	if ( $code != $prev ) {
+	if ( $code !== $prev ) {
 		return ''; // kses found stuff
 	}
 
@@ -166,7 +165,9 @@ function snowbird_sanitize_hex_color_no_hash( $color ) {
  * @return string
  */
 function snowbird_sanitize_maybe_hash_hex_color( $color ) {
-	if ( $unhashed = snowbird_sanitize_hex_color_no_hash( $color ) ) {
+	$unhashed = snowbird_sanitize_hex_color_no_hash( $color );
+
+	if ( $unhashed ) {
 		return '#' . $unhashed;
 	}
 

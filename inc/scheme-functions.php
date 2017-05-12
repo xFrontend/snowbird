@@ -251,7 +251,7 @@ function snowbird_get_color_scheme_css( $colors ) {
 /**
  * Returns user defined Header Colors.
  *
- * @return string|void
+ * @return array
  */
 function snowbird_get_header_colors() {
 	$color_scheme = snowbird_get_color_scheme();
@@ -264,7 +264,7 @@ function snowbird_get_header_colors() {
 	$colors['header_border_rgba']      = Snowbird()->rgba( $colors['content_text_color'], 10 );  // 10 = 0.1
 
 	if ( $colors['header_text_color'] === $color_scheme['header_text_color'] && $colors['header_background_color'] === $color_scheme['header_background_color'] || empty( $colors['header_border_rgba'] ) ) {
-		return;
+		return array();
 	}
 
 	return $colors;
@@ -275,12 +275,12 @@ function snowbird_get_header_colors() {
  *
  * @param $colors
  *
- * @return string|void
+ * @return string
  */
 function snowbird_get_header_colors_css( $colors ) {
 
 	if ( ! isset( $colors['header_text_color'] ) && ! isset( $colors['header_background_color'] ) && ! isset( $colors['header_border_rgba'] ) ) {
-		return;
+		return '';
 	}
 
 	$css = <<<CSS
@@ -308,7 +308,7 @@ CSS;
 /**
  * Returns user defined Content Title Color.
  *
- * @return string|void
+ * @return array
  */
 function snowbird_get_content_title_color() {
 	$color_scheme = snowbird_get_color_scheme();
@@ -317,7 +317,7 @@ function snowbird_get_content_title_color() {
 	$colors['content_title_color'] = Snowbird()->mod( 'content_title_color', $color_scheme['content_title_color'] );
 
 	if ( $colors['content_title_color'] === $color_scheme['content_title_color'] ) {
-		return;
+		return array();
 	}
 
 	return $colors;
@@ -328,12 +328,12 @@ function snowbird_get_content_title_color() {
  *
  * @param $colors
  *
- * @return string|void
+ * @return string
  */
 function snowbird_get_content_title_color_css( $colors ) {
 
 	if ( ! isset( $colors['content_title_color'] ) ) {
-		return;
+		return '';
 	}
 
 	$css = <<<CSS
@@ -370,7 +370,7 @@ CSS;
 /**
  * Returns user defined Content Text Color.
  *
- * @return string|void
+ * @return array
  */
 function snowbird_get_content_text_color() {
 	$color_scheme = snowbird_get_color_scheme();
@@ -380,7 +380,7 @@ function snowbird_get_content_text_color() {
 	$colors['content_border_rgba'] = Snowbird()->rgba( $colors['content_text_color'], 10 ); // 10 = 0.1
 
 	if ( $colors['content_text_color'] === $color_scheme['content_text_color'] || empty( $colors['content_border_rgba'] ) ) {
-		return;
+		return array();
 	}
 
 	return $colors;
@@ -391,12 +391,12 @@ function snowbird_get_content_text_color() {
  *
  * @param $colors
  *
- * @return string|void
+ * @return string
  */
 function snowbird_get_content_text_color_css( $colors ) {
 
 	if ( ! isset( $colors['content_text_color'] ) && ! isset( $colors['content_border_rgba'] ) ) {
-		return;
+		return '';
 	}
 
 	$css = <<<CSS
@@ -503,7 +503,7 @@ CSS;
 /**
  * Returns user defined Content Secondary Color.
  *
- * @return string|void
+ * @return array
  */
 function snowbird_get_content_alt_text_color() {
 	$color_scheme = snowbird_get_color_scheme();
@@ -512,7 +512,7 @@ function snowbird_get_content_alt_text_color() {
 	$colors['content_alt_text_color'] = Snowbird()->mod( 'content_alt_text_color', $color_scheme['content_alt_text_color'] );
 
 	if ( $colors['content_alt_text_color'] === $color_scheme['content_alt_text_color'] ) {
-		return;
+		return array();
 	}
 
 	return $colors;
@@ -523,12 +523,12 @@ function snowbird_get_content_alt_text_color() {
  *
  * @param $colors
  *
- * @return string|void
+ * @return string
  */
 function snowbird_get_content_alt_text_color_css( $colors ) {
 
 	if ( ! isset( $colors['content_alt_text_color'] ) ) {
-		return;
+		return '';
 	}
 
 	$css = <<<CSS
@@ -586,7 +586,7 @@ CSS;
 /**
  * Returns user defined Content Accent Color.
  *
- * @return string|void
+ * @return array
  */
 function snowbird_get_content_accent_color() {
 	$color_scheme = snowbird_get_color_scheme();
@@ -596,7 +596,7 @@ function snowbird_get_content_accent_color() {
 	$colors['content_accent_rgba']  = Snowbird()->rgba( $colors['content_accent_color'], 85 );
 
 	if ( $colors['content_accent_color'] === $color_scheme['content_accent_color'] || empty( $colors['content_accent_rgba'] ) ) {
-		return;
+		return array();
 	}
 
 	return $colors;
@@ -607,12 +607,12 @@ function snowbird_get_content_accent_color() {
  *
  * @param $colors
  *
- * @return string|void
+ * @return string
  */
 function snowbird_get_content_accent_color_css( $colors ) {
 
 	if ( ! isset( $colors['content_accent_color'] ) && ! isset( $colors['content_accent_rgba'] ) ) {
-		return;
+		return '';
 	}
 
 	$css = <<<CSS
@@ -721,7 +721,7 @@ CSS;
 /**
  * Returns user defined Content Background Color.
  *
- * @return string|void
+ * @return array
  */
 function snowbird_get_content_background_color() {
 	$color_scheme = snowbird_get_color_scheme();
@@ -730,7 +730,7 @@ function snowbird_get_content_background_color() {
 	$colors['content_background_color'] = Snowbird()->mod( 'content_background_color', $color_scheme['content_background_color'] );
 
 	if ( $colors['content_background_color'] === $color_scheme['content_background_color'] ) {
-		return;
+		return array();
 	}
 
 	return $colors;
@@ -741,12 +741,12 @@ function snowbird_get_content_background_color() {
  *
  * @param $colors
  *
- * @return string|void
+ * @return string
  */
 function snowbird_get_content_background_color_css( $colors ) {
 
 	if ( ! isset( $colors['content_background_color'] ) ) {
-		return;
+		return '';
 	}
 
 	$css = <<<CSS
@@ -773,7 +773,7 @@ CSS;
 /**
  * Returns user defined Footer Title Color.
  *
- * @return string|void
+ * @return array
  */
 function snowbird_get_footer_title_color() {
 	$color_scheme = snowbird_get_color_scheme();
@@ -782,7 +782,7 @@ function snowbird_get_footer_title_color() {
 	$colors['footer_title_color'] = Snowbird()->mod( 'footer_title_color', $color_scheme['footer_title_color'] );
 
 	if ( $colors['footer_title_color'] === $color_scheme['footer_title_color'] ) {
-		return;
+		return array();
 	}
 
 	return $colors;
@@ -793,12 +793,12 @@ function snowbird_get_footer_title_color() {
  *
  * @param $colors
  *
- * @return string|void
+ * @return string
  */
 function snowbird_get_footer_title_color_css( $colors ) {
 
 	if ( ! isset( $colors['footer_title_color'] ) ) {
-		return;
+		return '';
 	}
 
 	$css = <<<CSS
@@ -828,7 +828,7 @@ CSS;
 /**
  * Returns user defined Footer Text Color.
  *
- * @return string|void
+ * @return array
  */
 function snowbird_get_footer_text_color() {
 	$color_scheme = snowbird_get_color_scheme();
@@ -838,7 +838,7 @@ function snowbird_get_footer_text_color() {
 	$colors['footer_border_rgba'] = Snowbird()->rgba( $colors['footer_text_color'], 10 ); // 10 = 0.1
 
 	if ( $colors['footer_text_color'] === $color_scheme['footer_text_color'] || empty( $colors['footer_border_rgba'] ) ) {
-		return;
+		return array();
 	}
 
 	return $colors;
@@ -849,12 +849,12 @@ function snowbird_get_footer_text_color() {
  *
  * @param $colors
  *
- * @return string|void
+ * @return string
  */
 function snowbird_get_footer_text_color_css( $colors ) {
 
 	if ( ! isset( $colors['footer_text_color'] ) && ! isset( $colors['footer_border_rgba'] ) ) {
-		return;
+		return '';
 	}
 
 	$css = <<<CSS
@@ -916,7 +916,7 @@ CSS;
 /**
  * Returns user defined Footer Secondary Color.
  *
- * @return string|void
+ * @return array
  */
 function snowbird_get_footer_alt_text_color() {
 	$color_scheme = snowbird_get_color_scheme();
@@ -925,7 +925,7 @@ function snowbird_get_footer_alt_text_color() {
 	$colors['footer_alt_text_color'] = Snowbird()->mod( 'footer_alt_text_color', $color_scheme['footer_alt_text_color'] );
 
 	if ( $colors['footer_alt_text_color'] === $color_scheme['footer_alt_text_color'] ) {
-		return;
+		return array();
 	}
 
 	return $colors;
@@ -936,12 +936,12 @@ function snowbird_get_footer_alt_text_color() {
  *
  * @param $colors
  *
- * @return string|void
+ * @return string
  */
 function snowbird_get_footer_alt_text_color_css( $colors ) {
 
 	if ( ! isset( $colors['footer_alt_text_color'] ) ) {
-		return;
+		return '';
 	}
 
 	$css = <<<CSS
@@ -984,7 +984,7 @@ CSS;
 /**
  * Returns user defined Footer Accent Color.
  *
- * @return string|void
+ * @return array
  */
 function snowbird_get_footer_accent_color() {
 	$color_scheme = snowbird_get_color_scheme();
@@ -994,7 +994,7 @@ function snowbird_get_footer_accent_color() {
 	$colors['footer_accent_rgba']  = Snowbird()->rgba( $colors['footer_accent_color'], 85 );
 
 	if ( $colors['footer_accent_color'] === $color_scheme['footer_accent_color'] || empty( $colors['footer_accent_rgba'] ) ) {
-		return;
+		return array();
 	}
 
 	return $colors;
@@ -1005,12 +1005,12 @@ function snowbird_get_footer_accent_color() {
  *
  * @param $colors
  *
- * @return string|void
+ * @return string
  */
 function snowbird_get_footer_accent_color_css( $colors ) {
 
 	if ( ! isset( $colors['footer_accent_color'] ) && ! isset( $colors['footer_accent_rgba'] ) ) {
-		return;
+		return '';
 	}
 
 	$css = <<<CSS
@@ -1075,7 +1075,7 @@ CSS;
 /**
  * Returns user defined Footer Background Color.
  *
- * @return string|void
+ * @return array
  */
 function snowbird_get_footer_background_color() {
 	$color_scheme = snowbird_get_color_scheme();
@@ -1084,7 +1084,7 @@ function snowbird_get_footer_background_color() {
 	$colors['footer_background_color'] = Snowbird()->mod( 'footer_background_color', $color_scheme['footer_background_color'] );
 
 	if ( $colors['footer_background_color'] === $color_scheme['footer_background_color'] ) {
-		return;
+		return array();
 	}
 
 	return $colors;
@@ -1095,24 +1095,17 @@ function snowbird_get_footer_background_color() {
  *
  * @param $colors
  *
- * @return string|void
+ * @return string
  */
 function snowbird_get_footer_background_color_css( $colors ) {
 
 	if ( ! isset( $colors['footer_background_color'] ) ) {
-		return;
+		return '';
 	}
 
 	$css = <<<CSS
 
 	/* Footer Background Color */
-	/*.xf__footer .widget input[type="text"],
-	.xf__footer .widget input[type="email"],
-	.xf__footer .widget input[type="url"],
-	.xf__footer .widget input[type="password"],
-	.xf__footer .widget input[type="search"],
-	.xf__footer .widget select,
-	.xf__footer .widget textarea,*/
 	.xf__footer {
 		background-color: {$colors['footer_background_color']};
 	}
@@ -1126,7 +1119,7 @@ CSS;
 /**
  * Returns user defined Button Text Color.
  *
- * @return string|void
+ * @return array
  */
 function snowbird_get_button_text_color() {
 	$color_scheme = snowbird_get_color_scheme();
@@ -1135,7 +1128,7 @@ function snowbird_get_button_text_color() {
 	$colors['button_text_color'] = Snowbird()->mod( 'button_text_color', $color_scheme['button_text_color'] );
 
 	if ( $colors['button_text_color'] === $color_scheme['button_text_color'] ) {
-		return;
+		return array();
 	}
 
 	return $colors;
@@ -1146,12 +1139,12 @@ function snowbird_get_button_text_color() {
  *
  * @param $colors
  *
- * @return string|void
+ * @return string
  */
 function snowbird_get_button_text_color_css( $colors ) {
 
 	if ( ! isset( $colors['button_text_color'] ) ) {
-		return;
+		return '';
 	}
 
 	$css = <<<CSS
@@ -1202,7 +1195,7 @@ CSS;
 /**
  * Returns user defined Button Background Color.
  *
- * @return string|void
+ * @return array
  */
 function snowbird_get_button_background_color() {
 	$color_scheme = snowbird_get_color_scheme();
@@ -1211,7 +1204,7 @@ function snowbird_get_button_background_color() {
 	$colors['button_background_color'] = Snowbird()->mod( 'button_background_color', $color_scheme['button_background_color'] );
 
 	if ( $colors['button_background_color'] === $color_scheme['button_background_color'] ) {
-		return;
+		return array();
 	}
 
 	return $colors;
@@ -1222,12 +1215,12 @@ function snowbird_get_button_background_color() {
  *
  * @param $colors
  *
- * @return string|void
+ * @return string
  */
 function snowbird_get_button_background_color_css( $colors ) {
 
 	if ( ! isset( $colors['button_background_color'] ) ) {
-		return;
+		return '';
 	}
 
 	$css = <<<CSS

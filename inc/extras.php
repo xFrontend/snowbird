@@ -67,6 +67,10 @@ add_filter( 'wp_headers', 'snowbird_add_ie_header' );
 
 /**
  * Adds classes for the TinyMCE Editor
+ *
+ * @param $settings
+ *
+ * @return mixed
  */
 function snowbird_editor_settings( $settings ) {
 	$settings['body_class'] .= ' xf__entry xf__singular entry-content';
@@ -91,16 +95,16 @@ function snowbird_body_classes( $classes ) {
 
 	$classes[] = 'scheme-' . Snowbird()->mod( 'color_scheme' );
 
-	if ( is_single() && 'alternate' == Snowbird()->mod( 'post_layout_type' ) ) {
+	if ( is_single() && 'alternate' === Snowbird()->mod( 'post_layout_type' ) ) {
 		$classes[] = 'layout-single-alt';
 	}
-	if ( ! is_singular() && 'alternate' == Snowbird()->mod( 'loop_layout_type' ) ) {
+	if ( ! is_singular() && 'alternate' === Snowbird()->mod( 'loop_layout_type' ) ) {
 		$classes[] = 'layout-alt';
 	}
 
-	if ( is_single() && false != apply_filters( 'snowbird_single_full_content_width', Snowbird()->mod( 'post_full_content_width' ) ) ) {
+	if ( is_single() && false !== apply_filters( 'snowbird_single_full_content_width', Snowbird()->mod( 'post_full_content_width' ) ) ) {
 		$classes[] = 'full-content-width';
-	} elseif ( is_page() && false != apply_filters( 'snowbird_page_full_content_width', Snowbird()->mod( 'page_full_content_width' ) ) ) {
+	} elseif ( is_page() && false !== apply_filters( 'snowbird_page_full_content_width', Snowbird()->mod( 'page_full_content_width' ) ) ) {
 		$classes[] = 'full-content-width';
 	}
 
@@ -140,9 +144,9 @@ function snowbird_post_classes( $classes ) {
 		$classes[] = 'has-author-bio';
 	}
 
-	if ( is_single() && false == apply_filters( 'snowbird_single_full_content_width', Snowbird()->mod( 'post_full_content_width' ) ) ) {
+	if ( is_single() && false === apply_filters( 'snowbird_single_full_content_width', Snowbird()->mod( 'post_full_content_width' ) ) ) {
 		$classes[] = 'xf__singular';
-	} elseif ( is_page() && false == apply_filters( 'snowbird_page_full_content_width', Snowbird()->mod( 'page_full_content_width' ) ) ) {
+	} elseif ( is_page() && false === apply_filters( 'snowbird_page_full_content_width', Snowbird()->mod( 'page_full_content_width' ) ) ) {
 		$classes[] = 'xf__singular';
 	} elseif ( is_singular( array( 'post', 'page' ) ) ) {
 		$classes[] = 'xf__singular-full';
@@ -156,8 +160,6 @@ add_filter( 'post_class', 'snowbird_post_classes' );
 
 /**
  * Returns Read More Button markup for Post Content.
- *
- * @param $more
  *
  * @return string
  */
@@ -237,10 +239,7 @@ function snowbird_oembed_dataparse( $html ) {
 	$html = str_ireplace( array(
 		'allowfullscreen="true"',
 		"allowfullscreen='true'",
-	),
-		'allowfullscreen',
-		$html
-	);
+	), 'allowfullscreen', $html );
 
 	$html = str_ireplace( array(
 		'scrolling="no"',
@@ -253,10 +252,7 @@ function snowbird_oembed_dataparse( $html ) {
 		'mozallowfullscreen',
 		'type="text/html"',
 		"type='text/html'",
-	),
-		'',
-		$html
-	);
+	), '', $html );
 
 	// Properly encode ambiguous ampersand
 	$html = str_ireplace( '&#38;', '&amp;', $html );
@@ -276,7 +272,7 @@ add_filter( 'video_embed_html', 'snowbird_oembed_dataparse' );
  *
  * @param $html
  *
- * @return mixed|void
+ * @return string
  */
 function snowbird_embed_html_wrapper( $html ) {
 	return apply_filters( 'snowbird_embed_html_wrapper', '<div class="embed-wrappar">' . $html . '</div>', $html );
@@ -287,13 +283,16 @@ add_filter( 'video_embed_html', 'snowbird_embed_html_wrapper', 11 );
 
 
 /**
- * Sets up paginated links markup template.
+ * Sets up paginated links markup template
+ *
+ * @param $template
+ * @param $class
  *
  * @return string
  */
 function snowbird_navigation_markup_template( $template, $class ) {
 
-	if ( 'pagination' == $class ) {
+	if ( 'pagination' === $class ) {
 		$template = '
 		<nav class="xf__nav-pagination %1$s" role="navigation">
 			<h2 class="screen-reader-text">%2$s</h2>
@@ -316,7 +315,8 @@ function snowbird_navigation_markup_template( $template, $class ) {
 	 *     </nav>
 	 *
 	 * @param string $template The default template.
-	 * @param string $class    The class passed by the calling function.
+	 * @param string $class The class passed by the calling function.
+	 *
 	 * @return string Navigation template.
 	 */
 	$template = apply_filters( 'snowbird_navigation_markup_template', $template, $class );
@@ -337,7 +337,7 @@ function snowbird_logo_data_update() {
 	/**
 	 * Bail early if we're not in Admin, or current user does not have proper permission.
 	 */
-	if ( ! is_admin() || ! current_user_can( 'edit_theme_options') ) {
+	if ( ! is_admin() || ! current_user_can( 'edit_theme_options' ) ) {
 		return;
 	}
 

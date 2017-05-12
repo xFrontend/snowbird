@@ -12,7 +12,7 @@ get_template_part( 'template-parts/primary-site-header' ); ?>
 		<div itemscope="itemscope" itemtype="http://schema.org/Blog">
 
 			<article id="post-<?php the_ID(); ?>" <?php post_class(); ?> itemtype="http://schema.org/BlogPosting"
-			         itemscope="itemscope" itemprop="blogPost">
+					itemscope="itemscope" itemprop="blogPost">
 
 				<div class="xf__post-wrapper">
 					<div class="xf__container xf__entry-container">
@@ -40,8 +40,8 @@ get_template_part( 'template-parts/primary-site-header' ); ?>
 								 */
 								printf(
 									'<span class="xf__meta-item parent-post">%s</span>',
-									sprintf(
-										esc_html__( 'Posted on: %s', 'snowbird' ),
+									/* translators: %s is the post title. */
+									sprintf( esc_html__( 'Posted on: %s', 'snowbird' ),
 										get_previous_post_link( '%link' )
 									)
 								); ?>

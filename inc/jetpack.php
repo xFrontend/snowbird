@@ -35,9 +35,9 @@ function snowbird_jetpack_infinite_scroll_render() {
 		/**
 		 * Load Posts Content based on Setting.
 		 */
-		if ( 'alternate' == Snowbird()->mod( 'loop_layout_type' ) ) :
+		if ( 'alternate' === Snowbird()->mod( 'loop_layout_type' ) ) :
 			get_template_part( 'template-parts/content-alternate', get_post_format() );
-		else:
+		else :
 			get_template_part( 'template-parts/content', get_post_format() );
 		endif;
 	}

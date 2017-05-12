@@ -68,8 +68,7 @@ if ( ! function_exists( 'snowbird_get_author_bio' ) ) :
 			$post_count = count_user_posts( get_post()->post_author );
 
 			// Translators: 1: author 2: total posts count
-			$bio = sprintf(
-				esc_html__( '%1$s has been contributed to a whooping %2$s.', 'snowbird' ),
+			$bio = sprintf( esc_html__( '%1$s has been contributed to a whooping %2$s.', 'snowbird' ),
 				get_the_author_meta( 'display_name', get_post()->post_author ),
 				sprintf( _n( '%d article', '%d articles', number_format_i18n( $post_count ), 'snowbird' ), number_format_i18n( $post_count ) )
 			);
@@ -155,7 +154,7 @@ function snowbird_get_related_posts( $count = 4, $current_post_id = 0, $cache = 
  * @param bool|true $previous
  * @param string $taxonomy
  *
- * @return mixed|void
+ * @return mixed
  */
 function snowbird_get_post_link( $format, $link, $in_same_term = false, $excluded_terms = '', $previous = true, $taxonomy = 'category' ) {
 	if ( $previous && is_attachment() ) {
@@ -214,7 +213,7 @@ function snowbird_get_post_link( $format, $link, $in_same_term = false, $exclude
  * @param string $excluded_terms
  * @param string $taxonomy
  *
- * @return mixed|void
+ * @return mixed
  */
 function snowbird_get_previous_post_link( $format = '&laquo; %link', $link = '%title', $in_same_term = false, $excluded_terms = '', $taxonomy = 'category' ) {
 	return snowbird_get_post_link( $format, $link, $in_same_term, $excluded_terms, true, $taxonomy );
@@ -231,7 +230,7 @@ function snowbird_get_previous_post_link( $format = '&laquo; %link', $link = '%t
  * @param string $excluded_terms
  * @param string $taxonomy
  *
- * @return mixed|void
+ * @return mixed
  */
 function snowbird_get_next_post_link( $format = '%link &raquo;', $link = '%title', $in_same_term = false, $excluded_terms = '', $taxonomy = 'category' ) {
 	return snowbird_get_post_link( $format, $link, $in_same_term, $excluded_terms, false, $taxonomy );
@@ -405,9 +404,9 @@ if ( ! function_exists( 'snowbird_display_author_bio' ) ) :
 			<?php
 		elseif ( ! Snowbird()->mod( 'post_display_author_bio' ) ) : ?>
 			<p class="entry-author vcard screen-reader-text" itemtype="http://schema.org/Person" itemscope="itemscope"
-			   itemprop="author">
+					itemprop="author">
 				<span><?php esc_html_e( 'Written by', 'snowbird' ); ?></span>
-				<span class="fn" itemprop="name"><?php echo snowbird_get_author(); ?></span></p>
+				<span class="fn" itemprop="name"><?php echo snowbird_get_author(); // XSS: Ok. ?></span></p>
 			<?php
 		else :
 			get_template_part( 'template-parts/post-author' );
@@ -476,7 +475,7 @@ if ( ! function_exists( 'snowbird_display_related_posts' ) ) :
 				} ?>
 				<div class="<?php echo esc_attr( $class_container ); ?>">
 					<div class="xf__block-header screen-reader-text">
-						<h3 class="xf__block-title related-title"><?php _e( 'Related Entries', 'snowbird' ); ?></h3>
+						<h3 class="xf__block-title related-title"><?php esc_html_e( 'Related Entries', 'snowbird' ); ?></h3>
 					</div>
 
 					<div class="row">
@@ -537,7 +536,7 @@ if ( ! function_exists( 'snowbird_display_footer_widgets' ) ) :
 					<?php
 					for ( $i = 1; $i <= $columns; $i ++ ) {
 						if ( is_active_sidebar( 'footer-' . $i ) ) {
-							echo '<div class="' . esc_attr( snowbird_get_footer_widget_classes() ) . ( 1 == $i ? ' first' : '' ) . ( $i == $columns ? ' last' : '' ) . '">';
+							echo '<div class="' . esc_attr( snowbird_get_footer_widget_classes() ) . ( 1 === $i ? ' first' : '' ) . ( $i === $columns ? ' last' : '' ) . '">';
 
 							dynamic_sidebar( 'footer-' . $i );
 
@@ -611,11 +610,11 @@ if ( ! function_exists( 'snowbird_list_comments' ) ) :
 			<div class='comment-content'>
 				<header class="comment-header">
 					<h5 class="comment-author-name" itemtype="https://schema.org/Person" itemscope="itemscope"
-					    itemprop="creator">
+							itemprop="creator">
 						<?php $link = get_comment_author_url(); ?>
 						<?php if ( ! empty( $link ) ) : ?>
 							<a href="<?php echo esc_url( $link ) ?>" itemprop="url"><cite
-									itemprop="name"><?php echo get_comment_author() ?></cite></a>
+										itemprop="name"><?php echo get_comment_author() ?></cite></a>
 						<?php else : ?>
 							<cite itemprop="name"><?php echo get_comment_author() ?></cite>
 						<?php endif; ?>
@@ -623,9 +622,10 @@ if ( ! function_exists( 'snowbird_list_comments' ) ) :
 
 					<div class="comment-date xf__meta">
 						<a href="<?php echo esc_url( get_comment_link() ); ?>">
-							<?php // Translators: 1: date 2: time ?>
-							<time datetime="<?php echo esc_attr( get_comment_time( 'c' ) ); ?>"
-							      itemprop="dateCreated"><?php printf( esc_html__( '%1$s at %2$s', 'snowbird' ), get_comment_date(), get_comment_time() ) ?></time>
+							<time datetime="<?php echo esc_attr( get_comment_time( 'c' ) ); ?>" itemprop="dateCreated"
+							><?php
+								// translators: 1: date 2: time
+								printf( esc_html__( '%1$s at %2$s', 'snowbird' ), get_comment_date(), get_comment_time() ) ?></time>
 						</a>
 					</div>
 				</header>
@@ -633,7 +633,7 @@ if ( ! function_exists( 'snowbird_list_comments' ) ) :
 				<div class="content entry-content" itemprop="text">
 					<?php comment_text(); ?>
 
-					<?php if ( '0' == $comment->comment_approved ) : ?>
+					<?php if ( '0' === $comment->comment_approved ) : ?>
 						<p class="xf__meta"><?php esc_html_e( 'Your comment is awaiting moderation.', 'snowbird' ) ?></p>
 					<?php endif; ?>
 				</div>
@@ -642,7 +642,7 @@ if ( ! function_exists( 'snowbird_list_comments' ) ) :
 					'depth'     => $depth,
 					'max_depth' => $args['max_depth'],
 					'before'    => '<footer class="comment-footer">',
-					'after'     => '</footer>'
+					'after'     => '</footer>',
 				) ) ); ?>
 			</div>
 		</div>
@@ -691,7 +691,7 @@ if ( ! function_exists( 'snowbird_list_contributors' ) ) :
 
 						<?php if ( $post_count ) : ?>
 							<a class="xf__button contributor-posts-link"
-							   href="<?php echo esc_url( get_author_posts_url( $contributor_id ) ); ?>">
+									href="<?php echo esc_url( get_author_posts_url( $contributor_id ) ); ?>">
 								<?php printf( _n( '%d Article', '%d Articles', number_format_i18n( $post_count ), 'snowbird' ), number_format_i18n( $post_count ) ); ?>
 							</a>
 						<?php endif; ?>

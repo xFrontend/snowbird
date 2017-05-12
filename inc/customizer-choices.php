@@ -8,9 +8,10 @@ endif;
 /**
  * Options for Footer Menu Location.
  *
- * @return mixed|void
+ * @return array
  */
 function snowbird_choices_footer_menu_location() {
+
 	return apply_filters( 'snowbird_choices_footer_menu_location', array(
 		'secondary' => esc_html_x( 'Secondary', 'admin', 'snowbird' ),
 		'social'    => esc_html_x( 'Social', 'admin', 'snowbird' ),
@@ -21,9 +22,10 @@ function snowbird_choices_footer_menu_location() {
 /**
  * Options for Footer Widget Area.
  *
- * @return mixed|void
+ * @return array
  */
 function snowbird_choices_footer_widget_area() {
+
 	return apply_filters( 'snowbird_choices_footer_widget_area', array(
 		'off'        => esc_html_x( 'Disable', 'admin', 'snowbird' ),
 		'one'        => esc_html_x( 'One', 'admin', 'snowbird' ),
@@ -37,9 +39,10 @@ function snowbird_choices_footer_widget_area() {
 /**
  * Options for Loop Content.
  *
- * @return mixed|void
+ * @return array
  */
 function snowbird_choices_loop_content() {
+
 	return apply_filters( 'snowbird_choices_loop_content', array(
 		'full'    => esc_html_x( 'Full', 'admin', 'snowbird' ),
 		'excerpt' => esc_html_x( 'Excerpt', 'admin', 'snowbird' ),
@@ -51,9 +54,10 @@ function snowbird_choices_loop_content() {
 /**
  * Options for Loop Excerpt Length.
  *
- * @return mixed|void
+ * @return array
  */
 function snowbird_choices_loop_excerpt_length() {
+
 	return apply_filters( 'snowbird_choices_loop_excerpt_length', array(
 		'min'  => 20,
 		'max'  => 200,
@@ -65,9 +69,10 @@ function snowbird_choices_loop_excerpt_length() {
 /**
  * Options for Loop Layout Type.
  *
- * @return mixed|void
+ * @return array
  */
 function snowbird_choices_loop_layout_type() {
+
 	return apply_filters( 'snowbird_choices_loop_layout_type', array(
 		'default'   => esc_html_x( 'Default', 'admin', 'snowbird' ),
 		'alternate' => esc_html_x( 'Alternate', 'admin', 'snowbird' ),
@@ -78,9 +83,10 @@ function snowbird_choices_loop_layout_type() {
 /**
  * Options for Opacity.
  *
- * @return mixed|void
+ * @return array
  */
 function snowbird_choices_opacity() {
+
 	return apply_filters( 'snowbird_choices_opacity', array(
 		'min'  => 1,
 		'max'  => 100,
@@ -92,9 +98,10 @@ function snowbird_choices_opacity() {
 /**
  * Options for Post Layout Type.
  *
- * @return mixed|void
+ * @return array
  */
 function snowbird_choices_post_layout_type() {
+
 	return apply_filters( 'snowbird_choices_post_layout_type', array(
 		'default'   => esc_html_x( 'Default', 'admin', 'snowbird' ),
 		'alternate' => esc_html_x( 'Alternate', 'admin', 'snowbird' ),
@@ -105,9 +112,10 @@ function snowbird_choices_post_layout_type() {
 /**
  * Options for Posts per Page.
  *
- * @return mixed|void
+ * @return array
  */
 function snowbird_choices_posts_per_page() {
+
 	return apply_filters( 'snowbird_choices_posts_per_page', array(
 		'min'  => 2,
 		'max'  => 20,
@@ -119,9 +127,10 @@ function snowbird_choices_posts_per_page() {
 /**
  * Options for Sidebar Type.
  *
- * @return mixed|void
+ * @return array
  */
 function snowbird_choices_sidebar_type() {
+
 	return apply_filters( 'snowbird_choices_sidebar_type', array(
 		'left'  => esc_html_x( 'Left', 'admin', 'snowbird' ),
 		'right' => esc_html_x( 'Right', 'admin', 'snowbird' ),

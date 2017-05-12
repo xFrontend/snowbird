@@ -15,7 +15,7 @@ if ( ! class_exists( 'Snowbird' ) ) :
 		protected static $instance = null;
 
 		public static function instance() {
-			if ( null == self::$instance ) {
+			if ( null === self::$instance ) {
 				self::$instance = new self;
 			}
 
@@ -37,85 +37,85 @@ if ( ! class_exists( 'Snowbird' ) ) :
 				/**
 				 * Theme Settings
 				 */
-				'site_sidebar_type'           => 'left',
+				'site_sidebar_type'        => 'left',
 				// since v1.2
-				'site_display_search'         => 1,
+				'site_display_search'      => 1,
 				/**
 				 * Loop - Posts Listing
 				 */
 				// since v1.2
-				'loop_layout_type'            => 'default',
-				'loop_content'                => 'full',
-				'loop_excerpt_length'         => 55,
+				'loop_layout_type'         => 'default',
+				'loop_content'             => 'full',
+				'loop_excerpt_length'      => 55,
 				/**
 				 * Post (Single)
 				 */
 				// since v1.2
-				'post_layout_type'            => 'default',
+				'post_layout_type'         => 'default',
 				// since v1.2
-				'post_full_content_width'     => 0,
-				'post_display_author_bio'     => 1,
-				'post_display_share_this'     => 1,
-				'post_display_navigation'     => 1,
-				'post_display_related'        => 1,
+				'post_full_content_width'  => 0,
+				'post_display_author_bio'  => 1,
+				'post_display_share_this'  => 1,
+				'post_display_navigation'  => 1,
+				'post_display_related'     => 1,
 				/**
 				 * Page
 				 */
 				// since v1.2
-				'page_full_content_width'     => 0,
-				'page_display_share_this'     => 0,
+				'page_full_content_width'  => 0,
+				'page_display_share_this'  => 0,
 				/**
 				 * Footer
 				 */
-				'footer_widget_area'          => 'one-third',
-				'footer_menu_location'        => 'social',
+				'footer_widget_area'       => 'one-third',
+				'footer_menu_location'     => 'social',
 				/**
 				 * Scheme
 				 */
-				'color_scheme'                => 'default',
+				'color_scheme'             => 'default',
 				/**
 				 * Colors - Header
 				 */
-				'header_text_color'           => $color_scheme['header_text_color'],
-				'header_background_color'     => $color_scheme['header_background_color'],
+				'header_text_color'        => $color_scheme['header_text_color'],
+				'header_background_color'  => $color_scheme['header_background_color'],
 				/**
 				 * Colors - Content
 				 */
-				'content_title_color'         => $color_scheme['content_title_color'],
-				'content_text_color'          => $color_scheme['content_text_color'],
-				'content_alt_text_color'      => $color_scheme['content_alt_text_color'],
-				'content_accent_color'        => $color_scheme['content_accent_color'],
-				'content_background_color'    => $color_scheme['content_background_color'],
+				'content_title_color'      => $color_scheme['content_title_color'],
+				'content_text_color'       => $color_scheme['content_text_color'],
+				'content_alt_text_color'   => $color_scheme['content_alt_text_color'],
+				'content_accent_color'     => $color_scheme['content_accent_color'],
+				'content_background_color' => $color_scheme['content_background_color'],
 				/**
 				 * Colors - Footer
 				 */
-				'footer_title_color'          => $color_scheme['footer_title_color'],
-				'footer_text_color'           => $color_scheme['footer_text_color'],
-				'footer_alt_text_color'       => $color_scheme['footer_alt_text_color'],
-				'footer_accent_color'         => $color_scheme['footer_accent_color'],
-				'footer_background_color'     => $color_scheme['footer_background_color'],
+				'footer_title_color'       => $color_scheme['footer_title_color'],
+				'footer_text_color'        => $color_scheme['footer_text_color'],
+				'footer_alt_text_color'    => $color_scheme['footer_alt_text_color'],
+				'footer_accent_color'      => $color_scheme['footer_accent_color'],
+				'footer_background_color'  => $color_scheme['footer_background_color'],
 				/**
 				 * Colors - Button
 				 */
-				'button_text_color'           => $color_scheme['button_text_color'],
-				'button_background_color'     => $color_scheme['button_background_color'],
+				'button_text_color'        => $color_scheme['button_text_color'],
+				'button_background_color'  => $color_scheme['button_background_color'],
 				/**
 				 * Header Image
 				 */
-				'header_overlay_color'        => '#000000',
-				'header_overlay_opacity'      => 30,
+				'header_overlay_color'     => '#000000',
+				'header_overlay_opacity'   => 30,
 			) );
 		}
 
 		/**
 		 * Returns Default Options for the theme.
 		 *
-		 * @return mixed|null|void
+		 * @return mixed|null
 		 */
 		public function options() {
 
 			return apply_filters( 'snowbird_default_options', array(
-				'custom_css'  => '',
+				'custom_css' => '',
 			) );
 		}
 
@@ -124,7 +124,7 @@ if ( ! class_exists( 'Snowbird' ) ) :
 		 *
 		 * @param $name
 		 *
-		 * @return mixed|null|void
+		 * @return mixed|null
 		 */
 		public function mod_default( $name ) {
 			$def = self::mods();
@@ -143,7 +143,7 @@ if ( ! class_exists( 'Snowbird' ) ) :
 		 * @param $name
 		 * @param bool|false $default
 		 *
-		 * @return mixed|string|void
+		 * @return mixed|string
 		 */
 		public function mod( $name, $default = false ) {
 			// Look into WordPress
@@ -168,7 +168,7 @@ if ( ! class_exists( 'Snowbird' ) ) :
 		 *
 		 * @param $name
 		 *
-		 * @return mixed|null|void
+		 * @return mixed|null
 		 */
 		public function option_default( $name ) {
 			$def = self::options();
@@ -197,7 +197,7 @@ if ( ! class_exists( 'Snowbird' ) ) :
 		 * @param $name
 		 * @param bool|false $default
 		 *
-		 * @return mixed|void
+		 * @return mixed
 		 */
 		public function option( $name, $default = false ) {
 
@@ -305,11 +305,11 @@ if ( ! class_exists( 'Snowbird' ) ) :
 		public function hex_to_rgb( $color ) {
 			$color = trim( $color, '#' );
 
-			if ( 3 == strlen( $color ) ) {
+			if ( 3 === strlen( $color ) ) {
 				$r = hexdec( substr( $color, 0, 1 ) . substr( $color, 0, 1 ) );
 				$g = hexdec( substr( $color, 1, 1 ) . substr( $color, 1, 1 ) );
 				$b = hexdec( substr( $color, 2, 1 ) . substr( $color, 2, 1 ) );
-			} else if ( 6 == strlen( $color ) ) {
+			} elseif ( 6 === strlen( $color ) ) {
 				$r = hexdec( substr( $color, 0, 2 ) );
 				$g = hexdec( substr( $color, 2, 2 ) );
 				$b = hexdec( substr( $color, 4, 2 ) );
@@ -317,7 +317,11 @@ if ( ! class_exists( 'Snowbird' ) ) :
 				return array();
 			}
 
-			return array( 'red' => $r, 'green' => $g, 'blue' => $b );
+			return array(
+				'red'   => $r,
+				'green' => $g,
+				'blue'  => $b,
+			);
 		}
 
 		/**
@@ -326,14 +330,14 @@ if ( ! class_exists( 'Snowbird' ) ) :
 		 * @param $color
 		 * @param $opacity
 		 *
-		 * @return string|void
+		 * @return string
 		 */
 		public function rgba( $color, $opacity ) {
 			$array = self::hex_to_rgb( $color );
 			$alpha = self::css_opacity( $opacity );
 
-			if ( empty ( $array ) ) {
-				return;
+			if ( empty( $array ) ) {
+				return '';
 			}
 
 			$array['opacity'] = $alpha;
@@ -351,8 +355,9 @@ if ( ! class_exists( 'Snowbird' ) ) :
 		 */
 		public function url_to_image_data( $url, $size = 'full' ) {
 			$data = '';
+			$id = attachment_url_to_postid( $url );
 
-			if ( $id = attachment_url_to_postid( $url ) ) {
+			if ( $id ) {
 				$thumb = wp_get_attachment_image_src( $id, $size );
 
 				if ( $thumb ) {
@@ -361,7 +366,7 @@ if ( ! class_exists( 'Snowbird' ) ) :
 						'id'     => absint( $id ),
 						'url'    => esc_url_raw( $thumb[0] ),
 						'width'  => absint( $thumb[1] ),
-						'height' => absint( $thumb[2] )
+						'height' => absint( $thumb[2] ),
 					);
 
 				}
@@ -381,11 +386,12 @@ if ( ! class_exists( 'Snowbird' ) ) :
 		 * @return bool
 		 */
 		public function current_agent( $query ) {
+
 			if ( ! isset( $_SERVER['HTTP_USER_AGENT'] ) ) {
 				return false;
 			}
 
-			preg_match( "/iPhone|iPad|iPod|Android|webOS|Safari|Chrome|Firefox|Opera|MSIE/", $_SERVER['HTTP_USER_AGENT'], $matches );
+			preg_match( '/iPhone|iPad|iPod|Android|webOS|Safari|Chrome|Firefox|Opera|MSIE/', wp_unslash( $_SERVER['HTTP_USER_AGENT'] ), $matches );
 
 			$_agent = null;
 			$agent  = current( $matches );
@@ -414,7 +420,7 @@ if ( ! class_exists( 'Snowbird' ) ) :
 					break;
 			}
 
-			return ( strtolower( $query ) == strtolower( $_agent ) || strtolower( $query ) == strtolower( $agent ) );
+			return ( strtolower( $query ) === strtolower( $_agent ) || strtolower( $query ) === strtolower( $agent ) );
 		}
 
 		/**

@@ -69,7 +69,6 @@ function snowbird_customize_register( $wp_customize ) {
 		'type'    => 'checkbox',
 	) );
 
-
 	/**
 	 * Loop
 	 */
@@ -82,7 +81,7 @@ function snowbird_customize_register( $wp_customize ) {
 	$wp_customize->add_control( new Snowbird_Customize_Control_Misc( $wp_customize, 'loop_heading_line_filter', array(
 		'label'   => esc_html_x( 'Posts Listing', 'admin', 'snowbird' ),
 		'section' => 'snowbird_settings',
-		'type'    => 'misc-heading-line'
+		'type'    => 'misc-heading-line',
 	) ) );
 
 	// loop_layout_type
@@ -128,7 +127,7 @@ function snowbird_customize_register( $wp_customize ) {
 	$wp_customize->add_setting( 'posts_per_page', array(
 		'default'           => Snowbird()->mod_default( 'posts_per_page' ),
 		'sanitize_callback' => 'absint',
-		'type'              => 'option'
+		'type'              => 'option',
 	) );
 
 	$wp_customize->add_control( 'posts_per_page', array(
@@ -137,7 +136,6 @@ function snowbird_customize_register( $wp_customize ) {
 		'type'        => 'range',
 		'input_attrs' => snowbird_choices_posts_per_page(),
 	) );
-
 
 	/**
 	 * Post (Single)
@@ -151,7 +149,7 @@ function snowbird_customize_register( $wp_customize ) {
 	$wp_customize->add_control( new Snowbird_Customize_Control_Misc( $wp_customize, 'post_heading_line_filter', array(
 		'label'   => esc_html_x( 'Post (Single)', 'admin', 'snowbird' ),
 		'section' => 'snowbird_settings',
-		'type'    => 'misc-heading-line'
+		'type'    => 'misc-heading-line',
 	) ) );
 
 	// post_layout_type
@@ -223,7 +221,6 @@ function snowbird_customize_register( $wp_customize ) {
 		'type'    => 'checkbox',
 	) );
 
-
 	/**
 	 * Page
 	 */
@@ -236,7 +233,7 @@ function snowbird_customize_register( $wp_customize ) {
 	$wp_customize->add_control( new Snowbird_Customize_Control_Misc( $wp_customize, 'page_heading_line_filter', array(
 		'label'   => esc_html_x( 'Page', 'admin', 'snowbird' ),
 		'section' => 'snowbird_settings',
-		'type'    => 'misc-heading-line'
+		'type'    => 'misc-heading-line',
 	) ) );
 
 	// page_full_content_width
@@ -267,7 +264,6 @@ function snowbird_customize_register( $wp_customize ) {
 		'type'    => 'checkbox',
 	) );
 
-
 	/**
 	 * Footer
 	 */
@@ -279,7 +275,7 @@ function snowbird_customize_register( $wp_customize ) {
 
 	$wp_customize->add_control( new Snowbird_Customize_Control_Misc( $wp_customize, 'footer_line_filter', array(
 		'section' => 'snowbird_settings',
-		'type'    => 'misc-line'
+		'type'    => 'misc-line',
 	) ) );
 
 	// footer_widget_area
@@ -310,7 +306,6 @@ function snowbird_customize_register( $wp_customize ) {
 		'choices' => snowbird_choices_footer_menu_location(),
 	) );
 
-
 	/**
 	 * Colors
 	 */
@@ -337,9 +332,8 @@ function snowbird_customize_register( $wp_customize ) {
 
 	$wp_customize->add_control( new Snowbird_Customize_Control_Misc( $wp_customize, 'scheme_after_line_filter', array(
 		'section' => 'colors',
-		'type'    => 'misc-line'
+		'type'    => 'misc-line',
 	) ) );
-
 
 	/**
 	 * Colors - Header
@@ -376,9 +370,8 @@ function snowbird_customize_register( $wp_customize ) {
 
 	$wp_customize->add_control( new Snowbird_Customize_Control_Misc( $wp_customize, 'header_after_line_filter', array(
 		'section' => 'colors',
-		'type'    => 'misc-line'
+		'type'    => 'misc-line',
 	) ) );
-
 
 	/**
 	 * Colors - Content
@@ -451,9 +444,8 @@ function snowbird_customize_register( $wp_customize ) {
 
 	$wp_customize->add_control( new Snowbird_Customize_Control_Misc( $wp_customize, 'content_after_line_filter', array(
 		'section' => 'colors',
-		'type'    => 'misc-line'
+		'type'    => 'misc-line',
 	) ) );
-
 
 	/**
 	 * Colors - Footer
@@ -526,9 +518,8 @@ function snowbird_customize_register( $wp_customize ) {
 
 	$wp_customize->add_control( new Snowbird_Customize_Control_Misc( $wp_customize, 'footer_after_line_filter', array(
 		'section' => 'colors',
-		'type'    => 'misc-line'
+		'type'    => 'misc-line',
 	) ) );
-
 
 	/**
 	 * Colors - Button
@@ -556,7 +547,6 @@ function snowbird_customize_register( $wp_customize ) {
 		'label'   => esc_html_x( 'Button Background Color', 'admin', 'snowbird' ),
 		'section' => 'colors',
 	) ) );
-
 
 	/**
 	 * Header Image
@@ -588,7 +578,6 @@ function snowbird_customize_register( $wp_customize ) {
 		'input_attrs' => snowbird_choices_opacity(),
 	) );
 
-
 	/**
 	 * Custom CSS
 	 */
@@ -601,7 +590,7 @@ function snowbird_customize_register( $wp_customize ) {
 		'default'           => Snowbird()->option_default( 'custom_css' ),
 		'sanitize_callback' => 'snowbird_sanitize_css_js',
 		'transport'         => 'postMessage',
-		'type'              => 'option'
+		'type'              => 'option',
 	) );
 
 	$wp_customize->add_control( Snowbird()->option_key( 'custom_css' ), array(
@@ -611,13 +600,11 @@ function snowbird_customize_register( $wp_customize ) {
 		'type'        => 'textarea',
 	) );
 
-
 	/**
 	 * Adjust Message Transportation
 	 */
 	$wp_customize->get_setting( 'blogname' )->transport        = 'postMessage';
 	$wp_customize->get_setting( 'blogdescription' )->transport = 'postMessage';
-
 
 	/**
 	 * Partials for Selective Refresh
@@ -757,7 +744,7 @@ function snowbird_color_scheme_css_template() {
 	) );
 	?>
 	<script type="text/html" id="tmpl-snowbird-color-scheme">
-		<?php echo snowbird_get_color_scheme_css( $colors ); ?>
+		<?php echo snowbird_get_color_scheme_css( $colors ); // XSS: Ok. ?>
 	</script>
 	<?php
 }
@@ -776,7 +763,7 @@ function snowbird_header_overlay_css() {
 	$header_overlay_opacity = Snowbird()->mod( 'header_overlay_opacity' );
 	$header_overlay_rgba    = Snowbird()->rgba( $header_overlay_color, $header_overlay_opacity );
 
-	if ( $header_overlay_color === Snowbird()->mod_default( 'header_overlay_color' ) && $header_overlay_opacity === Snowbird()->mod_default( 'header_overlay_opacity' ) || empty ( $header_overlay_rgba ) ) {
+	if ( Snowbird()->mod_default( 'header_overlay_color' ) === $header_overlay_color && Snowbird()->mod_default( 'header_overlay_opacity' ) === $header_overlay_opacity || empty( $header_overlay_rgba ) ) {
 		return;
 	}
 
@@ -1138,7 +1125,7 @@ CSS;
 
 	$css = apply_filters( 'snowbird_editor_colors_css', $css );
 
-	die( strip_tags( $css ) );
+	die( strip_tags( $css ) ); // XSS: Ok.
 }
 
 add_action( 'wp_ajax_' . Snowbird()->codename( 'editor-style' ), 'snowbird_editor_colors_css' );
